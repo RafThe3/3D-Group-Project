@@ -4,32 +4,38 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    //private WeaponStats weaponStats;
-
-    [SerializeField] private GameObject attackPoint;
+    [SerializeField] private Transform attackPoint;
     [Min(0), SerializeField] private float attackDistance = 1;
+    [Min(0), SerializeField] private float attackInterval = 1;
 
-    void Start()
+    //Internal Variables
+    private WeaponStats weaponStats;
+    private float timer = 0;
+
+    private void Start()
     {
-        
+        timer = attackInterval;
     }
 
-    void Update()
+    private void Update()
     {
-        
+        if (Input.GetButtonDown("Fire1") && timer >= attackInterval)
+        {
+            Attack();
+        }
     }
 
     private void Attack()
     {
-        Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPoint.transform.position, attackDistance, LayerMask.GetMask("Enemy"));
+        Collider[] enemies = Physics.OverlapSphere(attackPoint.position, attackInterval, LayerMask.GetMask("Enemy"));
 
-        foreach (Collider2D enemy in enemies)
+        foreach (Collider enemy in enemies)
         {
-            EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
-            //enemyHealth.TakeDamage(damageAmount);
+            Enemy enemyHealth = enemy.GetComponent<Enemy>();
+            enemyHealth.TakeDamage(weaponStats.WepDamage);
             //PlaySFX(damageSFX);
         }
         //animator.SetTrigger("Attack");
-        //timer = 0;
+        timer = 0;
     }
 }

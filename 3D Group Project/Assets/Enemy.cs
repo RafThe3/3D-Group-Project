@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
         Debug.Log($"Enemy Health: {currentHealth}");
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         if (isInvincible)
         {
@@ -56,16 +56,6 @@ public class Enemy : MonoBehaviour
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
-        }
-    }
-
-    public void Heal(int health)
-    {
-        currentHealth += health;
-
-        if (currentHealth > maxHealth)
-        {
-            currentHealth = maxHealth;
         }
     }
 }
