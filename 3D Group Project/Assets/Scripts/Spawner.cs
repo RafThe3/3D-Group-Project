@@ -7,7 +7,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private GameObject[] prefabs, spawnPoints;
     [Min(0), SerializeField] private int numberOfObjects = 1;
     [Min(0), SerializeField] private float spawnInterval = 1;
-    [Min(0), SerializeField] private bool endlessSpawn = false;
+    [SerializeField] private bool endlessSpawn = false;
     
     //Internal Variables
     private float spawnTimer;
