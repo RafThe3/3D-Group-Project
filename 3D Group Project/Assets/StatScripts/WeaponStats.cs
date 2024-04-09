@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WeaponStats : MonoBehaviour
 {
-    public float WepRarity = 1;
+    [Range(1, 5)] public int WepRarity = 1;
     public float WepDamage = 1;
     public float WepMainStat = 1;
     public float WepStamina = 1;

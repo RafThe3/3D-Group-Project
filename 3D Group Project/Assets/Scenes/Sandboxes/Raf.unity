@@ -486,6 +486,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 355312524381552382, guid: b84d7ca3927758646a65731cc107aa76, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1800383040}
+    - targetCorrespondingSourceObject: {fileID: 355312524381552382, guid: b84d7ca3927758646a65731cc107aa76, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1800383041}
   m_SourcePrefab: {fileID: 100100000, guid: b84d7ca3927758646a65731cc107aa76, type: 3}
 --- !u!1 &487989673
 GameObject:
@@ -1090,6 +1093,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e8ea750d9950644970a56553f4e430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackPoint: {fileID: 0}
+  attackDistance: 1
+  attackInterval: 1
+--- !u!114 &1800383041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800383036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb721a8eba0512242812a8f99fd58ca8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WepRarity: 3
+  WepDamage: 1
+  WepMainStat: 1
+  WepStamina: 1
+  WepReqLvl: 1
+  WepILvl: 1
 --- !u!1 &1940595770 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7812182844788795621, guid: e8261a97a7f761c4e8efce96a79a4a28, type: 3}
