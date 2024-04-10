@@ -7,16 +7,19 @@ public class Weapon : MonoBehaviour
     [SerializeField] private Transform attackPoint;
     [Min(0), SerializeField] private float attackDistance = 1;
     [Min(0), SerializeField] private float attackInterval = 1;
-    [Min(0), SerializeField] private float damage = 1;
 
     //Internal Variables
     private WeaponStats weaponStats;
     private float timer = 0;
 
+    private void Awake()
+    {
+        weaponStats = FindObjectOfType<WeaponStats>();
+    }
+
     private void Start()
     {
         timer = attackInterval;
-        damage = weaponStats.WepDamage;
     }
 
     private void Update()
@@ -36,7 +39,7 @@ public class Weapon : MonoBehaviour
         foreach (Collider enemy in enemies)
         {
             Enemy enemyHealth = enemy.GetComponent<Enemy>();
-            enemyHealth.TakeDamage(damage);
+            enemyHealth.TakeDamage(weaponStats.WepDamage);
             //PlaySFX(damageSFX);
         }
         //animator.SetTrigger("Attack");

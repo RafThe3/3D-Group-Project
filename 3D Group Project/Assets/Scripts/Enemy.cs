@@ -2,18 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
+
     [Header("Health")]
     [SerializeField] private bool isInvincible = false;
     [Min(0), SerializeField] private float startingHealth = 1;
     [Min(0), SerializeField] private float maxHealth = 100;
 
     //Internal Variables
+    private NavMeshAgent agent;
     private float currentHealth = 0;
     private Slider healthBar;
     private Canvas enemyUI;
+
+    private void Awake()
+    {
+        agent = GetComponent<NavMeshAgent>();
+    }
 
     private void Start()
     {
@@ -30,7 +38,13 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log($"Enemy Health: {currentHealth}");
+        MoveEnemy();
+    }
+
+    private void MoveEnemy()
+    {
+        GameObject player = GameObject.FindWithTag("Player");
+        agent.destination = player.transform.position;
     }
 
     public void TakeDamage(float damage)
@@ -52,6 +66,8 @@ public class Enemy : MonoBehaviour
         {
             currentHealth = 0;
         }
+
+        Debug.Log($"Enemy Health: {currentHealth}");
 
         if (currentHealth <= 0)
         {
