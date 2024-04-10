@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerExp : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class PlayerExp : MonoBehaviour
     private int CurrentLevel = 1;
     private int MaxLevel = 20;
     int MaxExp;
+
+    [SerializeField] Slider ExpBar;
+    [SerializeField] Text Level;
 
     EnemyHealth eHP;
     EnemyStats eStats;
@@ -20,6 +24,7 @@ public class PlayerExp : MonoBehaviour
 
     void Update()
     {
+        ExpBar.value = CurrentExp;
         LevelUp();
     }
 
