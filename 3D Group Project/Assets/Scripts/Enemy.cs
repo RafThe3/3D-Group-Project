@@ -6,25 +6,34 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-
     [Header("Health")]
     [SerializeField] private bool isInvincible = false;
     [Min(0), SerializeField] private float startingHealth = 1;
     [Min(0), SerializeField] private float maxHealth = 100;
+
+    [Header("Attack")]
+    [Min(0), SerializeField] private float attackInterval = 1;
 
     //Internal Variables
     private NavMeshAgent agent;
     private float currentHealth = 0;
     private Slider healthBar;
     private Canvas enemyUI;
+    private EnemyStats enemyStats;
+    private float attackTimer = 0;
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        enemyStats = FindObjectOfType<EnemyStats>();
     }
 
     private void Start()
     {
+        if (startingHealth > maxHealth)
+        {
+            startingHealth = maxHealth;
+        }
         currentHealth = startingHealth;
         if (healthBar == null)
         {
@@ -34,10 +43,13 @@ public class Enemy : MonoBehaviour
         healthBar.value = startingHealth;
         enemyUI = GetComponentInChildren<Canvas>();
         enemyUI.enabled = false;
+        attackTimer = attackInterval;
     }
 
     private void Update()
     {
+        attackTimer += Time.deltaTime;
+
         MoveEnemy();
     }
 
@@ -67,11 +79,19 @@ public class Enemy : MonoBehaviour
             currentHealth = 0;
         }
 
-        Debug.Log($"Enemy Health: {currentHealth}");
-
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player") && attackTimer >= attackInterval)
+        {
+            Player player = collision.gameObject.GetComponent<Player>();
+            player.TakeDamage(enemyStats.enemyDamage);
+            attackTimer = 0;
         }
     }
 }
