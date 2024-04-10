@@ -179,21 +179,85 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1320611669521675868, guid: e8261a97a7f761c4e8efce96a79a4a28, type: 3}
+      propertyPath: m_Size.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1629569022622977151, guid: e8261a97a7f761c4e8efce96a79a4a28, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1629569022622977151, guid: e8261a97a7f761c4e8efce96a79a4a28, type: 3}
+      propertyPath: m_Size.y
+      value: 1.85
+      objectReference: {fileID: 0}
     - target: {fileID: 1629569022622977151, guid: e8261a97a7f761c4e8efce96a79a4a28, type: 3}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3409418202650767055, guid: e8261a97a7f761c4e8efce96a79a4a28, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 3409418202650767055, guid: e8261a97a7f761c4e8efce96a79a4a28, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 3802819919285212209, guid: e8261a97a7f761c4e8efce96a79a4a28, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.017
+      objectReference: {fileID: 0}
+    - target: {fileID: 4014498136290419381, guid: e8261a97a7f761c4e8efce96a79a4a28, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4014498136290419381, guid: e8261a97a7f761c4e8efce96a79a4a28, type: 3}
+      propertyPath: m_Size.y
+      value: 1.85
       objectReference: {fileID: 0}
     - target: {fileID: 4014498136290419381, guid: e8261a97a7f761c4e8efce96a79a4a28, type: 3}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4208636916593269017, guid: e8261a97a7f761c4e8efce96a79a4a28, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.005004883
+      objectReference: {fileID: 0}
+    - target: {fileID: 4208636916593269017, guid: e8261a97a7f761c4e8efce96a79a4a28, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.07999992
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401677589439638231, guid: e8261a97a7f761c4e8efce96a79a4a28, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401677589439638231, guid: e8261a97a7f761c4e8efce96a79a4a28, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.07999992
+      objectReference: {fileID: 0}
     - target: {fileID: 5798445883095220145, guid: e8261a97a7f761c4e8efce96a79a4a28, type: 3}
       propertyPath: m_Convex
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5798445883095220145, guid: e8261a97a7f761c4e8efce96a79a4a28, type: 3}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608847092396524994, guid: e8261a97a7f761c4e8efce96a79a4a28, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.005004883
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608847092396524994, guid: e8261a97a7f761c4e8efce96a79a4a28, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.07999992
+      objectReference: {fileID: 0}
+    - target: {fileID: 8603273228402242543, guid: e8261a97a7f761c4e8efce96a79a4a28, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8603273228402242543, guid: e8261a97a7f761c4e8efce96a79a4a28, type: 3}
+      propertyPath: m_Size.y
+      value: 1.85
       objectReference: {fileID: 0}
     - target: {fileID: 8603273228402242543, guid: e8261a97a7f761c4e8efce96a79a4a28, type: 3}
       propertyPath: m_IsTrigger
@@ -255,14 +319,14 @@ HingeJoint:
   m_ExtendedLimits: 0
   m_UseAcceleration: 0
   m_Limits:
-    min: -180
+    min: -90
     max: 0
     bounciness: 0
     bounceMinVelocity: 0.2
     contactDistance: 0
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
@@ -512,14 +576,14 @@ HingeJoint:
   m_ExtendedLimits: 0
   m_UseAcceleration: 0
   m_Limits:
-    min: -180
+    min: -90
     max: 0
     bounciness: 0
     bounceMinVelocity: 0.2
     contactDistance: 0
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
@@ -583,14 +647,14 @@ HingeJoint:
   m_ExtendedLimits: 0
   m_UseAcceleration: 0
   m_Limits:
-    min: -180
+    min: -90
     max: 0
     bounciness: 0
     bounceMinVelocity: 0.2
     contactDistance: 0
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
@@ -787,6 +851,8 @@ GameObject:
   - component: {fileID: 7685886780553392328}
   - component: {fileID: 4244626407028442692}
   - component: {fileID: 453084649749125684}
+  - component: {fileID: 7685886780553392329}
+  - component: {fileID: 7685886780553392330}
   m_Layer: 8
   m_Name: PlayerCapsule
   m_TagString: Player
@@ -2109,6 +2175,43 @@ MonoBehaviour:
     m_Bits: 0
   canPush: 0
   strength: 1.1
+--- !u!114 &7685886780553392329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453084649749125688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb721a8eba0512242812a8f99fd58ca8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WepRarity: 1
+  WepDamage: 1
+  WepMainStat: 1
+  WepStamina: 1
+  WepReqLvl: 1
+  WepMinDamage: 5
+  WepMaxReq: 20
+  WepILvl: 1
+--- !u!114 &7685886780553392330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453084649749125688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb9ef25dfce4d4e4a976c67a70da0162, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyMaxLevel: 1
+  enemyLevelRange: 23
+  enemyDamage: 1
+  zoneLevelMin: 1
+  enemyCurrentLevel: 1
 --- !u!224 &8078244803404967442
 RectTransform:
   m_ObjectHideFlags: 0
