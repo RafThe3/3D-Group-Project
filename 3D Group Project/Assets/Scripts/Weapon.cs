@@ -10,7 +10,7 @@ public class Weapon : MonoBehaviour
 
     //Internal Variables
     private WeaponStats weaponStats;
-    private float timer = 0;
+    private float attackTimer = 0;
 
     private void Awake()
     {
@@ -19,14 +19,14 @@ public class Weapon : MonoBehaviour
 
     private void Start()
     {
-        timer = attackInterval;
+        attackTimer = attackInterval;
     }
 
     private void Update()
     {
-        timer += Time.deltaTime;
+        attackTimer += Time.deltaTime;
 
-        if (Input.GetButtonDown("Fire1") && timer >= attackInterval)
+        if (Input.GetButtonDown("Fire1") && attackTimer >= attackInterval)
         {
             Attack();
         }
@@ -43,7 +43,7 @@ public class Weapon : MonoBehaviour
             //PlaySFX(damageSFX);
         }
         //animator.SetTrigger("Attack");
-        timer = 0;
+        attackTimer = 0;
     }
 
     private void OnDrawGizmos()
