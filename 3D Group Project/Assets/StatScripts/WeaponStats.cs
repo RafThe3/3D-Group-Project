@@ -17,14 +17,24 @@ public class WeaponStats : MonoBehaviour
     {
         WepReqLvl = Random.Range(1, WepMaxReq);
         WepILvl = 20 * WepReqLvl + (3 * WepRarity) / 10;
-        WepDamage = WepILvl * WepReqLvl / 30 + WepMinDamage;
-        WepMainStat = WepDamage + (WepILvl * 2.5f) / 10;
+        WepDamage = WepILvl * WepReqLvl / 30f;
+        WepMainStat = WepDamage + (WepILvl * 2.5f) / 12.5f;
         WepStamina = WepMainStat * 1.15f;
-
+        if(WepDamage <= WepMinDamage)
+        {
+            WepDamage = WepMinDamage;
+        }
+        if (WepDamage <= WepMinDamage && WepReqLvl == 2)
+        {
+            WepDamage = WepMinDamage + 2;
+        }
+        if (WepDamage <= WepMinDamage && WepReqLvl == 3)
+        {
+            WepDamage = WepMinDamage + 2;
+        }
         WepILvl = (int) WepILvl;
         WepDamage = (int) WepDamage;
         WepMainStat = (int) WepMainStat;
         WepStamina = (int) WepStamina;
     }
-
 }
