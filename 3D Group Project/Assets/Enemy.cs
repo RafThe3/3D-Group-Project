@@ -7,11 +7,11 @@ public class Enemy : MonoBehaviour
 {
     [Header("Health")]
     [SerializeField] private bool isInvincible = false;
-    [Min(0), SerializeField] private int startingHealth = 1;
-    [Min(0), SerializeField] private int maxHealth = 100;
+    [Min(0), SerializeField] private float startingHealth = 1;
+    [Min(0), SerializeField] private float maxHealth = 100;
 
     //Internal Variables
-    private int currentHealth = 0;
+    private float currentHealth = 0;
     private Slider healthBar;
     private Canvas enemyUI;
 
