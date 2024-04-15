@@ -5,22 +5,25 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
+    [Header("General Settings"), Space]
     [SerializeField] private bool canShoot = true;
-    [Min(0), SerializeField] private int damageAmount = 1;
     [SerializeField] private ShootType shootType = ShootType.Line;
+    [Min(0), SerializeField] private int damageAmount = 1;
+    [Min(0), SerializeField] private float shootInterval = 1;
 
-    [Header("Projectile Shooting")]
+    [Header("Projectile Shooting"), Space]
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private float projectileSpeed = 1;
     [SerializeField] private float projectileLife = 1;
     [SerializeField] private Transform projectileSpawnPoint;
 
-    [Header("Line Shooting")]
+    [Header("Line Shooting"), Space]
     [Min(0), SerializeField] private float maxDistance = 1;
-    [Min(0), SerializeField] private float shootInterval = 1;
 
     //Internal Variables
     private float shootTimer = 0;
+
+    //ammo needed
 
     private void Start()
     {
@@ -48,7 +51,7 @@ public class Shooting : MonoBehaviour
 
     private void SpawnProjectile()
     {
-        GameObject projectileClone = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        GameObject projectileClone = Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
         projectileClone.GetComponent<Rigidbody>().velocity = 10 * projectileSpeed * Camera.main.transform.forward;
         shootTimer = 0;
         Destroy(projectileClone, projectileLife);

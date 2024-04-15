@@ -853,6 +853,8 @@ GameObject:
   - component: {fileID: 453084649749125684}
   - component: {fileID: 7685886780553392329}
   - component: {fileID: 7685886780553392330}
+  - component: {fileID: 7685886780553392331}
+  - component: {fileID: 7685886780553392332}
   m_Layer: 8
   m_Name: PlayerCapsule
   m_TagString: Player
@@ -2210,8 +2212,44 @@ MonoBehaviour:
   enemyMaxLevel: 1
   enemyLevelRange: 23
   enemyDamage: 1
+  expDropped: 1
+  expOrb1: {fileID: 0}
   zoneLevelMin: 1
   enemyCurrentLevel: 1
+--- !u!114 &7685886780553392331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453084649749125688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a9ed654dbeb1844fa49d92a4bc9873d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RangerHP: 1
+  RangerAgility: 1
+  RangerStamina: 1
+  RangerDamage: 10
+  RangerSpeed: 15
+  ScaleOn: 1
+  player: {fileID: 453084649749125688}
+--- !u!114 &7685886780553392332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453084649749125688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ab37821ab95024693bc1c4c75abc87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentLevel: 20
+  ExpBar: {fileID: 0}
+  Level: {fileID: 0}
 --- !u!224 &8078244803404967442
 RectTransform:
   m_ObjectHideFlags: 0

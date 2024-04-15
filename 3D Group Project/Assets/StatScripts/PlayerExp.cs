@@ -6,18 +6,18 @@ using UnityEngine.UI;
 public class PlayerExp : MonoBehaviour
 {
     private int CurrentExp = 0;
-    private int CurrentLevel = 1;
+    public int CurrentLevel = 1;
     private int MaxLevel = 20;
     int MaxExp;
 
     [SerializeField] Slider ExpBar;
     [SerializeField] Text Level;
 
-    EnemyHealth eHP;
+    Enemy eHP;
     EnemyStats eStats;
     void Start()
     {
-        eHP = GameObject.FindWithTag("Enemy").GetComponent<EnemyHealth>();
+        eHP = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();
         eStats = GameObject.FindWithTag("Enemy").GetComponent<EnemyStats>();
         int MaxExp = CurrentLevel * 15;
     }
@@ -30,7 +30,7 @@ public class PlayerExp : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == ("expOrb"));
+        if(other.tag == ("expOrb"))
         {
             CurrentExp += eStats.expDropped;
             Destroy(other.gameObject);
@@ -41,7 +41,8 @@ public class PlayerExp : MonoBehaviour
     {
         CurrentExp += exp;
     }
-    void LevelUp()
+
+    public void LevelUp()
     {
         if(CurrentExp >= MaxExp && CurrentLevel < MaxLevel)
         {
