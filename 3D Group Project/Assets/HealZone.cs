@@ -4,20 +4,34 @@ using UnityEngine;
 
 public class HealZone : MonoBehaviour
 {
-    public void DestroyObject()
+    private float healTimer = 0;
+    private float healInterval = 0;
+    private float healAmount = 0;
+
+    private void Update()
     {
-        Destroy(gameObject);
+        healTimer += Time.deltaTime;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerStay(Collider other)
     {
-        
+        Debug.Log(other);
+
+        if (other.CompareTag("Player") && healTimer >= healInterval)
+        {
+            Player player = other.GetComponent<Player>();
+            player.Heal(healAmount);
+            healTimer = 0;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetHealInterval(float time)
     {
-        
+        healInterval = time;
+    }
+
+    public void SetHealAmount(float health)
+    {
+        healAmount = health;
     }
 }
