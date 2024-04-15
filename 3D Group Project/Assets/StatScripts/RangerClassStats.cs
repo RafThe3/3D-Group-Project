@@ -13,6 +13,7 @@ public class RangerClassStats : MonoBehaviour
     float baseRangerStam = 7.5f;
     float baseRangerAtkp = 100;
     int level = 1;
+
     //[SerializeField] GameObject player;
     WeaponStats wepStats;
     PlayerExp playerExp;
@@ -59,8 +60,8 @@ public class RangerClassStats : MonoBehaviour
         }
         else if(wepStats.WepReqLvl <= playerExp.CurrentLevel)
         {
-            RangerAgility = wepStats.WepMainStat;
-            RangerStamina = wepStats.WepStamina;
+            RangerAgility += wepStats.WepMainStat;
+            RangerStamina += wepStats.WepStamina;
             RangerDamage = RangerDamage + wepStats.WepDamage + RangerAtkp;
         }
     }

@@ -20,9 +20,9 @@ public class WeaponStats : MonoBehaviour
     [SerializeField] int WepMaxReq = 1;
     [SerializeField] float WepILvl = 1;
 
-    void Awake()
+    void Update()
     {
-        
+        /*
         if(Random.Range(1, LegenaryRarity) == 1)
         {
             WepRarity = 6;
@@ -49,10 +49,12 @@ public class WeaponStats : MonoBehaviour
         }
         
         WepReqLvl = Random.Range(1, WepMaxReq);
+        */
         WepILvl = 20 * WepReqLvl + (3 * WepRarity) / 10;
         WepDamage = WepILvl * WepReqLvl / 30f;
         WepMainStat = WepDamage + (WepILvl * 2.5f) / 12.5f;
         WepStamina = WepMainStat * 1.25f;
+
         if(WepReqLvl == 3)
         {
             WepDamage = WepMinDamage + 3;
@@ -65,6 +67,13 @@ public class WeaponStats : MonoBehaviour
         {
             WepDamage = WepMinDamage;
         }
+
+        if(WepRarity == 1 || WepRarity == 2)
+        {
+            WepStamina = 0;
+            WepMainStat = 0;
+        }
+
         WepILvl = (int) WepILvl;
         WepDamage = (int) WepDamage;
         WepMainStat = (int) WepMainStat;
