@@ -339,6 +339,8 @@ MonoBehaviour:
   enemyMaxLevel: 1
   enemyLevelRange: 23
   enemyDamage: 1
+  expDropped: 1
+  expOrb1: {fileID: 0}
   zoneLevelMin: 1
   enemyCurrentLevel: 10
 --- !u!1 &5192301113272844205
