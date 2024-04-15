@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerExp : MonoBehaviour
 {
     private int CurrentExp = 0;
-    private int CurrentLevel = 1;
+    public int CurrentLevel = 1;
     private int MaxLevel = 20;
     int MaxExp;
 
@@ -41,7 +41,8 @@ public class PlayerExp : MonoBehaviour
     {
         CurrentExp += exp;
     }
-    void LevelUp()
+
+    public void LevelUp()
     {
         if(CurrentExp >= MaxExp && CurrentLevel < MaxLevel)
         {
