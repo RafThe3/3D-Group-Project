@@ -7,42 +7,52 @@ public class RangerClassStats : MonoBehaviour
     public float RangerHP = 75;
     public float RangerAgility = 10;
     public float RangerStamina = 10;
-    public float RangerDamage = 10; //maybe remove this
-    public float RangerSpeed = 15; //maybe remove this
-    public bool ScaleOn = true;
-    bool canEquip = true;
-    bool stamCanScale = true;
-    bool agiCanScale = true;
-
-    [SerializeField] GameObject player;
+    public float RangerDamage = 10;
+    public float RangerAtkp = 10;
+    float baseRangerAgi = 10;
+    float baseRangerStam = 7.5f;
+    float baseRangerAtkp = 100;
+    int level = 1;
+    //[SerializeField] GameObject player;
     WeaponStats wepStats;
     PlayerExp playerExp;
     
-    void Start()
+    void Awake()
     {
-        wepStats = player.GetComponent<WeaponStats>();
-        playerExp = player.GetComponent<PlayerExp>();
-    }
-
-    void Update()
-    {
-        if(ScaleOn == true)
-        {
-            canEquip = true;
-            stamCanScale = true;
-            agiCanScale = true;
-        }
-        HealthScale();
-        AgiScale();
-        StamScale();
-        WeaponEquipped();
+        wepStats = GetComponent<WeaponStats>();
+        playerExp = GetComponent<PlayerExp>();
+       
+        RangerAgility = baseRangerAgi;
+        RangerAtkp = baseRangerAtkp;
+        RangerStamina = baseRangerStam;
+        RangerHP = RangerStamina * 10;
         RangerDamage = (int)RangerDamage;
         RangerAgility = (int)RangerAgility;
         RangerStamina = (int)RangerStamina;
+        
     }
 
-    public void WeaponEquipped()
+    void FixedUpdate()
     {
+
+
+
+        if(level <= playerExp.CurrentLevel)
+        {
+            return;
+        }
+            level++;
+            OnLevelUp();
+        
+        /*
+        WeaponEquipped();
+        */
+    }
+
+
+    void WeaponEquipped()
+    {
+
         if(wepStats.WepReqLvl > playerExp.CurrentLevel)
         {
             return;
@@ -51,12 +61,28 @@ public class RangerClassStats : MonoBehaviour
         {
             RangerAgility = wepStats.WepMainStat;
             RangerStamina = wepStats.WepStamina;
-            RangerDamage = RangerDamage + wepStats.WepDamage + (RangerAgility / 3);
-            canEquip = false;
+            RangerDamage = RangerDamage + wepStats.WepDamage + RangerAtkp;
         }
-        canEquip = false;
     }
 
+    void OnLevelUp()
+    {
+        RangerStamina += playerExp.CurrentLevel;
+        RangerHP += RangerStamina * 5 + (playerExp.CurrentLevel * 75);
+        RangerAgility += playerExp.CurrentLevel;
+        RangerAtkp += (RangerAgility / 3);
+        baseRangerAgi += 5;
+        baseRangerStam += 5;
+        baseRangerAtkp += 100;
+
+        baseRangerAgi = (int)baseRangerAgi;
+        baseRangerStam = (int)baseRangerStam;
+        baseRangerAtkp = (int)baseRangerAtkp;
+        RangerDamage = (int)RangerDamage;
+        RangerAgility = (int)RangerAgility;
+        RangerStamina = (int)RangerStamina;
+    }
+    /*
     void HealthScale()
     {
         RangerHP = RangerStamina * 5 + (playerExp.CurrentLevel * 75);
@@ -64,13 +90,13 @@ public class RangerClassStats : MonoBehaviour
 
     void StamScale()
     {
-        RangerStamina = RangerStamina + (playerExp.CurrentLevel * 7);
-        stamCanScale = false;
+        RangerStamina += playerExp.CurrentLevel;
     }
 
     void AgiScale()
     {
-        RangerAgility = RangerAgility + (playerExp.CurrentLevel * 10);
-        agiCanScale = false;
+        RangerAgility += playerExp.CurrentLevel;
+        RangerAtkp = baseRangerAtkp + (RangerAgility / 3);
     }
+    */
 }
