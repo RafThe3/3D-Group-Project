@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         healTimer += Time.deltaTime;
+        healthBar.value = currentHealth;
 
         if (Input.GetKeyDown(KeyCode.E) && healthPacks > 0)
         {
@@ -45,8 +46,6 @@ public class Player : MonoBehaviour
         {
             TakeDamage(10);
         }
-
-        healthBar.value = currentHealth;
     }
 
     public void TakeDamage(float damage)
