@@ -17,12 +17,16 @@ public class RangerClassStats : MonoBehaviour
     //[SerializeField] GameObject player;
     WeaponStats wepStats;
     PlayerExp playerExp;
+
+    public delegate void WhenPlayerLvlChangedCallback();
+    public event WhenPlayerLvlChangedCallback Callback;
     
     void Awake()
     {
+        Callback += WhenPlayerXPChanged;
         wepStats = GetComponent<WeaponStats>();
         playerExp = GetComponent<PlayerExp>();
-       
+        
         RangerAgility = baseRangerAgi;
         RangerAtkp = baseRangerAtkp;
         RangerStamina = baseRangerStam;
@@ -32,25 +36,32 @@ public class RangerClassStats : MonoBehaviour
         RangerStamina = (int)RangerStamina;
         
     }
-
+    
     void FixedUpdate()
     {
-
-
-
-        if(level <= playerExp.CurrentLevel)
+        if (level >= playerExp.CurrentLevel)
         {
             return;
         }
+        else if (level <= playerExp.CurrentLevel)
+        {
             level++;
-            OnLevelUp();
-        
-        /*
-        WeaponEquipped();
-        */
+            LevelUp();
+        }
+        baseRangerAgi = (int)baseRangerAgi;
+        baseRangerStam = (int)baseRangerStam;
+        baseRangerAtkp = (int)baseRangerAtkp;
+        RangerDamage = (int)RangerDamage;
+        RangerAgility = (int)RangerAgility;
+        RangerStamina = (int)RangerStamina;
     }
 
+    void WhenPlayerXPChanged()
+    {
+        LevelUp();
+    }
 
+    
     void WeaponEquipped()
     {
 
@@ -66,12 +77,13 @@ public class RangerClassStats : MonoBehaviour
         }
     }
 
-    void OnLevelUp()
+    void LevelUp()
     {
         RangerStamina += playerExp.CurrentLevel;
-        RangerHP += RangerStamina * 5 + (playerExp.CurrentLevel * 75);
+        RangerHP = (RangerStamina * 5) + (playerExp.CurrentLevel * 75);
         RangerAgility += playerExp.CurrentLevel;
         RangerAtkp += (RangerAgility / 3);
+        RangerDamage = (RangerAtkp / 7) + wepStats.WepDamage;
         baseRangerAgi += 5;
         baseRangerStam += 5;
         baseRangerAtkp += 100;

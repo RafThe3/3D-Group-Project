@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerExp : MonoBehaviour
 {
     private int CurrentExp = 0;
     public int CurrentLevel = 1;
     private int MaxLevel = 20;
-    int MaxExp;
+    private int MaxExp = 15;
 
     [SerializeField] Slider ExpBar;
-    [SerializeField] Text Level;
+    [SerializeField] TextMeshProUGUI Level;
 
     Enemy eHP;
     EnemyStats eStats;
@@ -19,7 +20,7 @@ public class PlayerExp : MonoBehaviour
     {
         eHP = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();
         eStats = GameObject.FindWithTag("Enemy").GetComponent<EnemyStats>();
-        int MaxExp = CurrentLevel * 15;
+        MaxExp = CurrentLevel * 15;
     }
 
     void Update()
