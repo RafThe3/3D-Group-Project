@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class Player : MonoBehaviour
     [Min(0), SerializeField] private int maxHealthPacks = 1;
     [Min(0), SerializeField] private float healthInterval = 1;
     [SerializeField] private Slider healthBar;
+    [SerializeField] private TextMeshProUGUI healthText;
 
     //Internal Variables
     private float currentHealth = 0;
@@ -36,6 +38,7 @@ public class Player : MonoBehaviour
     {
         healTimer += Time.deltaTime;
         healthBar.value = currentHealth;
+        healthText.text = $"{currentHealth} / {maxHealth}";
 
         if (Input.GetKeyDown(KeyCode.E) && healthPacks > 0)
         {

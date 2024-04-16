@@ -9,23 +9,30 @@ public class PlayerExp : MonoBehaviour
     private int CurrentExp = 0;
     public int CurrentLevel = 1;
     private int MaxLevel = 20;
-    private int MaxExp = 15;
+    int MaxExp = 15;
 
     [SerializeField] Slider ExpBar;
     [SerializeField] TextMeshProUGUI Level;
 
     Enemy eHP;
     EnemyStats eStats;
+
+    private void Awake()
+    {
+        MaxExp = CurrentLevel * 15;
+        ExpBar.maxValue = MaxExp;
+    }
+
     void Start()
     {
         eHP = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();
         eStats = GameObject.FindWithTag("Enemy").GetComponent<EnemyStats>();
-        MaxExp = CurrentLevel * 15;
     }
 
     void Update()
     {
         ExpBar.value = CurrentExp;
+        Level.text = $"{CurrentExp} / {MaxExp}";
         LevelUp();
     }
 
