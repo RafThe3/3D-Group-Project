@@ -2,29 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerExp : MonoBehaviour
 {
     private int CurrentExp = 0;
     public int CurrentLevel = 1;
     private int MaxLevel = 20;
-    int MaxExp;
+    int MaxExp = 15;
 
     [SerializeField] Slider ExpBar;
-    [SerializeField] Text Level;
+    [SerializeField] TextMeshProUGUI ExpText;
+    [SerializeField] TextMeshProUGUI Level;
 
     Enemy eHP;
     EnemyStats eStats;
+
+    private void Awake()
+    {
+        MaxExp = CurrentLevel * 15;
+        ExpBar.maxValue = MaxExp;
+    }
+
     void Start()
     {
         eHP = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();
         eStats = GameObject.FindWithTag("Enemy").GetComponent<EnemyStats>();
-        int MaxExp = CurrentLevel * 15;
     }
 
     void Update()
     {
         ExpBar.value = CurrentExp;
+        ExpText.text = $"{CurrentExp} / {MaxExp}";
+        Level.text = $"Level: {CurrentLevel}";
         LevelUp();
     }
 
@@ -47,6 +57,8 @@ public class PlayerExp : MonoBehaviour
         if(CurrentExp >= MaxExp && CurrentLevel < MaxLevel)
         {
             CurrentLevel++;
+            MaxExp = CurrentLevel * 15;
+            ExpBar.maxValue = MaxExp;
             CurrentExp = 0;
         }
     }

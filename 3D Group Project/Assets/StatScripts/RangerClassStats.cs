@@ -12,17 +12,23 @@ public class RangerClassStats : MonoBehaviour
     float baseRangerAgi = 10;
     float baseRangerStam = 7.5f;
     float baseRangerAtkp = 100;
+    int tempDamage = 10;
     int level = 1;
 
     //[SerializeField] GameObject player;
     WeaponStats wepStats;
     PlayerExp playerExp;
+
+    public delegate void WhenPlayerLvlChangedCallback();
+    public event WhenPlayerLvlChangedCallback Callback;
     
     void Awake()
     {
+        Callback += WhenPlayerXPChanged;
         wepStats = GetComponent<WeaponStats>();
         playerExp = GetComponent<PlayerExp>();
-       
+
+        tempDamage = (int)wepStats.WepDamage;
         RangerAgility = baseRangerAgi;
         RangerAtkp = baseRangerAtkp;
         RangerStamina = baseRangerStam;
@@ -30,27 +36,36 @@ public class RangerClassStats : MonoBehaviour
         RangerDamage = (int)RangerDamage;
         RangerAgility = (int)RangerAgility;
         RangerStamina = (int)RangerStamina;
-        
     }
-
+    
     void FixedUpdate()
     {
+        RangerDamage = (RangerAtkp / 7) + tempDamage;
+        
+        baseRangerAgi = (int)baseRangerAgi;
+        baseRangerStam = (int)baseRangerStam;
+        baseRangerAtkp = (int)baseRangerAtkp;
+        RangerDamage = (int)RangerDamage;
+        RangerAgility = (int)RangerAgility;
+        RangerStamina = (int)RangerStamina;
 
-
-
-        if(level <= playerExp.CurrentLevel)
+        if (level >= playerExp.CurrentLevel)
         {
             return;
         }
+        else if (level <= playerExp.CurrentLevel)
+        {
             level++;
-            OnLevelUp();
-        
-        /*
-        WeaponEquipped();
-        */
+            LevelUp();
+        }
     }
 
+    void WhenPlayerXPChanged()
+    {
+        LevelUp();
+    }
 
+    
     void WeaponEquipped()
     {
 
@@ -66,10 +81,10 @@ public class RangerClassStats : MonoBehaviour
         }
     }
 
-    void OnLevelUp()
+    void LevelUp()
     {
         RangerStamina += playerExp.CurrentLevel;
-        RangerHP += RangerStamina * 5 + (playerExp.CurrentLevel * 75);
+        RangerHP = (RangerStamina * 5) + (playerExp.CurrentLevel * 75);
         RangerAgility += playerExp.CurrentLevel;
         RangerAtkp += (RangerAgility / 3);
         baseRangerAgi += 5;

@@ -68,12 +68,62 @@ public class WeaponStats : MonoBehaviour
             WepDamage = WepMinDamage;
         }
 
-        if(WepRarity == 1 || WepRarity == 2)
+        if(WepRarity == 1)
         {
+            if(WepReqLvl > 5)
+            {
+                WepDamage = WepDamage / 3;
+                WepILvl = WepILvl / 3;
+            }
+            WepStamina = 0;
+            WepMainStat = 0;
+        }
+        
+        if(WepRarity == 2)
+        {
+            if(WepReqLvl > 10)
+            {
+                WepDamage = WepDamage / 3 + 3;
+                WepILvl = WepILvl / 3;
+            }
             WepStamina = 0;
             WepMainStat = 0;
         }
 
+        if(WepRarity == 3)
+        {
+            if(WepReqLvl > 15)
+            {
+                WepDamage = WepDamage * 0.75f;
+                WepILvl = WepILvl * 0.75f;
+            }    
+            WepStamina = WepStamina / 1.5f;
+            WepMainStat = WepMainStat / 1.5f;
+            //WepReqLvl = Random.Range(5, WepMaxReq);
+        }
+
+        if(WepRarity == 4)
+        {
+            //WepReqLvl = Random.Range(8, WepMaxReq);
+        }
+
+        if(WepRarity == 5)
+        {
+            WepILvl = WepILvl * 1.15f;
+            WepDamage = WepDamage * 1.15f;
+            WepMainStat = WepMainStat * 1.1f;
+            WepStamina = WepStamina * 1.2f;
+            //WepReqLvl = Random.Range(15, WepMaxReq);
+        }
+        
+        if(WepRarity == 6)
+        {
+            WepILvl = WepILvl * 1.35f;
+            WepDamage = WepDamage * 1.35f;
+            WepMainStat = WepMainStat * 1.2f;
+            WepStamina = WepStamina * 1.5f;
+            //WepReqLvl = Random.Range(18, WepMaxReq);
+        }
         WepILvl = (int) WepILvl;
         WepDamage = (int) WepDamage;
         WepMainStat = (int) WepMainStat;
