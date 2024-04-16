@@ -13,21 +13,21 @@ public class ZoneHealing : MonoBehaviour
     [Min(0), SerializeField] private float healInterval = 1;
     [Min(0), SerializeField] private float zoneSpawnCooldown = 1;
     [SerializeField] private GameObject zoneSpherePrefab;
-    [SerializeField] private Slider zoneSpawnBar;
+    [SerializeField] private Slider zoneCooldownBar;
 
     private bool isCoolingDown = false;
 
     private void Start()
     {
-        zoneSpawnBar.maxValue = zoneSpawnCooldown;
-        zoneSpawnBar.value = zoneSpawnBar.maxValue;
+        zoneCooldownBar.maxValue = zoneSpawnCooldown;
+        zoneCooldownBar.value = zoneCooldownBar.maxValue;
     }
 
     private void Update()
     {
-        if (zoneSpawnBar.value < zoneSpawnBar.maxValue && isCoolingDown)
+        if (zoneCooldownBar.value < zoneCooldownBar.maxValue && isCoolingDown)
         {
-            zoneSpawnBar.value += Time.deltaTime;
+            zoneCooldownBar.value += Time.deltaTime;
         }
 
         if (Input.GetKeyDown(KeyCode.R) && !isCoolingDown)
@@ -38,9 +38,10 @@ public class ZoneHealing : MonoBehaviour
 
     private IEnumerator SpawnZone()
     {
-        zoneSpawnBar.value = 0;
+        zoneCooldownBar.value = 0;
         GameObject zoneClone = Instantiate(zoneSpherePrefab, transform.position, Quaternion.identity);
         ParticleSystem zoneParticles = zoneClone.GetComponent<ParticleSystem>();
+        ParticleSystem.ShapeModule particleShape = zoneParticles.shape;
         HealZone healZone = zoneClone.GetComponent<HealZone>();
 
         healZone.SetHealInterval(healInterval);

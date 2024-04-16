@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3724807179458509725}
   - component: {fileID: 2361359397600163319}
   m_Layer: 0
-  m_Name: Projectile
+  m_Name: Mage Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -129,7 +129,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 112

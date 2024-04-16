@@ -95,4 +95,9 @@ public class Player : MonoBehaviour
             healthPacks++;
         }
     }
+
+    public void SetMaxHealth(float health)
+    {
+        maxHealth = health;
+    }
 }
