@@ -12,6 +12,7 @@ public class PlayerExp : MonoBehaviour
     int MaxExp = 15;
 
     [SerializeField] Slider ExpBar;
+    [SerializeField] TextMeshProUGUI ExpText;
     [SerializeField] TextMeshProUGUI Level;
 
     Enemy eHP;
@@ -32,7 +33,8 @@ public class PlayerExp : MonoBehaviour
     void Update()
     {
         ExpBar.value = CurrentExp;
-        Level.text = $"{CurrentExp} / {MaxExp}";
+        ExpText.text = $"{CurrentExp} / {MaxExp}";
+        Level.text = $"Level: {CurrentLevel}";
         LevelUp();
     }
 
