@@ -59,6 +59,7 @@ namespace StarterAssets
 		private float _rotationVelocity;
 		private float _verticalVelocity;
 		private float _terminalVelocity = 53.0f;
+		private float _tempRotationSpeed;
 
 		// timeout deltatime
 		private float _jumpTimeoutDelta;
@@ -97,6 +98,7 @@ namespace StarterAssets
 
 		private void Start()
 		{
+			_tempRotationSpeed = RotationSpeed;
 			_controller = GetComponent<CharacterController>();
 			_input = GetComponent<StarterAssetsInputs>();
 #if ENABLE_INPUT_SYSTEM
@@ -115,6 +117,7 @@ namespace StarterAssets
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
+			RotationSpeed = Time.timeScale == 0 ? 0 : _tempRotationSpeed;
 		}
 
 		private void LateUpdate()
