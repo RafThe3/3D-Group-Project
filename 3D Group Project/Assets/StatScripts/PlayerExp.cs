@@ -56,6 +56,7 @@ public class PlayerExp : MonoBehaviour
         {
             CurrentLevel++;
             MaxExp = CurrentLevel * 15;
+            ExpBar.maxValue = MaxExp;
             CurrentExp = 0;
         }
     }
