@@ -12,6 +12,7 @@ public class RangerClassStats : MonoBehaviour
     float baseRangerAgi = 10;
     float baseRangerStam = 7.5f;
     float baseRangerAtkp = 100;
+    int tempDamage = 10;
     int level = 1;
 
     //[SerializeField] GameObject player;
@@ -26,7 +27,8 @@ public class RangerClassStats : MonoBehaviour
         Callback += WhenPlayerXPChanged;
         wepStats = GetComponent<WeaponStats>();
         playerExp = GetComponent<PlayerExp>();
-        
+
+        tempDamage = (int)wepStats.WepDamage;
         RangerAgility = baseRangerAgi;
         RangerAtkp = baseRangerAtkp;
         RangerStamina = baseRangerStam;
@@ -34,11 +36,19 @@ public class RangerClassStats : MonoBehaviour
         RangerDamage = (int)RangerDamage;
         RangerAgility = (int)RangerAgility;
         RangerStamina = (int)RangerStamina;
-        
     }
     
     void FixedUpdate()
     {
+        RangerDamage = (RangerAtkp / 7) + tempDamage;
+        
+        baseRangerAgi = (int)baseRangerAgi;
+        baseRangerStam = (int)baseRangerStam;
+        baseRangerAtkp = (int)baseRangerAtkp;
+        RangerDamage = (int)RangerDamage;
+        RangerAgility = (int)RangerAgility;
+        RangerStamina = (int)RangerStamina;
+
         if (level >= playerExp.CurrentLevel)
         {
             return;
@@ -48,12 +58,6 @@ public class RangerClassStats : MonoBehaviour
             level++;
             LevelUp();
         }
-        baseRangerAgi = (int)baseRangerAgi;
-        baseRangerStam = (int)baseRangerStam;
-        baseRangerAtkp = (int)baseRangerAtkp;
-        RangerDamage = (int)RangerDamage;
-        RangerAgility = (int)RangerAgility;
-        RangerStamina = (int)RangerStamina;
     }
 
     void WhenPlayerXPChanged()
@@ -83,7 +87,6 @@ public class RangerClassStats : MonoBehaviour
         RangerHP = (RangerStamina * 5) + (playerExp.CurrentLevel * 75);
         RangerAgility += playerExp.CurrentLevel;
         RangerAtkp += (RangerAgility / 3);
-        RangerDamage = (RangerAtkp / 7) + wepStats.WepDamage;
         baseRangerAgi += 5;
         baseRangerStam += 5;
         baseRangerAtkp += 100;

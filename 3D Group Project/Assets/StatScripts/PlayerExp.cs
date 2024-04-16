@@ -55,6 +55,7 @@ public class PlayerExp : MonoBehaviour
         if(CurrentExp >= MaxExp && CurrentLevel < MaxLevel)
         {
             CurrentLevel++;
+            MaxExp = CurrentLevel * 15;
             CurrentExp = 0;
         }
     }
