@@ -38,23 +38,23 @@ public class Player : MonoBehaviour
     private void Update()
     {
         healTimer += Time.deltaTime;
-        healthBar.value = currentHealth;
-        healthText.text = $"Health: {currentHealth} / {maxHealth}";
+        UpdateUI();
 
-        if (Input.GetKeyDown(KeyCode.E) && healthPacks > 0)
-        {
-            Heal(10);
-        }
-
+        //test
         if (Input.GetKeyDown(KeyCode.Q))
         {
             TakeDamage(10);
         }
+    }
 
-        Ray ray = new(Camera.main.transform.position, Camera.main.transform.forward);
+    private void UpdateUI()
+    {
+        healthBar.value = currentHealth;
+        healthText.text = $"Health: {currentHealth} / {maxHealth}";
 
-        crosshair.color = Physics.Raycast(ray, out RaycastHit hit) && hit.collider.CompareTag("Enemy") ? Color.red 
-                        : hit.collider.CompareTag("Player") ? Color.blue 
+        Ray cameraDirection = new(Camera.main.transform.position, Camera.main.transform.forward);
+        crosshair.color = Physics.Raycast(cameraDirection, out RaycastHit hit) && hit.collider.CompareTag("Enemy") ? Color.red
+                        : hit.collider.CompareTag("Player") ? Color.blue
                         : Color.white;
     }
 
