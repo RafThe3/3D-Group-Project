@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     [Min(0), SerializeField] private float healthInterval = 1;
     [SerializeField] private Slider healthBar;
     [SerializeField] private TextMeshProUGUI healthText;
+    [SerializeField] private Image crosshair;
 
     //Internal Variables
     private float currentHealth = 0;
@@ -38,7 +39,7 @@ public class Player : MonoBehaviour
     {
         healTimer += Time.deltaTime;
         healthBar.value = currentHealth;
-        healthText.text = $"{currentHealth} / {maxHealth}";
+        healthText.text = $"Health: {currentHealth} / {maxHealth}";
 
         if (Input.GetKeyDown(KeyCode.E) && healthPacks > 0)
         {
@@ -49,6 +50,12 @@ public class Player : MonoBehaviour
         {
             TakeDamage(10);
         }
+
+        Ray ray = new(Camera.main.transform.position, Camera.main.transform.forward);
+
+        crosshair.color = Physics.Raycast(ray, out RaycastHit hit) && hit.collider.CompareTag("Enemy") ? Color.red 
+                        : hit.collider.CompareTag("Player") ? Color.blue 
+                        : Color.white;
     }
 
     public void TakeDamage(float damage)

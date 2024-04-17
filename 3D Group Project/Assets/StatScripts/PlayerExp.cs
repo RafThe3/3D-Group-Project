@@ -33,7 +33,7 @@ public class PlayerExp : MonoBehaviour
     void Update()
     {
         ExpBar.value = CurrentExp;
-        ExpText.text = $"{CurrentExp} / {MaxExp}";
+        ExpText.text = $"Exp: {CurrentExp} / {MaxExp}";
         Level.text = $"Level: {CurrentLevel}";
         LevelUp();
     }

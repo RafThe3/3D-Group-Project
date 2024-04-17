@@ -33,6 +33,11 @@ public class Projectile : MonoBehaviour
             enemy.TakeDamage(damage);
             Destroy(gameObject);
         }
+
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void SetDamage(int damage)
