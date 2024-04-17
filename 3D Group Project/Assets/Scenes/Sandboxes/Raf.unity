@@ -137,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.20000005
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1894,6 +1894,24 @@ MonoBehaviour:
   ExpBar: {fileID: 960119738}
   ExpText: {fileID: 215345122}
   Level: {fileID: 1100315120}
+--- !u!114 &634844179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634844149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a9ed654dbeb1844fa49d92a4bc9873d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RangerHP: 75
+  RangerAgility: 10
+  RangerStamina: 10
+  RangerDamage: 10
+  RangerAtkp: 10
+  wepEquipped: 0
 --- !u!1 &698498252 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7151188399206259074, guid: e8261a97a7f761c4e8efce96a79a4a28, type: 3}
@@ -4106,6 +4124,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       insertIndex: -1
       addedObject: {fileID: 634844172}
+    - targetCorrespondingSourceObject: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 634844179}
   m_SourcePrefab: {fileID: 100100000, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
 --- !u!1 &1333354088
 GameObject:
@@ -4922,7 +4943,7 @@ Transform:
   m_GameObject: {fileID: 1673613355}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.68, y: -0.448, z: 0.8}
+  m_LocalPosition: {x: 0.488, y: -0.448, z: 0.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5367,7 +5388,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2610862075301316755, guid: aa90fb455153f81468199762fa54da07, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7549785878668573082, guid: aa90fb455153f81468199762fa54da07, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.016
+      objectReference: {fileID: 0}
+    - target: {fileID: 7549785878668573082, guid: aa90fb455153f81468199762fa54da07, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7549785878668573082, guid: aa90fb455153f81468199762fa54da07, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5415,7 +5444,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8599538886054605035, guid: aa90fb455153f81468199762fa54da07, type: 3}
       propertyPath: shootCooldown
-      value: 2.6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8599538886054605035, guid: aa90fb455153f81468199762fa54da07, type: 3}
       propertyPath: shootInterval
@@ -5423,7 +5452,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8599538886054605035, guid: aa90fb455153f81468199762fa54da07, type: 3}
       propertyPath: projectileLife
-      value: 3
+      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: 8599538886054605035, guid: aa90fb455153f81468199762fa54da07, type: 3}
       propertyPath: projectileSpeed
@@ -5674,7 +5703,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6059658391250426363, guid: 6119492ddd9061f448c35468f2cb4aae, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7279043362014855474, guid: 6119492ddd9061f448c35468f2cb4aae, type: 3}
       propertyPath: m_LocalPosition.y

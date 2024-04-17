@@ -22,9 +22,16 @@ public class Player : MonoBehaviour
     private float currentHealth = 0;
     private int healthPacks = 0;
     private float healTimer = 0;
+    private RangerClassStats rangerStats;
+
+    private void Awake()
+    {
+        rangerStats = GetComponent<RangerClassStats>();
+    }
 
     private void Start()
     {
+        maxHealth = rangerStats.RangerHP;
         if (startingHealth > maxHealth)
         {
             startingHealth = maxHealth;

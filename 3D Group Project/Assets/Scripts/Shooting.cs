@@ -9,7 +9,7 @@ public class Shooting : MonoBehaviour
     [Header("General Settings"), Space]
     [SerializeField] private bool canShoot = true;
     [SerializeField] private ShootType shootType = ShootType.Line;
-    [Min(0), SerializeField] private int damageAmount = 1;
+    [Min(0), SerializeField] private float damageAmount = 1;
     [Min(0), SerializeField] private float shootCooldown = 1;
     [SerializeField] private Slider attackCooldownBar;
 
@@ -18,20 +18,26 @@ public class Shooting : MonoBehaviour
     [SerializeField] private float projectileSpeed = 1;
     [SerializeField] private float projectileLife = 1;
     [SerializeField] private Transform projectileSpawnPoint;
+    [SerializeField] private bool isRanger = false;
 
     [Header("Line Shooting"), Space]
     [Min(0), SerializeField] private float maxDistance = 1;
 
     //Internal Variables
     private float shootTimer = 0;
+    private RangerClassStats rangerStats;
 
-    //ammo needed
+    private void Awake()
+    {
+        rangerStats = FindObjectOfType<RangerClassStats>();
+    }
 
     private void Start()
     {
         shootTimer = shootCooldown;
         attackCooldownBar.maxValue = shootCooldown;
         attackCooldownBar.value = attackCooldownBar.maxValue;
+        damageAmount = rangerStats.RangerDamage;
     }
 
     private void Update()
@@ -83,7 +89,7 @@ public class Shooting : MonoBehaviour
         }
     }
 
-    public int GetDamage()
+    public float GetDamage()
     {
         return damageAmount;
     }
