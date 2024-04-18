@@ -8,7 +8,7 @@ public class WeaponStats : MonoBehaviour
     public float WepDamage = 1;
     public float WepMainStat = 1;
     public float WepStamina = 1;
-    public float WepAtkp = 1;
+    public float WepPwr = 1;
     public int WepReqLvl = 1;
     int LegenaryRarity = 1000;
     int EpicRarity = 500;
@@ -55,7 +55,7 @@ public class WeaponStats : MonoBehaviour
         WepDamage = (WepILvl /30) * WepReqLvl / 2;
         WepMainStat = WepDamage + (WepILvl * 1.25f) / 45f;
         WepStamina = WepMainStat * 1.25f;
-        WepAtkp = 2.5f * (WepMainStat);
+        WepPwr = 2.5f * (WepMainStat);
 
         if(WepReqLvl == 3)
         {
@@ -79,7 +79,7 @@ public class WeaponStats : MonoBehaviour
             }
             WepStamina = 0;
             WepMainStat = 0;
-            WepAtkp = 0;
+            WepPwr = 0;
         }
         
         if(WepRarity == 2)
@@ -91,7 +91,7 @@ public class WeaponStats : MonoBehaviour
             }
             WepStamina = 0;
             WepMainStat = 0;
-            WepAtkp = 0;
+            WepPwr = 0;
         }
 
         if(WepRarity == 3)
@@ -99,7 +99,7 @@ public class WeaponStats : MonoBehaviour
             //WepReqLvl = Random.Range(5, WepMaxReq);
             if(WepReqLvl > 15)
             {
-                WepAtkp = WepAtkp * 0.75f;
+                WepPwr = WepPwr * 0.75f;
                 WepDamage = WepDamage * 0.75f;
                 WepILvl = WepILvl * 0.75f;
             }    
@@ -115,7 +115,7 @@ public class WeaponStats : MonoBehaviour
         if(WepRarity == 5)
         {
             //WepReqLvl = Random.Range(15, WepMaxReq);
-            WepAtkp = WepAtkp * 1.15f;
+            WepPwr = WepPwr * 1.15f;
             WepILvl = WepILvl * 1.15f;
             WepDamage = WepDamage * 1.15f;
             WepMainStat = WepMainStat * 1.1f;
@@ -125,7 +125,7 @@ public class WeaponStats : MonoBehaviour
         if(WepRarity == 6)
         {
             //WepReqLvl = Random.Range(18, WepMaxReq);
-            WepAtkp = WepAtkp * 1.35f;
+            WepPwr = WepPwr * 1.35f;
             WepILvl = WepILvl * 1.35f;
             WepDamage = WepDamage * 1.35f;
             WepMainStat = WepMainStat * 1.2f;
@@ -135,6 +135,6 @@ public class WeaponStats : MonoBehaviour
         WepDamage = (int) WepDamage;
         WepMainStat = (int) WepMainStat;
         WepStamina = (int) WepStamina;
-        WepAtkp = (int) WepAtkp;
+        WepPwr = (int) WepPwr;
     }
 }

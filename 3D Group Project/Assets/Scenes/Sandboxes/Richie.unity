@@ -854,6 +854,8 @@ GameObject:
   - component: {fileID: 7685886780553392329}
   - component: {fileID: 7685886780553392330}
   - component: {fileID: 7685886780553392331}
+  - component: {fileID: 7685886780553392334}
+  - component: {fileID: 7685886780553392333}
   - component: {fileID: 7685886780553392332}
   m_Layer: 8
   m_Name: PlayerCapsule
@@ -2189,10 +2191,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb721a8eba0512242812a8f99fd58ca8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WepRarity: 1
+  WepRarity: 6
   WepDamage: 1
   WepMainStat: 1
   WepStamina: 1
+  WepPwr: 1
   WepReqLvl: 1
   WepMinDamage: 5
   WepMaxReq: 20
@@ -2232,9 +2235,8 @@ MonoBehaviour:
   RangerAgility: 1
   RangerStamina: 1
   RangerDamage: 10
-  RangerSpeed: 15
-  ScaleOn: 1
-  player: {fileID: 453084649749125688}
+  RangerAtkp: 10
+  wepEquipped: 0
 --- !u!114 &7685886780553392332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2247,9 +2249,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31ab37821ab95024693bc1c4c75abc87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentLevel: 20
+  CurrentLevel: 1
   ExpBar: {fileID: 0}
+  ExpText: {fileID: 0}
   Level: {fileID: 0}
+--- !u!114 &7685886780553392333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453084649749125688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 606f80e993270cf4c917fdfeecf3aa70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WarriorHP: 75
+  WarriorStrength: 10
+  WarriorStamina: 10
+  WarriorDamage: 10
+  WarriorAttackpower: 10
+  wepEquipped: 0
+--- !u!114 &7685886780553392334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453084649749125688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1da84d0292b41b4db45bca79f3c6d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MageHP: 75
+  MageIntellect: 10
+  MageStamina: 10
+  MageDamage: 10
+  MageHealing: 10
+  MageSpellpower: 10
+  wepEquipped: 0
 --- !u!224 &8078244803404967442
 RectTransform:
   m_ObjectHideFlags: 0

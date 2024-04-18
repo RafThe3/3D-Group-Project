@@ -45,7 +45,7 @@ public class RangerClassStats : MonoBehaviour
     void FixedUpdate()
     { 
         RangerAtkp = (RangerAgility / 5) + baseRangerAtkp;
-        RangerHP = 50 + (RangerStamina * 3) + (playerExp.CurrentLevel * 15);
+        RangerHP = 50 + (int)(RangerStamina * 3f) + (playerExp.CurrentLevel * 10);
         
         tempDamage = (int)wepStats.WepDamage;
         baseRangerAgi = (int)baseRangerAgi;
@@ -93,7 +93,7 @@ public class RangerClassStats : MonoBehaviour
         }
         else if(wepStats.WepReqLvl <= playerExp.CurrentLevel)
         {
-            RangerAtkp = baseRangerAtkp + wepStats.WepAtkp;
+            RangerAtkp = baseRangerAtkp + wepStats.WepPwr;
             RangerAgility = (baseRangerAgi * 1) + wepStats.WepMainStat;
             RangerStamina = (baseRangerStam * 1) + wepStats.WepStamina;
             RangerDamage = (RangerAtkp / 7) + tempDamage;
@@ -107,7 +107,7 @@ public class RangerClassStats : MonoBehaviour
         baseRangerStam += 5;
         baseRangerAtkp += 50;
         RangerStamina += playerExp.CurrentLevel;
-        RangerHP = 50 + (RangerStamina * 3) + (playerExp.CurrentLevel * 25);
+        RangerHP = 50 + (int)(RangerStamina * 3f) + (playerExp.CurrentLevel * 25);
         RangerAgility += playerExp.CurrentLevel;
         RangerAtkp += (RangerAgility / 5);
        
