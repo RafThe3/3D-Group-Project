@@ -8,6 +8,7 @@ public class Shooting : MonoBehaviour
 {
     [Header("General Settings"), Space]
     [SerializeField] private bool canShoot = true;
+    [SerializeField] private bool useWeaponStats = true;
     [SerializeField] private ShootType shootType = ShootType.Line;
     [Min(0), SerializeField] private float damageAmount = 1;
     [Min(0), SerializeField] private float shootCooldown = 1;
@@ -25,11 +26,11 @@ public class Shooting : MonoBehaviour
 
     //Internal Variables
     private float shootTimer = 0;
-    private RangerClassStats rangerStats;
+    private WeaponStats weaponStats;
 
     private void Awake()
     {
-        rangerStats = FindObjectOfType<RangerClassStats>();
+        weaponStats = GetComponent<WeaponStats>();
     }
 
     private void Start()
@@ -37,12 +38,20 @@ public class Shooting : MonoBehaviour
         shootTimer = shootCooldown;
         attackCooldownBar.maxValue = shootCooldown;
         attackCooldownBar.value = attackCooldownBar.maxValue;
-        damageAmount = rangerStats.RangerDamage;
+        if (useWeaponStats)
+        {
+            damageAmount = weaponStats.WepDamage;
+        }
     }
 
     private void Update()
     {
+        canShoot = Time.timeScale > 0;
         shootTimer += Time.deltaTime;
+        if (useWeaponStats)
+        {
+            damageAmount = weaponStats.WepDamage;
+        }
 
         bool isCoolingDown = attackCooldownBar.value < attackCooldownBar.maxValue;
         attackCooldownBar.gameObject.SetActive(isCoolingDown);

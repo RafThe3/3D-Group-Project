@@ -11,6 +11,11 @@ public class BillboardFX : MonoBehaviour
 
     private void Start()
     {
+        if (!Camera.main.enabled)
+        {
+            return;
+        }
+
         if (camTransform == null)
         {
             camTransform = Camera.main.transform;

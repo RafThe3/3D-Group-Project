@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Weapon : MonoBehaviour
 {
+    [SerializeField] private bool canAttack = true;
     [SerializeField] private Transform attackPoint;
     [Min(0), SerializeField] private float attackDistance = 1;
     [Min(0), SerializeField] private float attackCooldown = 1;
@@ -29,6 +30,7 @@ public class Weapon : MonoBehaviour
     private void Update()
     {
         attackTimer += Time.deltaTime;
+        canAttack = Time.timeScale > 0;
 
         bool isCoolingDown = attackCooldownBar.value < attackCooldownBar.maxValue;
         attackCooldownBar.gameObject.SetActive(isCoolingDown);
@@ -38,7 +40,7 @@ public class Weapon : MonoBehaviour
             attackCooldownBar.value += Time.deltaTime;
         }
 
-        if (Input.GetButtonDown("Fire1") && attackTimer >= attackCooldown)
+        if (Input.GetButtonDown("Fire1") && attackTimer >= attackCooldown && canAttack)
         {
             Attack();
         }

@@ -13,10 +13,10 @@ public class Player : MonoBehaviour
     [Min(0), SerializeField] private float maxHealth = 100;
     [Min(0), SerializeField] private int startingHealthPacks = 1;
     [Min(0), SerializeField] private int maxHealthPacks = 1;
-    [Min(0), SerializeField] private float healthInterval = 1;
+    [Min(0), SerializeField] private float healInterval = 1;
     [SerializeField] private Slider healthBar;
     [SerializeField] private TextMeshProUGUI healthText;
-    [SerializeField] private Image crosshair;
+    //[SerializeField] private Image crosshair;
 
     //Internal Variables
     private float currentHealth = 0;
@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        maxHealth = rangerStats.RangerHP;
+        //maxHealth = rangerStats.RangerHP;
         if (startingHealth > maxHealth)
         {
             startingHealth = maxHealth;
@@ -39,18 +39,25 @@ public class Player : MonoBehaviour
         currentHealth = startingHealth;
         healthPacks = startingHealthPacks;
         healthBar.maxValue = maxHealth;
-        healthBar.value = startingHealth;
+        healthBar.value = maxHealth;
     }
 
     private void Update()
     {
         healTimer += Time.deltaTime;
+        //maxHealth = rangerStats.RangerHP;
+        //healthBar.maxValue = rangerStats.RangerHP;
         UpdateUI();
 
         //test
         if (Input.GetKeyDown(KeyCode.Q))
         {
             TakeDamage(10);
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Heal(10);
         }
     }
 
@@ -59,10 +66,12 @@ public class Player : MonoBehaviour
         healthBar.value = currentHealth;
         healthText.text = $"Health: {currentHealth} / {maxHealth}";
 
+        /*
         Ray cameraDirection = new(Camera.main.transform.position, Camera.main.transform.forward);
         crosshair.color = Physics.Raycast(cameraDirection, out RaycastHit hit) && hit.collider.CompareTag("Enemy") ? Color.red
                         : hit.collider.CompareTag("Player") ? Color.blue
                         : Color.white;
+        */
     }
 
     public void TakeDamage(float damage)
@@ -87,7 +96,7 @@ public class Player : MonoBehaviour
 
     public void Heal(float health)
     {
-        if (currentHealth < maxHealth && healTimer >= healthInterval)
+        if (currentHealth < maxHealth && healTimer >= healInterval)
         {
             currentHealth += health;
             healthPacks--;

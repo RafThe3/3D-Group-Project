@@ -13,7 +13,7 @@ public class PlayerExp : MonoBehaviour
 
     [SerializeField] Slider ExpBar;
     [SerializeField] TextMeshProUGUI ExpText;
-    [SerializeField] TextMeshProUGUI Level;
+    [SerializeField] TextMeshProUGUI LevelText;
 
     Enemy eHP;
     EnemyStats eStats;
@@ -22,27 +22,23 @@ public class PlayerExp : MonoBehaviour
     {
         MaxExp = CurrentLevel * 15;
         ExpBar.maxValue = MaxExp;
-    }
-
-    void Start()
-    {
-        eHP = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();
-        eStats = GameObject.FindWithTag("Enemy").GetComponent<EnemyStats>();
+        //eHP = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();
+        //eStats = GameObject.FindWithTag("Enemy").GetComponent<EnemyStats>();
     }
 
     void Update()
     {
         ExpBar.value = CurrentExp;
         ExpText.text = $"Exp: {CurrentExp} / {MaxExp}";
-        Level.text = $"Level: {CurrentLevel}";
+        LevelText.text = $"Level: {CurrentLevel}";
         LevelUp();
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == ("expOrb"))
+        if(other.CompareTag("expOrb"))
         {
-            CurrentExp += eStats.expDropped;
+            //CurrentExp += eStats.expDropped;
             Destroy(other.gameObject);
         }
     }
