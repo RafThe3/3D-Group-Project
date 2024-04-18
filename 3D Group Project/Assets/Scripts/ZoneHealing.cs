@@ -11,7 +11,7 @@ public class ZoneHealing : MonoBehaviour
     [Min(0), SerializeField] private float zoneDistance = 1;
     [Min(0), SerializeField] private float zoneLifeTime = 1;
     [Min(0), SerializeField] private float healAmount = 1;
-    [Min(0), SerializeField] private float healInterval = 1;
+    [Min(1), SerializeField] private float healInterval = 1;
     [Min(0), SerializeField] private float zoneSpawnCooldown = 1;
     [SerializeField] private GameObject zoneSpherePrefab;
     [SerializeField] private Slider zoneCooldownBar;
@@ -19,7 +19,7 @@ public class ZoneHealing : MonoBehaviour
 
     //Internal Variables
     private bool isCoolingDown = false, isInUse = false;
-    private float tempCooldown = 0, tempLifeTime = 0;
+    private float tempCooldown = 0, tempLifeTime = 0, tempLifeTime2 = 0;
 
     private void Start()
     {
@@ -28,10 +28,12 @@ public class ZoneHealing : MonoBehaviour
 
         tempCooldown = zoneSpawnCooldown;
         tempLifeTime = zoneLifeTime;
+        tempLifeTime2 = zoneLifeTime;
     }
 
     private void Update()
     {
+        canSpawnZone = Time.timeScale > 0;
         UpdateUI();
 
         if (Input.GetKeyDown(KeyCode.R) && !isCoolingDown && canSpawnZone)
@@ -45,10 +47,14 @@ public class ZoneHealing : MonoBehaviour
         if (isInUse)
         {
             cooldownText.text = $"In Use: {(int)(tempLifeTime -= Time.deltaTime)}";
+            zoneCooldownBar.maxValue = zoneLifeTime;
+            zoneCooldownBar.value = tempLifeTime2 -= Time.deltaTime;
         }
         else
         {
             tempLifeTime = zoneLifeTime;
+            tempLifeTime2 = zoneLifeTime;
+            zoneCooldownBar.maxValue = zoneSpawnCooldown;
         }
 
         if (zoneCooldownBar.value < zoneCooldownBar.maxValue && isCoolingDown)
@@ -69,7 +75,6 @@ public class ZoneHealing : MonoBehaviour
     private IEnumerator SpawnZone()
     {
         isInUse = true;
-        zoneCooldownBar.value = 0;
         GameObject zoneClone = Instantiate(zoneSpherePrefab, transform.position, Quaternion.identity);
         ParticleSystem zoneParticles = zoneClone.GetComponent<ParticleSystem>();
         ParticleSystem.ShapeModule particleShape = zoneParticles.shape;

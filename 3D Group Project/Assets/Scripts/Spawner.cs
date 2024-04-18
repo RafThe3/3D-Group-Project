@@ -5,6 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] prefabs, spawnPoints;
+    [SerializeField] private bool canSpawnObjects = true;
     [Min(0), SerializeField] private int numberOfObjects = 1;
     [Min(0), SerializeField] private float spawnInterval = 1;
     [SerializeField] private bool endlessSpawn = false;
@@ -18,7 +19,7 @@ public class Spawner : MonoBehaviour
         spawnTimer += Time.deltaTime;
 
         bool isReadyToSpawn = spawnTimer >= spawnInterval && ((objectsSpawned < numberOfObjects && !endlessSpawn) || endlessSpawn);
-        if (isReadyToSpawn)
+        if (canSpawnObjects && isReadyToSpawn)
         {
             SpawnObject();
         }
