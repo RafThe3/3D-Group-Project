@@ -28,10 +28,10 @@ public class ClassFunctions : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.Find("Player");
-        rangerClass = player.GetComponent<RangerClassStats>();
+        player = GameObject.FindWithTag("Player");
         warriorClass = player.GetComponent<WarriorClassStats>();
         mageClass = player.GetComponent<MageClassStats>();
+        rangerClass = player.GetComponent<RangerClassStats>();
 
         if(isRanger == true)
         {

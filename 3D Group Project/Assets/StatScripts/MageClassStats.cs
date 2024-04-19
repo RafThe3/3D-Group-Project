@@ -21,7 +21,7 @@ public class MageClassStats : MonoBehaviour
     bool canScale = false;
 
     //[SerializeField] GameObject player;
-    WeaponStats wepStats;
+    [SerializeField] WeaponStats wepStats;
     PlayerExp playerExp;
     Specializations specs;
 

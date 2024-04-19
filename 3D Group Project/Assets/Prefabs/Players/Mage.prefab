@@ -1015,6 +1015,7 @@ GameObject:
   - component: {fileID: 3640822658801276717}
   - component: {fileID: 2037414027026907112}
   - component: {fileID: 5310662314960979801}
+  - component: {fileID: -2287585795944459263}
   m_Layer: 8
   m_Name: Mage
   m_TagString: Player
@@ -1292,6 +1293,26 @@ MonoBehaviour:
   ExpBar: {fileID: 7533988343073945821}
   ExpText: {fileID: 5999844124141070112}
   LevelText: {fileID: 4314042549367112425}
+--- !u!114 &-2287585795944459263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3461968631643149906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1da84d0292b41b4db45bca79f3c6d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MageHP: 50
+  MageIntellect: 10
+  MageStamina: 10
+  MageDamage: 10
+  MageHealing: 10
+  MageSpellpower: 10
+  wepEquipped: 0
+  wepStats: {fileID: 5025156046176161627}
 --- !u!1 &3869666871271260690
 GameObject:
   m_ObjectHideFlags: 0
@@ -3190,7 +3211,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6059658391250426363, guid: 6119492ddd9061f448c35468f2cb4aae, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5025156046176161627}
   m_SourcePrefab: {fileID: 100100000, guid: 6119492ddd9061f448c35468f2cb4aae, type: 3}
 --- !u!4 &4880190313766664893 stripped
 Transform:
@@ -3202,6 +3226,32 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5240376808471615014, guid: 6119492ddd9061f448c35468f2cb4aae, type: 3}
   m_PrefabInstance: {fileID: 2791581290834606991}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8261162298591208052 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6059658391250426363, guid: 6119492ddd9061f448c35468f2cb4aae, type: 3}
+  m_PrefabInstance: {fileID: 2791581290834606991}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5025156046176161627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8261162298591208052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb721a8eba0512242812a8f99fd58ca8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WepRarity: 1
+  WepDamage: 1
+  WepMainStat: 1
+  WepStamina: 1
+  WepPwr: 1
+  WepReqLvl: 1
+  WepMinDamage: 5
+  WepMaxReq: 1
+  WepILvl: 1
 --- !u!1001 &8966227749694313365
 PrefabInstance:
   m_ObjectHideFlags: 0
