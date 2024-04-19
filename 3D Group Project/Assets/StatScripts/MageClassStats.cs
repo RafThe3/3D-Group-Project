@@ -68,9 +68,9 @@ public class MageClassStats : MonoBehaviour
         {
             MageIntellect = baseMageInt;
             SpecScaling(MageSpellpower);
-            MageHealing = (int)(MageSpellpower / 20);
+            SpecScaling(MageHealing);
             MageStamina = baseMageStam;
-            MageDamage = (int)(MageSpellpower / 10);
+            SpecScaling(MageDamage);
         }
         MageDamage = (int)MageDamage;
         MageHealing = (int)MageHealing;
@@ -103,7 +103,7 @@ public class MageClassStats : MonoBehaviour
             MageIntellect = (baseMageInt * 1) + wepStats.WepMainStat;
             MageStamina = (baseMageStam * 1) + wepStats.WepStamina;
             MageDamage = (MageSpellpower / 10) + tempDamage;
-           ;
+            SpecScaling(MageHealing += tempDamage);
         }
     }
 
@@ -135,20 +135,25 @@ public class MageClassStats : MonoBehaviour
         if (specs.mageSpec1 == true)
         {
             MageSpellpower = (MageIntellect * 2) + (int)(baseMageSpellpower * 1.5);
-            MageHP = 25 + (int)(MageStamina * 1.1f) + (playerExp.CurrentLevel * 15);
+            MageHP = 25 + (int)(MageStamina * 1.5f) + (playerExp.CurrentLevel * 15);
+            MageHealing = 0;
+            MageDamage = (int)(MageSpellpower * 0.2f) + playerExp.CurrentLevel;
         }
 
         else if (specs.mageSpec2 == true)
         {
-            MageSpellpower = (MageIntellect * 1.2f) + (int)(baseMageSpellpower * 1.2f);
-            MageHealing = (int)(67%MageSpellpower);
-            MageHP = 25 + (int)(200%MageStamina) + (playerExp.CurrentLevel * 25);
+            MageSpellpower = (int)(MageIntellect * 1.2f) + (int)(baseMageSpellpower * 1.75f);
+            MageHealing = (int)(MageSpellpower * 0.15f);
+            MageDamage = (MageHealing / 3);
+            MageHP = 25 + (int)(MageStamina * 2) + (playerExp.CurrentLevel * 20);
         }
 
         else if (specs.mageSpec1 == false && specs.mageSpec2 == false)
         {
             MageSpellpower = (MageIntellect) + (int)(baseMageSpellpower);
-            MageHP = 25 + (int)(MageStamina * 1.5f) + (playerExp.CurrentLevel * 15);
+            MageHP = 25 + (int)(MageStamina * 1.75f) + (playerExp.CurrentLevel * 15);
+            MageHealing = (MageDamage / 2);
+            MageDamage = (int)(MageSpellpower * 0.15f) + playerExp.CurrentLevel;
         }
     }
     /*
