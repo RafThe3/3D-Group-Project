@@ -11,17 +11,20 @@ public class WarriorClassStats : MonoBehaviour
     public float WarriorAttackpower = 10;
     float baseWarriorStr = 10;
     float baseWarriorStam = 10;
-    float baseWarrriorAtkp = 100;
+    float baseWarriorAtkp = 100;
 
     int tempDamage = 10;
     int level = 1;
 
     public bool wepEquipped = false;
+    bool ws1 = false;
+    bool ws2 = false;
     bool canScale = false;
 
     //[SerializeField] GameObject player;
     WeaponStats wepStats;
     PlayerExp playerExp;
+    Specializations specs;
 
     public delegate void WhenPlayerLvlChangedCallback();
     public event WhenPlayerLvlChangedCallback Callback;
@@ -31,10 +34,12 @@ public class WarriorClassStats : MonoBehaviour
         Callback += WhenPlayerXPChanged;
         wepStats = GetComponent<WeaponStats>();
         playerExp = GetComponent<PlayerExp>();
+        specs = GetComponent<Specializations>();
+
 
         tempDamage = (int)wepStats.WepDamage;
         WarriorStrength = baseWarriorStr;
-        WarriorAttackpower = baseWarrriorAtkp;
+        WarriorAttackpower = baseWarriorAtkp;
         WarriorStamina = baseWarriorStam;
         WarriorHP = WarriorStamina * 10;
         WarriorDamage = (int)WarriorDamage;
@@ -44,36 +49,35 @@ public class WarriorClassStats : MonoBehaviour
 
     void FixedUpdate()
     {
-        WarriorAttackpower = (WarriorStrength / 1.5f) + baseWarrriorAtkp;
-        WarriorHP = 50 + (WarriorStamina * 3) + (playerExp.CurrentLevel * 20);
-
+        SpecScaling(WarriorAttackpower);
         tempDamage = (int)wepStats.WepDamage;
         baseWarriorStr = (int)baseWarriorStr;
         baseWarriorStam = (int)baseWarriorStam;
-        baseWarrriorAtkp = (int)baseWarrriorAtkp;
+        baseWarriorAtkp = (int)baseWarriorAtkp;
         WarriorStrength = (int)WarriorStrength;
         WarriorStamina = (int)WarriorStamina;
         WarriorAttackpower = (int)WarriorAttackpower;
         WarriorDamage = (int)WarriorDamage;
 
-        if (wepEquipped == true)
+        if(wepEquipped == true)
         {
             WeaponEquipped();
         }
-        else if (wepEquipped == false)
+        else if(wepEquipped == false)
         {
             WarriorStrength = baseWarriorStr;
-            WarriorAttackpower = baseWarrriorAtkp;
             WarriorStamina = baseWarriorStam;
+            SpecScaling(WarriorAttackpower);
             WarriorDamage = (int)(WarriorAttackpower / 10);
         }
         WarriorDamage = (int)WarriorDamage;
+        WarriorAttackpower = (int)WarriorAttackpower;
 
-        if (level >= playerExp.CurrentLevel)
+        if(level >= playerExp.CurrentLevel)
         {
             return;
         }
-        else if (level < playerExp.CurrentLevel)
+        else if(level < playerExp.CurrentLevel)
         {
             LevelUp();
         }
@@ -87,16 +91,17 @@ public class WarriorClassStats : MonoBehaviour
 
     void WeaponEquipped()
     {
-        if (wepStats.WepReqLvl > playerExp.CurrentLevel)
+        if(wepStats.WepReqLvl > playerExp.CurrentLevel)
         {
             return;
         }
-        else if (wepStats.WepReqLvl <= playerExp.CurrentLevel)
+        else if(wepStats.WepReqLvl <= playerExp.CurrentLevel)
         {
-            WarriorAttackpower = baseWarrriorAtkp + wepStats.WepPwr;
+            SpecScaling(WarriorAttackpower = baseWarriorAtkp + wepStats.WepPwr);
+            //WarriorAttackpower = baseWarriorAtkp + wepStats.WepPwr;
             WarriorStrength = (baseWarriorStr * 1) + wepStats.WepMainStat;
             WarriorStamina = (baseWarriorStam * 1) + wepStats.WepStamina;
-            WarriorDamage = (WarriorAttackpower / 7) + tempDamage;
+            WarriorDamage = (WarriorAttackpower / 10) + tempDamage;
         }
     }
 
@@ -105,19 +110,40 @@ public class WarriorClassStats : MonoBehaviour
         level++;
         baseWarriorStr += 15;
         baseWarriorStam += 10;
-        baseWarrriorAtkp += 40;
+        baseWarriorAtkp += 40;
         WarriorStamina += playerExp.CurrentLevel;
         WarriorHP = 50 + (WarriorStamina * 3) + (playerExp.CurrentLevel * 20);
         WarriorStrength += playerExp.CurrentLevel;
-        WarriorAttackpower += (int)(WarriorStrength / 1.5f) + baseWarrriorAtkp;
+        WarriorAttackpower += (int)WarriorStrength + baseWarriorAtkp;
 
 
         baseWarriorStr = (int)baseWarriorStr;
         baseWarriorStam = (int)baseWarriorStam;
-        baseWarrriorAtkp = (int)baseWarrriorAtkp;
+        baseWarriorAtkp = (int)baseWarriorAtkp;
         WarriorDamage = (int)WarriorDamage;
         WarriorStrength = (int)WarriorStrength;
         WarriorStamina = (int)WarriorStamina;
+    }
+
+    void SpecScaling(float atkp)
+    {
+        if (specs.warriorSpec1 == true)
+        {
+            WarriorAttackpower = (int)(WarriorStrength * 2f) + (int)(baseWarriorAtkp * 2f);
+            WarriorHP = 50 + (WarriorStamina * 2) + (playerExp.CurrentLevel * 10);
+        }
+
+        else if (specs.warriorSpec2 == true)
+        {
+            WarriorAttackpower = (WarriorStrength / 5f) + (int)(baseWarriorAtkp);
+            WarriorHP = 50 + (WarriorStamina * 5) + (playerExp.CurrentLevel * 25);
+        }
+
+        else if (specs.warriorSpec1 == false && specs.warriorSpec2 == false)
+        {
+            WarriorAttackpower = WarriorStrength + baseWarriorAtkp;
+            WarriorHP = 50 + (WarriorStamina * 3) + (playerExp.CurrentLevel * 20);
+        }
     }
     /*
     void HealthScale()

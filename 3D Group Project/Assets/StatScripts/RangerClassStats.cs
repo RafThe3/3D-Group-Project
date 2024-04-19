@@ -22,6 +22,7 @@ public class RangerClassStats : MonoBehaviour
     //[SerializeField] GameObject player;
     WeaponStats wepStats;
     PlayerExp playerExp;
+    Specializations specs;
 
     public delegate void WhenPlayerLvlChangedCallback();
     public event WhenPlayerLvlChangedCallback Callback;
@@ -31,6 +32,8 @@ public class RangerClassStats : MonoBehaviour
         Callback += WhenPlayerXPChanged;
         wepStats = GetComponent<WeaponStats>();
         playerExp = GetComponent<PlayerExp>();
+        specs = GetComponent<Specializations>();
+
 
         tempDamage = (int)wepStats.WepDamage;
         RangerAgility = baseRangerAgi;

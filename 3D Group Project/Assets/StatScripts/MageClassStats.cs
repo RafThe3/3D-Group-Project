@@ -23,6 +23,7 @@ public class MageClassStats : MonoBehaviour
     //[SerializeField] GameObject player;
     WeaponStats wepStats;
     PlayerExp playerExp;
+    Specializations specs;
 
     public delegate void WhenPlayerLvlChangedCallback();
     public event WhenPlayerLvlChangedCallback Callback;
@@ -32,6 +33,7 @@ public class MageClassStats : MonoBehaviour
         Callback += WhenPlayerXPChanged;
         wepStats = GetComponent<WeaponStats>();
         playerExp = GetComponent<PlayerExp>();
+        specs = GetComponent<Specializations>();
 
         tempDamage = (int)wepStats.WepDamage;
         MageIntellect = baseMageInt;
@@ -46,9 +48,7 @@ public class MageClassStats : MonoBehaviour
 
     void FixedUpdate()
     {
-        MageSpellpower = (MageIntellect / 7) + baseMageSpellpower;
-        MageHealing = (int)(MageSpellpower / 20);
-        MageHP = 25 + (int)(MageStamina * 1.5f) + (playerExp.CurrentLevel * 15);
+        SpecScaling(MageSpellpower);
 
         tempDamage = (int)wepStats.WepDamage;
         baseMageInt = (int)baseMageInt;
@@ -67,6 +67,7 @@ public class MageClassStats : MonoBehaviour
         else if (wepEquipped == false)
         {
             MageIntellect = baseMageInt;
+            SpecScaling(MageSpellpower);
             MageHealing = (int)(MageSpellpower / 20);
             MageStamina = baseMageStam;
             MageDamage = (int)(MageSpellpower / 10);
@@ -98,11 +99,11 @@ public class MageClassStats : MonoBehaviour
         }
         else if (wepStats.WepReqLvl <= playerExp.CurrentLevel)
         {
-            MageSpellpower = baseMageSpellpower + wepStats.WepPwr;
+            SpecScaling(MageSpellpower = baseMageSpellpower + wepStats.WepPwr);
             MageIntellect = (baseMageInt * 1) + wepStats.WepMainStat;
             MageStamina = (baseMageStam * 1) + wepStats.WepStamina;
             MageDamage = (MageSpellpower / 10) + tempDamage;
-            MageHealing = (MageSpellpower / 20) + (tempDamage / 5);
+           ;
         }
     }
 
@@ -128,21 +129,31 @@ public class MageClassStats : MonoBehaviour
         MageIntellect = (int)MageIntellect;
         MageStamina = (int)MageStamina;
     }
+
+    void SpecScaling(float atkp)
+    {
+        if (specs.mageSpec1 == true)
+        {
+            MageSpellpower = (MageIntellect * 2) + (int)(baseMageSpellpower * 1.5);
+            MageHP = 25 + (int)(MageStamina * 1.1f) + (playerExp.CurrentLevel * 15);
+        }
+
+        else if (specs.mageSpec2 == true)
+        {
+            MageSpellpower = (MageIntellect * 1.2f) + (int)(baseMageSpellpower * 1.2f);
+            MageHealing = (int)(67%MageSpellpower);
+            MageHP = 25 + (int)(200%MageStamina) + (playerExp.CurrentLevel * 25);
+        }
+
+        else if (specs.mageSpec1 == false && specs.mageSpec2 == false)
+        {
+            MageSpellpower = (MageIntellect) + (int)(baseMageSpellpower);
+            MageHP = 25 + (int)(MageStamina * 1.5f) + (playerExp.CurrentLevel * 15);
+        }
+    }
     /*
-    void HealthScale()
-    {
-        RangerHP = RangerStamina * 5 + (playerExp.CurrentLevel * 75);
-    }
-
-    void StamScale()
-    {
-        RangerStamina += playerExp.CurrentLevel;
-    }
-
-    void AgiScale()
-    {
-        RangerAgility += playerExp.CurrentLevel;
-        RangerAtkp = baseRangerAtkp + (RangerAgility / 3);
-    }
+    MageSpellpower = (MageIntellect / 7) + baseMageSpellpower;
+        MageHealing = (int) (MageSpellpower / 20);
+        MageHP = 25 + (int) (MageStamina* 1.5f) + (playerExp.CurrentLevel* 15);
     */
 }
