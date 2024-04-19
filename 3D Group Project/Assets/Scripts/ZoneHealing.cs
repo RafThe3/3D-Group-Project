@@ -20,20 +20,34 @@ public class ZoneHealing : MonoBehaviour
     //Internal Variables
     private bool isCoolingDown = false, isInUse = false;
     private float tempCooldown = 0, tempLifeTime = 0, tempLifeTime2 = 0;
+    private bool tempCanSpawnZone = false;
+    private MageClassStats mageClass;
+
+    private void Awake()
+    {
+        mageClass = FindObjectOfType<MageClassStats>();
+    }
 
     private void Start()
     {
+        healAmount = mageClass.MageHealing;
         zoneCooldownBar.maxValue = zoneSpawnCooldown;
         zoneCooldownBar.value = zoneCooldownBar.maxValue;
 
         tempCooldown = zoneSpawnCooldown;
         tempLifeTime = zoneLifeTime;
         tempLifeTime2 = zoneLifeTime;
+        tempCanSpawnZone = canSpawnZone;
     }
 
     private void Update()
     {
-        canSpawnZone = Time.timeScale > 0;
+        if (tempCanSpawnZone)
+        {
+            canSpawnZone = Time.timeScale > 0;
+        }
+
+        healAmount = mageClass.MageHealing;
         UpdateUI();
 
         if (Input.GetKeyDown(KeyCode.R) && !isCoolingDown && canSpawnZone)

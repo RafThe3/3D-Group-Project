@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 2601041484188137314}
   - component: {fileID: -2085266852712752418}
   m_Layer: 6
-  m_Name: Enemy (Level 3)
+  m_Name: Enemy (Level 2)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -299,8 +299,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInvincible: 0
-  startingHealth: 150
-  maxHealth: 150
+  startingHealth: 100
+  maxHealth: 100
   attackInterval: 1
 --- !u!195 &2601041484188137314
 NavMeshAgent:
@@ -312,7 +312,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 1.75
+  m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

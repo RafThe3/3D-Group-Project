@@ -1729,6 +1729,7 @@ GameObject:
   - component: {fileID: 2209588133892712139}
   - component: {fileID: 6063750497704270401}
   - component: {fileID: 1757441425543373779}
+  - component: {fileID: 2335415173517055063}
   m_Layer: 8
   m_Name: Warrior
   m_TagString: Player
@@ -2006,6 +2007,25 @@ MonoBehaviour:
   ExpBar: {fileID: 3088358558911563117}
   ExpText: {fileID: 6444740621498570365}
   LevelText: {fileID: 2381957247838773959}
+--- !u!114 &2335415173517055063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5488206663722157337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 606f80e993270cf4c917fdfeecf3aa70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WarriorHP: 75
+  WarriorStrength: 10
+  WarriorStamina: 10
+  WarriorDamage: 10
+  WarriorAttackpower: 10
+  wepEquipped: 0
+  wepStats: {fileID: 2888912672875191611}
 --- !u!1 &5511742799145454782
 GameObject:
   m_ObjectHideFlags: 0
@@ -3137,6 +3157,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3637836084728680282, guid: de2cac84417ff1542b7d5bb53962494a, type: 3}
   m_PrefabInstance: {fileID: 4137343569950497523}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2888912672875191611 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1260364455833552840, guid: de2cac84417ff1542b7d5bb53962494a, type: 3}
+  m_PrefabInstance: {fileID: 4137343569950497523}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb721a8eba0512242812a8f99fd58ca8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6041427242313045855 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7691508380972256684, guid: de2cac84417ff1542b7d5bb53962494a, type: 3}

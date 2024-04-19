@@ -25,4 +25,24 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void EnableCanvas(Canvas canvas)
+    {
+        canvas.enabled = true;
+    }
+
+    public void DisableCanvas(Canvas canvas)
+    {
+        canvas.enabled = false;
+    }
+
+    public void PlayerToSpawn(int classNumber)
+    {
+        PlayerPrefs.SetInt("PlayerToSpawn", classNumber);
+    }
 }

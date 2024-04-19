@@ -517,6 +517,9 @@ MonoBehaviour:
   healInterval: 1
   healthBar: {fileID: 4613825342075158327}
   healthText: {fileID: 5280553444404373113}
+  mageClass: {fileID: -2287585795944459263, guid: f3c03c087905bc24d9167148e6614816, type: 3}
+  rangerClass: {fileID: 5463182124549911907}
+  warriorClass: {fileID: 2335415173517055063, guid: a9690ad90c1be554e93d21fa860ff4e6, type: 3}
 --- !u!114 &4397081762744009098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -551,7 +554,6 @@ MonoBehaviour:
   RangerDamage: 10
   RangerAtkp: 10
   wepEquipped: 0
-  rangerWepStats: {fileID: 5511609435557233051}
 --- !u!1 &921353177541744632
 GameObject:
   m_ObjectHideFlags: 0
@@ -3233,7 +3235,7 @@ MonoBehaviour:
   WepDamage: 1
   WepMainStat: 1
   WepStamina: 1
-  WepAtkp: 1
+  WepPwr: 1
   WepReqLvl: 1
   WepMinDamage: 5
   WepMaxReq: 1

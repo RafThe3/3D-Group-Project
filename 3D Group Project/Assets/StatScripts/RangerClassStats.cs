@@ -20,7 +20,7 @@ public class RangerClassStats : MonoBehaviour
     bool canScale = false;
 
     //[SerializeField] GameObject player;
-    WeaponStats wepStats;
+    [SerializeField] WeaponStats wepStats;
     PlayerExp playerExp;
     Specializations specs;
 
@@ -30,7 +30,7 @@ public class RangerClassStats : MonoBehaviour
     void Awake()
     {
         Callback += WhenPlayerXPChanged;
-        wepStats = GetComponent<WeaponStats>();
+        //wepStats = GetComponent<WeaponStats>();
         playerExp = GetComponent<PlayerExp>();
         specs = GetComponent<Specializations>();
 

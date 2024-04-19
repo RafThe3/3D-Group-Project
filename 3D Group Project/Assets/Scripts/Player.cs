@@ -22,21 +22,37 @@ public class Player : MonoBehaviour
     private float currentHealth = 0;
     private int healthPacks = 0;
     private float healTimer = 0;
-    private RangerClassStats rangerStats;
+    private MageClassStats mageClass;
+    private RangerClassStats rangerClass;
+    private WarriorClassStats warriorClass;
+    private bool shouldUpdateHealth = true;
+    //private ClassFunctions classFunctions;
 
     private void Awake()
     {
-        rangerStats = GetComponent<RangerClassStats>();
+        //classFunctions = FindObjectOfType<ClassFunctions>();
+        if (TryGetComponent(out mageClass))
+        {
+            mageClass = GetComponent<MageClassStats>();
+        }
+        else if (TryGetComponent(out warriorClass))
+        {
+            warriorClass = GetComponent<WarriorClassStats>();
+        }
+        else if (TryGetComponent(out rangerClass))
+        {
+            rangerClass = GetComponent<RangerClassStats>();
+        }
     }
 
     private void Start()
     {
-        //maxHealth = rangerStats.RangerHP;
+        SetPlayerHealth();
         if (startingHealth > maxHealth)
         {
             startingHealth = maxHealth;
         }
-        currentHealth = startingHealth;
+        currentHealth = maxHealth;
         healthPacks = startingHealthPacks;
         healthBar.maxValue = maxHealth;
         healthBar.value = maxHealth;
@@ -45,8 +61,6 @@ public class Player : MonoBehaviour
     private void Update()
     {
         healTimer += Time.deltaTime;
-        //maxHealth = rangerStats.RangerHP;
-        //healthBar.maxValue = rangerStats.RangerHP;
         UpdateUI();
 
         //test
@@ -63,6 +77,8 @@ public class Player : MonoBehaviour
 
     private void UpdateUI()
     {
+        SetPlayerHealth();
+        currentHealth = maxHealth;
         healthBar.value = currentHealth;
         healthText.text = $"Health: {currentHealth} / {maxHealth}";
 
@@ -72,6 +88,25 @@ public class Player : MonoBehaviour
                         : hit.collider.CompareTag("Player") ? Color.blue
                         : Color.white;
         */
+    }
+
+    private void SetPlayerHealth()
+    {
+        if (name == "Mage")
+        {
+            maxHealth = mageClass.MageHP;
+            healthBar.maxValue = maxHealth;
+        }
+        else if (name == "Ranger")
+        {
+            maxHealth = rangerClass.RangerHP;
+            healthBar.maxValue = maxHealth;
+        }
+        else if (name == "Warrior")
+        {
+            maxHealth = warriorClass.WarriorHP;
+            healthBar.maxValue = maxHealth;
+        }
     }
 
     public void TakeDamage(float damage)
