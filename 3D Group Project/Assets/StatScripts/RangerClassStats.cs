@@ -20,7 +20,7 @@ public class RangerClassStats : MonoBehaviour
     bool canScale = false;
 
     //[SerializeField] GameObject player;
-    [SerializeField] WeaponStats wepStats;
+    WeaponStats wepStats;
     PlayerExp playerExp;
     Specializations specs;
 
@@ -30,7 +30,7 @@ public class RangerClassStats : MonoBehaviour
     void Awake()
     {
         Callback += WhenPlayerXPChanged;
-        //wepStats = GetComponent<WeaponStats>();
+        wepStats = GetComponent<WeaponStats>();
         playerExp = GetComponent<PlayerExp>();
         specs = GetComponent<Specializations>();
 
@@ -46,10 +46,8 @@ public class RangerClassStats : MonoBehaviour
     }
 
     void FixedUpdate()
-    { 
-        RangerAtkp = (RangerAgility / 5) + baseRangerAtkp;
-        RangerHP = 50 + (int)(RangerStamina * 3f) + (playerExp.CurrentLevel * 10);
-        
+    {
+        SpecScaling(RangerAtkp);
         tempDamage = (int)wepStats.WepDamage;
         baseRangerAgi = (int)baseRangerAgi;
         baseRangerStam = (int)baseRangerStam;
@@ -66,7 +64,7 @@ public class RangerClassStats : MonoBehaviour
         else if(wepEquipped == false)
         {
             RangerAgility = baseRangerAgi;
-            RangerAtkp = baseRangerAtkp;
+            SpecScaling(RangerAtkp);
             RangerStamina = baseRangerStam;
             RangerDamage = (int)(RangerAtkp / 7);
         }
@@ -96,7 +94,7 @@ public class RangerClassStats : MonoBehaviour
         }
         else if(wepStats.WepReqLvl <= playerExp.CurrentLevel)
         {
-            RangerAtkp = baseRangerAtkp + wepStats.WepPwr;
+            SpecScaling(RangerAtkp = baseRangerAtkp + wepStats.WepPwr);
             RangerAgility = (baseRangerAgi * 1) + wepStats.WepMainStat;
             RangerStamina = (baseRangerStam * 1) + wepStats.WepStamina;
             RangerDamage = (RangerAtkp / 7) + tempDamage;
@@ -122,6 +120,28 @@ public class RangerClassStats : MonoBehaviour
         RangerAgility = (int)RangerAgility;
         RangerStamina = (int)RangerStamina;
     }
+
+    void SpecScaling(float atkp)
+    {
+        if (specs.rangerSpec1 == true)
+        {
+            RangerAtkp = (int)(RangerAgility * 3f) + (int)(baseRangerAtkp * 3f);
+            RangerHP = 50 + (RangerStamina * 2) + (playerExp.CurrentLevel * 10);
+        }
+
+        else if (specs.rangerSpec2 == true)
+        {
+            RangerAtkp = (RangerAgility * 20f) + (int)(baseRangerAtkp * 20f);
+            RangerHP = 1;
+        }
+
+        else if (specs.rangerSpec1 == false && specs.rangerSpec2 == false)
+        {
+            RangerAtkp = RangerAgility + baseRangerAtkp;
+            RangerHP = 50 + (int)(RangerStamina * 3f) + (playerExp.CurrentLevel * 25);
+        }
+    }
+
     /*
     void HealthScale()
     {

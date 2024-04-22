@@ -21,7 +21,7 @@ public class MageClassStats : MonoBehaviour
     bool canScale = false;
 
     //[SerializeField] GameObject player;
-    [SerializeField] WeaponStats wepStats;
+    WeaponStats wepStats;
     PlayerExp playerExp;
     Specializations specs;
 
@@ -49,7 +49,6 @@ public class MageClassStats : MonoBehaviour
     void FixedUpdate()
     {
         SpecScaling(MageSpellpower);
-
         tempDamage = (int)wepStats.WepDamage;
         baseMageInt = (int)baseMageInt;
         baseMageStam = (int)baseMageStam;

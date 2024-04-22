@@ -22,7 +22,7 @@ public class WarriorClassStats : MonoBehaviour
     bool canScale = false;
 
     //[SerializeField] GameObject player;
-    [SerializeField] WeaponStats wepStats;
+    WeaponStats wepStats;
     PlayerExp playerExp;
     Specializations specs;
 
