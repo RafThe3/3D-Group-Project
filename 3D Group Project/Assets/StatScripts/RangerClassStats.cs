@@ -19,8 +19,8 @@ public class RangerClassStats : MonoBehaviour
     public bool wepEquipped = false;
     bool canScale = false;
 
-    //[SerializeField] GameObject player;
-    WeaponStats wepStats;
+    private Ranger ranger;
+    [SerializeField] WeaponStats wepStats;
     PlayerExp playerExp;
     Specializations specs;
 
@@ -30,10 +30,10 @@ public class RangerClassStats : MonoBehaviour
     void Awake()
     {
         Callback += WhenPlayerXPChanged;
-        wepStats = GetComponent<WeaponStats>();
+        //wepStats = GetComponent<WeaponStats>();
         playerExp = GetComponent<PlayerExp>();
         specs = GetComponent<Specializations>();
-
+        ranger = GetComponent<Ranger>();
 
         tempDamage = (int)wepStats.WepDamage;
         RangerAgility = baseRangerAgi;
@@ -56,6 +56,7 @@ public class RangerClassStats : MonoBehaviour
         RangerStamina = (int)RangerStamina;
         RangerAtkp = (int)RangerAtkp;
         RangerDamage = (int)RangerDamage;
+        Debug.Log($"Ranger Health: {RangerHP}");
 
         if(wepEquipped == true)
         {
@@ -111,7 +112,7 @@ public class RangerClassStats : MonoBehaviour
         RangerHP = 50 + (int)(RangerStamina * 3f) + (playerExp.CurrentLevel * 25);
         RangerAgility += playerExp.CurrentLevel;
         RangerAtkp += (RangerAgility / 5);
-       
+        ranger.SetCurrentHealth(RangerHP);
 
         baseRangerAgi = (int)baseRangerAgi;
         baseRangerStam = (int)baseRangerStam;

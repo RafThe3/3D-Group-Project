@@ -126,4 +126,9 @@ public class Mage : MonoBehaviour
     {
         maxHealth = health;
     }
+
+    public void SetCurrentHealth(float health)
+    {
+        currentHealth = health;
+    }
 }

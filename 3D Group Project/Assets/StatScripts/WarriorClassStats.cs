@@ -19,8 +19,8 @@ public class WarriorClassStats : MonoBehaviour
     public bool wepEquipped = false;
     bool canScale = false;
 
-    //[SerializeField] GameObject player;
-    WeaponStats wepStats;
+    private Warrior warrior;
+    [SerializeField] WeaponStats wepStats;
     PlayerExp playerExp;
     Specializations specs;
 
@@ -33,7 +33,7 @@ public class WarriorClassStats : MonoBehaviour
         wepStats = GetComponent<WeaponStats>();
         playerExp = GetComponent<PlayerExp>();
         specs = GetComponent<Specializations>();
-
+        warrior = GetComponent<Warrior>();
 
         tempDamage = (int)wepStats.WepDamage;
         WarriorStrength = baseWarriorStr;
@@ -113,7 +113,7 @@ public class WarriorClassStats : MonoBehaviour
         WarriorHP = 50 + (WarriorStamina * 3) + (playerExp.CurrentLevel * 20);
         WarriorStrength += playerExp.CurrentLevel;
         WarriorAttackpower += (int)WarriorStrength + baseWarriorAtkp;
-
+        warrior.SetCurrentHealth(WarriorHP);
 
         baseWarriorStr = (int)baseWarriorStr;
         baseWarriorStam = (int)baseWarriorStam;

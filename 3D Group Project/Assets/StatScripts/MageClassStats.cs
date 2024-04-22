@@ -20,8 +20,8 @@ public class MageClassStats : MonoBehaviour
     public bool wepEquipped = false;
     bool canScale = false;
 
-    //[SerializeField] GameObject player;
-    WeaponStats wepStats;
+    private Mage mage;
+    [SerializeField] WeaponStats wepStats;
     PlayerExp playerExp;
     Specializations specs;
 
@@ -34,6 +34,7 @@ public class MageClassStats : MonoBehaviour
         wepStats = GetComponent<WeaponStats>();
         playerExp = GetComponent<PlayerExp>();
         specs = GetComponent<Specializations>();
+        mage = GetComponent<Mage>();
 
         tempDamage = (int)wepStats.WepDamage;
         MageIntellect = baseMageInt;
@@ -118,7 +119,7 @@ public class MageClassStats : MonoBehaviour
         MageHP = 25 + (int)(MageStamina * 1.5f) + (playerExp.CurrentLevel * 15);
         MageHealing += (MageSpellpower / 20);
         MageDamage += (MageSpellpower / 10);
-
+        mage.SetCurrentHealth(MageHP);
 
         baseMageInt = (int)baseMageInt;
         baseMageStam = (int)baseMageStam;
