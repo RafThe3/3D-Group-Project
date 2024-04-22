@@ -44,7 +44,12 @@ public class RangerClassStats : MonoBehaviour
         RangerAgility = (int)RangerAgility;
         RangerStamina = (int)RangerStamina;
     }
-    
+
+    private void Start()
+    {
+        RangerHP = 50 + (int)(RangerStamina * 3f) + (playerExp.CurrentLevel * 10);
+    }
+
     void FixedUpdate()
     { 
         RangerAtkp = (RangerAgility / 5) + baseRangerAtkp;

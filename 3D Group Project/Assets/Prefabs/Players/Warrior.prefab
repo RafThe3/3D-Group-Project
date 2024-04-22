@@ -1727,9 +1727,10 @@ GameObject:
   - component: {fileID: 1069067006249781919}
   - component: {fileID: 8555086724709241412}
   - component: {fileID: 2209588133892712139}
-  - component: {fileID: 6063750497704270401}
   - component: {fileID: 1757441425543373779}
   - component: {fileID: 2335415173517055063}
+  - component: {fileID: 863953561335501791}
+  - component: {fileID: 8391250788688681662}
   m_Layer: 8
   m_Name: Warrior
   m_TagString: Player
@@ -1971,26 +1972,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 1
---- !u!114 &6063750497704270401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5488206663722157337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17b20d64610d51140b50796b8cdabea4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isInvincible: 0
-  startingHealth: 100
-  maxHealth: 100
-  startingHealthPacks: 10
-  maxHealthPacks: 10
-  healInterval: 1
-  healthBar: {fileID: 2141642040013067111}
-  healthText: {fileID: 1568218359852057356}
 --- !u!114 &1757441425543373779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2026,6 +2007,44 @@ MonoBehaviour:
   WarriorAttackpower: 10
   wepEquipped: 0
   wepStats: {fileID: 2888912672875191611}
+--- !u!114 &863953561335501791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5488206663722157337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ec490d46ab50ea418a48df7f20c8683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  warriorSpec1: 0
+  warriorSpec2: 0
+  rangerSpec1: 0
+  rangerSpec2: 0
+  mageSpec1: 0
+  mageSpec2: 0
+--- !u!114 &8391250788688681662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5488206663722157337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d8fe070990c504ab85034f3bf3b556, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInvincible: 0
+  startingHealth: 1
+  maxHealth: 100
+  startingHealthPacks: 1
+  maxHealthPacks: 1
+  healInterval: 1
+  healthBar: {fileID: 2141642040013067111}
+  healthText: {fileID: 1568218359852057356}
 --- !u!1 &5511742799145454782
 GameObject:
   m_ObjectHideFlags: 0

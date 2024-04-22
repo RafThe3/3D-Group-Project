@@ -253,9 +253,10 @@ GameObject:
   - component: {fileID: 8762253935421524611}
   - component: {fileID: 6523122290032816060}
   - component: {fileID: 6648712446790444071}
-  - component: {fileID: 1768476605207745528}
   - component: {fileID: 4397081762744009098}
   - component: {fileID: 5463182124549911907}
+  - component: {fileID: -7177932880706497994}
+  - component: {fileID: -568448233280265849}
   m_Layer: 8
   m_Name: Ranger
   m_TagString: Player
@@ -497,29 +498,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 1
---- !u!114 &1768476605207745528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 679974146491726457}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17b20d64610d51140b50796b8cdabea4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isInvincible: 0
-  startingHealth: 100
-  maxHealth: 100
-  startingHealthPacks: 10
-  maxHealthPacks: 10
-  healInterval: 1
-  healthBar: {fileID: 4613825342075158327}
-  healthText: {fileID: 5280553444404373113}
-  mageClass: {fileID: -2287585795944459263, guid: f3c03c087905bc24d9167148e6614816, type: 3}
-  rangerClass: {fileID: 5463182124549911907}
-  warriorClass: {fileID: 2335415173517055063, guid: a9690ad90c1be554e93d21fa860ff4e6, type: 3}
 --- !u!114 &4397081762744009098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -554,6 +532,45 @@ MonoBehaviour:
   RangerDamage: 10
   RangerAtkp: 10
   wepEquipped: 0
+  wepStats: {fileID: 5511609435557233051}
+--- !u!114 &-7177932880706497994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679974146491726457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ec490d46ab50ea418a48df7f20c8683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  warriorSpec1: 0
+  warriorSpec2: 0
+  rangerSpec1: 0
+  rangerSpec2: 0
+  mageSpec1: 0
+  mageSpec2: 0
+--- !u!114 &-568448233280265849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679974146491726457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67ad7dd0de9cdd441a1dda0183394419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInvincible: 0
+  startingHealth: 1
+  maxHealth: 100
+  startingHealthPacks: 1
+  maxHealthPacks: 1
+  healInterval: 1
+  healthBar: {fileID: 4613825342075158327}
+  healthText: {fileID: 5280553444404373113}
 --- !u!1 &921353177541744632
 GameObject:
   m_ObjectHideFlags: 0
@@ -3150,6 +3167,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8599538886054605035, guid: aa90fb455153f81468199762fa54da07, type: 3}
+      propertyPath: isRanger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8599538886054605035, guid: aa90fb455153f81468199762fa54da07, type: 3}
       propertyPath: shootType
       value: 0
       objectReference: {fileID: 0}
@@ -3175,7 +3196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8599538886054605035, guid: aa90fb455153f81468199762fa54da07, type: 3}
       propertyPath: shootCooldown
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8599538886054605035, guid: aa90fb455153f81468199762fa54da07, type: 3}
       propertyPath: shootInterval

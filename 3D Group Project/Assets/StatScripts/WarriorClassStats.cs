@@ -32,7 +32,7 @@ public class WarriorClassStats : MonoBehaviour
     void Awake()
     {
         Callback += WhenPlayerXPChanged;
-        wepStats = GetComponent<WeaponStats>();
+        //wepStats = GetComponent<WeaponStats>();
         playerExp = GetComponent<PlayerExp>();
         specs = GetComponent<Specializations>();
 
