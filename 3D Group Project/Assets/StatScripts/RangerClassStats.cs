@@ -131,14 +131,15 @@ public class RangerClassStats : MonoBehaviour
 
         else if (specs.rangerSpec2 == true)
         {
-            RangerAtkp = (RangerAgility * 20f) + (int)(baseRangerAtkp * 20f);
+            RangerAtkp = (RangerAgility * 200f) + (int)(baseRangerAtkp * 20f);
+            RangerDamage = (int)(RangerAtkp / 1.5f);
             RangerHP = 1;
         }
 
         else if (specs.rangerSpec1 == false && specs.rangerSpec2 == false)
         {
             RangerAtkp = RangerAgility + baseRangerAtkp;
-            RangerHP = 50 + (int)(RangerStamina * 3f) + (playerExp.CurrentLevel * 25);
+            RangerHP = 25 + (int)(RangerStamina * 3f) + (playerExp.CurrentLevel * 25);
         }
     }
 

@@ -17,8 +17,6 @@ public class WarriorClassStats : MonoBehaviour
     int level = 1;
 
     public bool wepEquipped = false;
-    bool ws1 = false;
-    bool ws2 = false;
     bool canScale = false;
 
     //[SerializeField] GameObject player;
@@ -32,7 +30,7 @@ public class WarriorClassStats : MonoBehaviour
     void Awake()
     {
         Callback += WhenPlayerXPChanged;
-        //wepStats = GetComponent<WeaponStats>();
+        wepStats = GetComponent<WeaponStats>();
         playerExp = GetComponent<PlayerExp>();
         specs = GetComponent<Specializations>();
 
