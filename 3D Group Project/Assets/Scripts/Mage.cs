@@ -46,6 +46,7 @@ public class Mage : MonoBehaviour
     {
         healTimer += Time.deltaTime;
         UpdateUI();
+        FixBugs();
 
         //test
         if (Input.GetKeyDown(KeyCode.Q))
@@ -112,6 +113,19 @@ public class Mage : MonoBehaviour
     private void Die()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private void FixBugs()
+    {
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+
+        if (currentHealth < 0)
+        {
+            currentHealth = 0;
+        }
     }
 
     public void AddHealthPack()
