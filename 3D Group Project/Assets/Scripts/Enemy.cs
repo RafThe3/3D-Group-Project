@@ -11,8 +11,18 @@ public class Enemy : MonoBehaviour
     [Min(0), SerializeField] private float startingHealth = 1;
     [Min(0), SerializeField] private float maxHealth = 100;
 
-    [Header("Attack")]
-    [Min(0), SerializeField] private float attackInterval = 1;
+    [Header("Attacking")]
+    [SerializeField] private AttackType attackType = AttackType.None;
+
+    [Header("Shooting")]
+    [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private float projectileSpeed = 1;
+    [SerializeField] private float projectileLife = 1;
+    [SerializeField] private float shootInterval = 1;
+    //[SerializeField] private Transform projectileSpawnPoint;
+
+    [Header("Melee")]
+    [Min(0), SerializeField] private float meleeInterval = 1;
 
     //Internal Variables
     private NavMeshAgent agent;
@@ -20,7 +30,7 @@ public class Enemy : MonoBehaviour
     private Slider healthBar;
     private Canvas enemyUI;
     private EnemyStats enemyStats;
-    private float attackTimer = 0;
+    private float meleeTimer = 0, shootTimer = 0;
 
     private void Awake()
     {
@@ -43,14 +53,21 @@ public class Enemy : MonoBehaviour
         healthBar.value = startingHealth;
         enemyUI = GetComponentInChildren<Canvas>();
         enemyUI.enabled = false;
-        attackTimer = attackInterval;
+        meleeTimer = meleeInterval;
+        shootTimer = shootInterval;
     }
 
     private void Update()
     {
-        attackTimer += Time.deltaTime;
+        meleeTimer += Time.deltaTime;
+        shootTimer += Time.deltaTime;
 
         MoveEnemy();
+
+        if (attackType == AttackType.Shoot && shootTimer >= shootInterval)
+        {
+            Shoot();
+        }
     }
 
     private void MoveEnemy()
@@ -87,11 +104,22 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player") && attackTimer >= attackInterval)
+        if (collision.gameObject.CompareTag("Player") && meleeTimer >= meleeInterval && attackType == AttackType.Melee)
         {
             Player player = collision.gameObject.GetComponent<Player>();
             player.TakeDamage(enemyStats.enemyDamage);
-            attackTimer = 0;
+            meleeTimer = 0;
         }
     }
+
+    private void Shoot()
+    {
+        GameObject projectileClone = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        GameObject player = GameObject.FindWithTag("Player");
+        projectileClone.GetComponent<Rigidbody>().velocity = 10 * projectileSpeed * player.transform.position;
+        shootTimer = 0;
+        Destroy(projectileClone, projectileLife);
+    }
+
+    private enum AttackType { None, Melee, Shoot }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    [SerializeField] private bool isTargetingPlayer = false;
+
     private float damage = 1;
 
     private void Start()
@@ -27,16 +29,23 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (!isTargetingPlayer)
         {
-            Enemy enemy = other.gameObject.GetComponent<Enemy>();
-            enemy.TakeDamage(damage);
-            Destroy(gameObject);
+            if (other.gameObject.CompareTag("Enemy"))
+            {
+                Enemy enemy = other.gameObject.GetComponent<Enemy>();
+                enemy.TakeDamage(damage);
+                Destroy(gameObject);
+            }
         }
-
-        if (other.gameObject.CompareTag("Player"))
+        else
         {
-            Destroy(gameObject);
+            if (other.gameObject.CompareTag("Player"))
+            {
+                Player player = other.gameObject.GetComponent<Player>();
+                player.TakeDamage(damage);
+                Destroy(gameObject);
+            }
         }
     }
 
