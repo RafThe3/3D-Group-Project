@@ -6,46 +6,67 @@ using TMPro;
 
 public class ClassFunctions : MonoBehaviour
 {
-
-    [SerializeField] GameObject player;
-
     RangerClassStats rangerClass;
     WarriorClassStats warriorClass;
     MageClassStats mageClass;
 
+    public float finalDamage;
+    public float finalHealth;
+    public float finalHealing;
+
+
     public bool isRanger = false;
-    int rdmg;
-    int rhp;
+    float rdmg;
+    float rhp;
 
     public bool isWarrior = false;
-    int wdmg;
-    int whp;
+    float wdmg;
+    float whp;
 
     public bool isMage = false;
-    int mdmg;
-    int mhp;
-    int mhealing;
+    float mdmg;
+    float mhp;
+    float mhealing;
 
     private void Awake()
     {
-        player = GameObject.FindWithTag("Player");
+        rangerClass = GetComponent<RangerClassStats>();
+        warriorClass = GetComponent<WarriorClassStats>();
+        mageClass = GetComponent<MageClassStats>();
+
+        if(name == "Ranger")
+        {
+            isRanger = true;
+        }
+        else if(name == "Warrior")
+        {
+            isWarrior = true;
+        }
+        else if(name == "Mage")
+        {
+            isMage = true;
+        }
 
         if(isRanger == true)
         {
             RangerStats();
-            rangerClass = player.GetComponent<RangerClassStats>();
+            finalDamage = rdmg;
+            finalHealth = rhp;
         }
         
         if(isWarrior == true)
         {
             WarriorStats();
-            warriorClass = player.GetComponent<WarriorClassStats>();
+            finalDamage = wdmg;
+            finalHealth = whp;
         }
         
         if(isMage == true)
         {
             MageStats();
-            mageClass = player.GetComponent<MageClassStats>();
+            finalDamage = mdmg;
+            finalHealth = mhp;
+            finalHealing = mhealing;
         }
     }
 
@@ -54,16 +75,23 @@ public class ClassFunctions : MonoBehaviour
         if(isRanger == true)
         {
             RangerStats();
+            finalDamage = rdmg;
+            finalHealth = rhp;
         }
        
         if(isWarrior == true)
         {
             WarriorStats();
+            finalDamage = wdmg;
+            finalHealth = whp;
         }
 
         if(isMage == true)
         {
             MageStats();
+            finalDamage = mdmg;
+            finalHealth = mhp;
+            finalHealing = mhealing;
         }
     }
 

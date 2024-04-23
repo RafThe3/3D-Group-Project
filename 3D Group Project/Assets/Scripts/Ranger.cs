@@ -24,6 +24,7 @@ public class Ranger : MonoBehaviour
     private float healTimer = 0;
     private RangerClassStats rangerClass;
     private PlayerExp playerExp;
+    private ClassFunctions classes;
 
     int levelCheck = 1;
 
@@ -31,19 +32,25 @@ public class Ranger : MonoBehaviour
     {
         rangerClass = GetComponent<RangerClassStats>();
         playerExp = GetComponent<PlayerExp>();
+        classes = GetComponent<ClassFunctions>();
     }
 
     private void Start()
     {
-        maxHealth = rangerClass.RangerHP;
-        if (startingHealth > maxHealth)
+        maxHealth = classes.finalHealth;
+        if (startingHealth >= maxHealth)
         {
             startingHealth = maxHealth;
         }
+        currentHealth = classes.finalHealth;
         currentHealth = maxHealth;
         healthPacks = startingHealthPacks;
         healthBar.maxValue = maxHealth;
         healthBar.value = maxHealth;
+        if (currentHealth >= maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
     }
 
     private void Update()
@@ -69,16 +76,26 @@ public class Ranger : MonoBehaviour
         maxHealth = rangerClass.RangerHP;
         healthBar.maxValue = maxHealth;
         healthBar.value = currentHealth;
+
         if (levelCheck >= playerExp.CurrentLevel)
         {
             levelCheck = playerExp.CurrentLevel;
         }
-        else if (levelCheck < playerExp.CurrentLevel)
+        else if(levelCheck < playerExp.CurrentLevel)
         {
-            currentHealth = maxHealth;
+            currentHealth += (maxHealth*2);
             healthBar.value = healthBar.maxValue;
-            levelCheck++;
+        
+            if(currentHealth > maxHealth)
+            {
+                currentHealth = maxHealth;
+            }
+            else if(currentHealth == maxHealth)
+            {
+                levelCheck++;
+            }
         }
+
         healthText.text = $"Health: {currentHealth} / {maxHealth}";
 
         /*

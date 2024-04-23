@@ -26,10 +26,12 @@ public class Shooting : MonoBehaviour
     //Internal Variables
     private float shootTimer = 0;
     private WeaponStats weaponStats;
+    private ClassFunctions classes;
 
     private void Awake()
     {
         weaponStats = GetComponent<WeaponStats>();
+        classes = GetComponent<ClassFunctions>();
     }
 
     private void Start()
@@ -37,14 +39,14 @@ public class Shooting : MonoBehaviour
         shootTimer = shootCooldown;
         attackCooldownBar.maxValue = shootCooldown;
         attackCooldownBar.value = attackCooldownBar.maxValue;
-        damageAmount = weaponStats.WepDamage;
+        damageAmount = classes.finalDamage;
     }
 
     private void Update()
     {
         canShoot = Time.timeScale > 0;
         shootTimer += Time.deltaTime;
-        damageAmount = weaponStats.WepDamage;
+        damageAmount = classes.finalDamage;
 
         bool isCoolingDown = attackCooldownBar.value < attackCooldownBar.maxValue;
         attackCooldownBar.gameObject.SetActive(isCoolingDown);
