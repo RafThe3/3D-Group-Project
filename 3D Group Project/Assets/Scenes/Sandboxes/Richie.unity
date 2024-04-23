@@ -543,59 +543,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &721165354
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 721165356}
-  - component: {fileID: 721165355}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &721165355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 721165354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb721a8eba0512242812a8f99fd58ca8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WepRarity: 6
-  WepDamage: 1
-  WepMainStat: 1
-  WepStamina: 1
-  WepPwr: 1
-  WepReqLvl: 20
-  WepMinDamage: 5
-  WepMaxReq: 1
-  WepILvl: 1
---- !u!4 &721165356
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 721165354}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 551.13135, y: 15.595659, z: 265.2667}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &989593052 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5520644634988995451, guid: e8261a97a7f761c4e8efce96a79a4a28, type: 3}
@@ -911,6 +858,9 @@ GameObject:
   - component: {fileID: 7685886780553392333}
   - component: {fileID: 7685886780553392332}
   - component: {fileID: 7685886780553392335}
+  - component: {fileID: 7685886780553392338}
+  - component: {fileID: 7685886780553392337}
+  - component: {fileID: 7685886780553392336}
   m_Layer: 8
   m_Name: PlayerCapsule
   m_TagString: Player
@@ -2251,6 +2201,12 @@ MonoBehaviour:
   WepStamina: 1
   WepPwr: 1
   WepReqLvl: 1
+  LegenaryRarity: 1000
+  EpicRarity: 500
+  RareRarity: 250
+  UncommonRarity: 100
+  CommonRarity: 25
+  TrashRarity: 5
   WepMinDamage: 5
   WepMaxReq: 20
   WepILvl: 1
@@ -2291,6 +2247,7 @@ MonoBehaviour:
   RangerDamage: 10
   RangerAtkp: 10
   wepEquipped: 0
+  wepStats: {fileID: 0}
 --- !u!114 &7685886780553392332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2325,6 +2282,7 @@ MonoBehaviour:
   WarriorDamage: 10
   WarriorAttackpower: 10
   wepEquipped: 0
+  wepStats: {fileID: 0}
 --- !u!114 &7685886780553392334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2344,6 +2302,7 @@ MonoBehaviour:
   MageHealing: 10
   MageSpellpower: 10
   wepEquipped: 0
+  wepStats: {fileID: 0}
 --- !u!114 &7685886780553392335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2362,6 +2321,66 @@ MonoBehaviour:
   rangerSpec2: 0
   mageSpec1: 0
   mageSpec2: 0
+--- !u!114 &7685886780553392336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453084649749125688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67ad7dd0de9cdd441a1dda0183394419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInvincible: 0
+  startingHealth: 1
+  maxHealth: 100
+  startingHealthPacks: 1
+  maxHealthPacks: 1
+  healInterval: 1
+  healthBar: {fileID: 0}
+  healthText: {fileID: 0}
+--- !u!114 &7685886780553392337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453084649749125688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d8fe070990c504ab85034f3bf3b556, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInvincible: 0
+  startingHealth: 1
+  maxHealth: 100
+  startingHealthPacks: 1
+  maxHealthPacks: 1
+  healInterval: 1
+  healthBar: {fileID: 0}
+  healthText: {fileID: 0}
+--- !u!114 &7685886780553392338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453084649749125688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa631999f4a4be344b89e4aa08f6468b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInvincible: 0
+  startingHealth: 1
+  maxHealth: 100
+  startingHealthPacks: 1
+  maxHealthPacks: 1
+  healInterval: 1
+  healthBar: {fileID: 0}
+  healthText: {fileID: 0}
 --- !u!224 &8078244803404967442
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2595,4 +2614,3 @@ SceneRoots:
   - {fileID: 574537502}
   - {fileID: 40936424}
   - {fileID: 6556307556700323152}
-  - {fileID: 721165356}

@@ -10,13 +10,14 @@ public class WeaponStats : MonoBehaviour
     public float WepStamina = 1;
     public float WepPwr = 1;
     public int WepReqLvl = 1;
-    int LegenaryRarity = 1000;
-    int EpicRarity = 500;
-    int RareRarity = 250;
-    int UncommonRarity = 100;
-    int CommonRarity = 25;
-    int TrashRarity = 5;
 
+    [HideInInspector] public int LegenaryRarity = 1000;
+    [HideInInspector] public int EpicRarity = 500;
+    [HideInInspector] public int RareRarity = 250;
+    [HideInInspector] public int UncommonRarity = 100;
+    [HideInInspector] public int CommonRarity = 25;
+    [HideInInspector] public int TrashRarity = 5;
+    
     [SerializeField] int WepMinDamage = 5;
     [SerializeField] int WepMaxReq = 1;
     [SerializeField] float WepILvl = 1;
