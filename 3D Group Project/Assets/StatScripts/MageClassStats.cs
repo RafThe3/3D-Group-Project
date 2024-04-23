@@ -31,7 +31,6 @@ public class MageClassStats : MonoBehaviour
     void Awake()
     {
         Callback += WhenPlayerXPChanged;
-        wepStats = GetComponent<WeaponStats>();
         playerExp = GetComponent<PlayerExp>();
         specs = GetComponent<Specializations>();
         mage = GetComponent<Mage>();
@@ -119,7 +118,6 @@ public class MageClassStats : MonoBehaviour
         MageHP = 25 + (int)(MageStamina * 1.5f) + (playerExp.CurrentLevel * 15);
         MageHealing += (MageSpellpower / 20);
         MageDamage += (MageSpellpower / 10);
-        mage.SetCurrentHealth(MageHP);
 
         baseMageInt = (int)baseMageInt;
         baseMageStam = (int)baseMageStam;

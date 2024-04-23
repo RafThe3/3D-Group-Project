@@ -14,14 +14,16 @@ public class Mage : MonoBehaviour
     [Min(0), SerializeField] private int startingHealthPacks = 1;
     [Min(0), SerializeField] private int maxHealthPacks = 1;
     [Min(0), SerializeField] private float healInterval = 1;
+    [Min(0), SerializeField] private float autoHealInterval = 1;
     [SerializeField] private Slider healthBar;
     [SerializeField] private TextMeshProUGUI healthText;
-    //[SerializeField] private Image crosshair;
+    [SerializeField] private Image hurtImage;
 
     //Internal Variables
     private float currentHealth = 0;
     private int healthPacks = 0;
-    private float healTimer = 0;
+    private float healTimer = 0, autoHealTimer = 0;
+    private float tempHealth = 0;
     private MageClassStats mageClass;
 
     private void Awake()
@@ -45,8 +47,18 @@ public class Mage : MonoBehaviour
     private void Update()
     {
         healTimer += Time.deltaTime;
-        UpdateUI();
+        if (currentHealth < maxHealth)
+        {
+            autoHealTimer += Time.deltaTime;
+        }
+        else
+        {
+            autoHealTimer = 0;
+        }
+        Debug.Log(autoHealTimer);
+
         FixBugs();
+        UpdateUI();
 
         //test
         if (Input.GetKeyDown(KeyCode.Q))
@@ -57,6 +69,12 @@ public class Mage : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             Heal(10);
+        }
+
+        if (autoHealTimer >= autoHealInterval && currentHealth < maxHealth)
+        {
+            tempHealth += Time.deltaTime * 1;
+            currentHealth = Mathf.RoundToInt(tempHealth);
         }
     }
 
@@ -83,11 +101,7 @@ public class Mage : MonoBehaviour
         }
 
         currentHealth -= damage;
-
-        if (currentHealth < 0)
-        {
-            currentHealth = 0;
-        }
+        autoHealTimer = 0;
 
         if (currentHealth <= 0)
         {
@@ -102,11 +116,7 @@ public class Mage : MonoBehaviour
             currentHealth += health;
             healthPacks--;
             healTimer = 0;
-        }
-
-        if (currentHealth > maxHealth)
-        {
-            currentHealth = maxHealth;
+            autoHealTimer = 0;
         }
     }
 
@@ -144,5 +154,10 @@ public class Mage : MonoBehaviour
     public void SetCurrentHealth(float health)
     {
         currentHealth = health;
+    }
+
+    public float GetCurrentHealth()
+    {
+        return currentHealth;
     }
 }

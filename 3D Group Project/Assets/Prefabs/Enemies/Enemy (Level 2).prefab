@@ -305,7 +305,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 7693660454554375522, guid: 159d052ebaf9c10498f047660bd30941, type: 3}
   projectileSpeed: 5
   projectileLife: 3
-  shootInterval: 1
+  shootInterval: 2
   meleeInterval: 1
 --- !u!195 &2601041484188137314
 NavMeshAgent:

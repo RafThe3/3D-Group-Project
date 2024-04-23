@@ -2000,7 +2000,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 606f80e993270cf4c917fdfeecf3aa70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WarriorHP: 75
+  WarriorHP: 100
   WarriorStrength: 10
   WarriorStamina: 10
   WarriorDamage: 10

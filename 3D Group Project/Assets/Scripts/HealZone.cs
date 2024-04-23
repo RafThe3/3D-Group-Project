@@ -19,9 +19,24 @@ public class HealZone : MonoBehaviour
 
         if (other.CompareTag("Player") && healTimer >= healInterval)
         {
-            Player player = other.GetComponent<Player>();
-            player.Heal(healAmount);
+            HealPlayer(other);
             healTimer = 0;
+        }
+    }
+
+    private void HealPlayer(Collider other)
+    {
+        if (other.TryGetComponent(out Warrior _))
+        {
+            other.GetComponent<Warrior>().Heal(healAmount);
+        }
+        else if (other.TryGetComponent(out Ranger _))
+        {
+            other.GetComponent<Ranger>().Heal(healAmount);
+        }
+        else if (other.TryGetComponent(out Mage _))
+        {
+            other.GetComponent<Mage>().Heal(healAmount);
         }
     }
 

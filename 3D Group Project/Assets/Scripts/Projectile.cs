@@ -31,7 +31,7 @@ public class Projectile : MonoBehaviour
     {
         if (!isTargetingPlayer)
         {
-            if (other.gameObject.CompareTag("Enemy"))
+            if (other.CompareTag("Enemy"))
             {
                 Enemy enemy = other.gameObject.GetComponent<Enemy>();
                 enemy.TakeDamage(damage);
@@ -40,12 +40,27 @@ public class Projectile : MonoBehaviour
         }
         else
         {
-            if (other.gameObject.CompareTag("Player"))
+            if (other.CompareTag("Player"))
             {
-                Player player = other.gameObject.GetComponent<Player>();
-                player.TakeDamage(damage);
+                DamagePlayer(other);
                 Destroy(gameObject);
             }
+        }
+    }
+
+    private void DamagePlayer(Collider player)
+    {
+        if (player.TryGetComponent(out Mage _))
+        {
+            player.GetComponent<Mage>().TakeDamage(damage);
+        }
+        else if (player.TryGetComponent(out Warrior _))
+        {
+            player.GetComponent<Warrior>().TakeDamage(damage);
+        }
+        else if (player.TryGetComponent(out Ranger _))
+        {
+            player.GetComponent<Ranger>().TakeDamage(damage);
         }
     }
 

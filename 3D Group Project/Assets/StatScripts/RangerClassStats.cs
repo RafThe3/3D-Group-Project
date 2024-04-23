@@ -30,7 +30,6 @@ public class RangerClassStats : MonoBehaviour
     void Awake()
     {
         Callback += WhenPlayerXPChanged;
-        //wepStats = GetComponent<WeaponStats>();
         playerExp = GetComponent<PlayerExp>();
         specs = GetComponent<Specializations>();
         ranger = GetComponent<Ranger>();
@@ -112,7 +111,6 @@ public class RangerClassStats : MonoBehaviour
         RangerHP = 50 + (int)(RangerStamina * 3f) + (playerExp.CurrentLevel * 25);
         RangerAgility += playerExp.CurrentLevel;
         RangerAtkp += (RangerAgility / 5);
-        ranger.SetCurrentHealth(RangerHP);
 
         baseRangerAgi = (int)baseRangerAgi;
         baseRangerStam = (int)baseRangerStam;
@@ -120,6 +118,7 @@ public class RangerClassStats : MonoBehaviour
         RangerDamage = (int)RangerDamage;
         RangerAgility = (int)RangerAgility;
         RangerStamina = (int)RangerStamina;
+        ranger.SetCurrentHealth(RangerHP);
     }
 
     void SpecScaling(float atkp)

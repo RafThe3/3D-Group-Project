@@ -1332,6 +1332,7 @@ MonoBehaviour:
   healInterval: 1
   healthBar: {fileID: 6391233047776476941}
   healthText: {fileID: 5382972017382617923}
+  hurtImage: {fileID: 0}
 --- !u!1 &3869666871271260690
 GameObject:
   m_ObjectHideFlags: 0

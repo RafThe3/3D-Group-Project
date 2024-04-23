@@ -106,9 +106,27 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && meleeTimer >= meleeInterval && attackType == AttackType.Melee)
         {
-            Player player = collision.gameObject.GetComponent<Player>();
-            player.TakeDamage(enemyStats.enemyDamage);
+            float enemyDamage = enemyStats.enemyDamage;
+            GameObject player = collision.gameObject;
+
+            AttackPlayer(enemyDamage, player);
             meleeTimer = 0;
+        }
+    }
+
+    private static void AttackPlayer(float enemyDamage, GameObject player)
+    {
+        if (player.TryGetComponent(out Mage _))
+        {
+            player.GetComponent<Mage>().TakeDamage(enemyDamage);
+        }
+        else if (player.TryGetComponent(out Warrior _))
+        {
+            player.GetComponent<Warrior>().TakeDamage(enemyDamage);
+        }
+        else if (player.TryGetComponent(out Ranger _))
+        {
+            player.GetComponent<Ranger>().TakeDamage(enemyDamage);
         }
     }
 
@@ -116,7 +134,8 @@ public class Enemy : MonoBehaviour
     {
         GameObject projectileClone = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
         GameObject player = GameObject.FindWithTag("Player");
-        projectileClone.GetComponent<Rigidbody>().velocity = 10 * projectileSpeed * player.transform.position;
+        Vector3 shootDirection = player.transform.position - transform.position;
+        projectileClone.GetComponent<Rigidbody>().velocity = 10 * projectileSpeed * shootDirection.normalized + transform.forward;
         shootTimer = 0;
         Destroy(projectileClone, projectileLife);
     }
