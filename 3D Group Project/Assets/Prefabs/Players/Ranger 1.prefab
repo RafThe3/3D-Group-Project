@@ -258,8 +258,9 @@ GameObject:
   - component: {fileID: -7177932880706497994}
   - component: {fileID: -568448233280265849}
   - component: {fileID: -4745098550251102488}
+  - component: {fileID: 8545017655289200670}
   m_Layer: 8
-  m_Name: Ranger
+  m_Name: Ranger 1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -527,7 +528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a9ed654dbeb1844fa49d92a4bc9873d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RangerHP: 75
+  RangerHP: 91
   RangerAgility: 10
   RangerStamina: 10
   RangerDamage: 10
@@ -570,6 +571,8 @@ MonoBehaviour:
   startingHealthPacks: 1
   maxHealthPacks: 1
   healInterval: 1
+  autoHealInterval: 15
+  autoHealMultiplier: 3
   healthBar: {fileID: 4613825342075158327}
   healthText: {fileID: 5280553444404373113}
 --- !u!114 &-4745098550251102488
@@ -590,6 +593,28 @@ MonoBehaviour:
   isRanger: 1
   isWarrior: 0
   isMage: 0
+--- !u!114 &8545017655289200670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679974146491726457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59ba5a1278272c749b054df42b7bb2d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canShoot: 1
+  shootType: 0
+  damageAmount: 1
+  shootCooldown: 2
+  attackCooldownBar: {fileID: 8888402687052553149}
+  projectilePrefab: {fileID: 4865309214770636011, guid: c2685906cd0949d4e982dea2009ef669, type: 3}
+  projectileSpeed: 5
+  projectileLife: 1
+  projectileSpawnPoint: {fileID: 7330233992977503902}
+  maxDistance: 1
 --- !u!1 &921353177541744632
 GameObject:
   m_ObjectHideFlags: 0
@@ -3190,6 +3215,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8599538886054605035, guid: aa90fb455153f81468199762fa54da07, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8599538886054605035, guid: aa90fb455153f81468199762fa54da07, type: 3}
       propertyPath: shootType
       value: 0
       objectReference: {fileID: 0}
@@ -3274,12 +3303,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb721a8eba0512242812a8f99fd58ca8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WepRarity: 1
+  WepRarity: 6
   WepDamage: 1
   WepMainStat: 1
   WepStamina: 1
   WepPwr: 1
-  WepReqLvl: 1
+  WepReqLvl: 178
   LegenaryRarity: 1000
   EpicRarity: 500
   RareRarity: 250
@@ -3296,7 +3325,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2974530257173473175}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a357eb3a2c8c8746bdcc6704862b10f, type: 3}
   m_Name: 

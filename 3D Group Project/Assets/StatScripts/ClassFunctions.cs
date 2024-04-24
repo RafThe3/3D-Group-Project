@@ -30,19 +30,28 @@ public class ClassFunctions : MonoBehaviour
 
     private void Awake()
     {
-        rangerClass = GetComponent<RangerClassStats>();
-        warriorClass = GetComponent<WarriorClassStats>();
-        mageClass = GetComponent<MageClassStats>();
+        if (TryGetComponent(out mageClass))
+        {
+            mageClass = GetComponent<MageClassStats>();
+        }
+        else if (TryGetComponent(out rangerClass))
+        {
+            rangerClass = GetComponent<RangerClassStats>();
+        }
+        else if (TryGetComponent(out warriorClass))
+        {
+            warriorClass = GetComponent<WarriorClassStats>();
+        }
 
-        if(name == "Ranger")
+        if(rangerClass != null)
         {
             isRanger = true;
         }
-        else if(name == "Warrior")
+        else if(warriorClass != null)
         {
             isWarrior = true;
         }
-        else if(name == "Mage")
+        else if(mageClass != null)
         {
             isMage = true;
         }

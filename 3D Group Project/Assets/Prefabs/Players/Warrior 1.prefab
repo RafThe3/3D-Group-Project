@@ -1733,7 +1733,7 @@ GameObject:
   - component: {fileID: 8391250788688681662}
   - component: {fileID: -5547552932528966903}
   m_Layer: 8
-  m_Name: Warrior
+  m_Name: Warrior 1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

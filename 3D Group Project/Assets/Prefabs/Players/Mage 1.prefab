@@ -1018,8 +1018,9 @@ GameObject:
   - component: {fileID: 9185148640619424996}
   - component: {fileID: 6348335218064180434}
   - component: {fileID: -560265094879119498}
+  - component: {fileID: 8646442174757354086}
   m_Layer: 8
-  m_Name: Mage
+  m_Name: Mage 1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1331,7 +1332,8 @@ MonoBehaviour:
   startingHealthPacks: 1
   maxHealthPacks: 1
   healInterval: 1
-  autoHealInterval: 1
+  autoHealInterval: 15
+  autoHealMultiplier: 3
   healthBar: {fileID: 6391233047776476941}
   healthText: {fileID: 5382972017382617923}
   hurtImage: {fileID: 0}
@@ -1353,6 +1355,28 @@ MonoBehaviour:
   isRanger: 0
   isWarrior: 0
   isMage: 0
+--- !u!114 &8646442174757354086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3461968631643149906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59ba5a1278272c749b054df42b7bb2d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canShoot: 1
+  shootType: 0
+  damageAmount: 1
+  shootCooldown: 0.6
+  attackCooldownBar: {fileID: 3090014784058418386}
+  projectilePrefab: {fileID: 7693660454554375522, guid: 34b7543588e424b4eb731a82e48285ce, type: 3}
+  projectileSpeed: 5
+  projectileLife: 0.8
+  projectileSpawnPoint: {fileID: 4880190313766664893}
+  maxDistance: 1
 --- !u!1 &3869666871271260690
 GameObject:
   m_ObjectHideFlags: 0
@@ -3113,6 +3137,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 4374215029277714739}
     m_Modifications:
     - target: {fileID: 2880748776520316200, guid: 6119492ddd9061f448c35468f2cb4aae, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880748776520316200, guid: 6119492ddd9061f448c35468f2cb4aae, type: 3}
       propertyPath: healAmount
       value: 5
       objectReference: {fileID: 0}
@@ -3143,6 +3171,10 @@ PrefabInstance:
     - target: {fileID: 2880748776520316200, guid: 6119492ddd9061f448c35468f2cb4aae, type: 3}
       propertyPath: zoneSpawnCooldown
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3475870153139941852, guid: 6119492ddd9061f448c35468f2cb4aae, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3475870153139941852, guid: 6119492ddd9061f448c35468f2cb4aae, type: 3}
       propertyPath: shootType

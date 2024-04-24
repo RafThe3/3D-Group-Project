@@ -14,6 +14,8 @@ public class Ranger : MonoBehaviour
     [Min(0), SerializeField] private int startingHealthPacks = 1;
     [Min(0), SerializeField] private int maxHealthPacks = 1;
     [Min(0), SerializeField] private float healInterval = 1;
+    [Min(0), SerializeField] private float autoHealInterval = 1;
+    [Min(0), SerializeField] private float autoHealMultiplier = 1;
     [SerializeField] private Slider healthBar;
     [SerializeField] private TextMeshProUGUI healthText;
     //[SerializeField] private Image crosshair;
@@ -21,12 +23,14 @@ public class Ranger : MonoBehaviour
     //Internal Variables
     private float currentHealth = 0;
     private int healthPacks = 0;
-    private float healTimer = 0;
+    private float healTimer = 0, autoHealTimer = 0;
     private RangerClassStats rangerClass;
     private PlayerExp playerExp;
     private ClassFunctions classes;
 
     int levelCheck = 1;
+    private bool canSetTempHealth = true;
+    private float tempHealth = 0;
 
     private void Awake()
     {
@@ -38,25 +42,32 @@ public class Ranger : MonoBehaviour
     private void Start()
     {
         maxHealth = classes.finalHealth;
-        if (startingHealth >= maxHealth)
+        if (startingHealth > maxHealth)
         {
             startingHealth = maxHealth;
         }
         currentHealth = classes.finalHealth;
-        currentHealth = maxHealth;
+        //currentHealth = maxHealth;
         healthPacks = startingHealthPacks;
         healthBar.maxValue = maxHealth;
         healthBar.value = maxHealth;
-        if (currentHealth >= maxHealth)
+        if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
         }
+        tempHealth = currentHealth;
     }
 
     private void Update()
     {
         healTimer += Time.deltaTime;
+        autoHealTimer += Time.deltaTime;
+        FixBugs();
         UpdateUI();
+        if (canSetTempHealth)
+        {
+            tempHealth = currentHealth;
+        }
 
         //test
         if (Input.GetKeyDown(KeyCode.Q))
@@ -68,6 +79,18 @@ public class Ranger : MonoBehaviour
         {
             Heal(10);
         }
+
+        if (autoHealTimer >= autoHealInterval && currentHealth < maxHealth)
+        {
+            AutoHeal();
+        }
+    }
+
+    private void AutoHeal()
+    {
+        canSetTempHealth = false;
+        tempHealth += Time.deltaTime * autoHealMultiplier;
+        currentHealth = Mathf.RoundToInt(tempHealth);
     }
 
     private void UpdateUI()
@@ -77,24 +100,28 @@ public class Ranger : MonoBehaviour
         healthBar.maxValue = maxHealth;
         healthBar.value = currentHealth;
 
+        /*
         if (levelCheck >= playerExp.CurrentLevel)
         {
             levelCheck = playerExp.CurrentLevel;
         }
         else if(levelCheck < playerExp.CurrentLevel)
         {
-            currentHealth += (maxHealth*2);
-            healthBar.value = healthBar.maxValue;
-        
-            if(currentHealth > maxHealth)
+            giveHealth = true;
+            if (giveHealth)
             {
-                currentHealth = maxHealth;
+                currentHealth += (maxHealth*2);
             }
-            else if(currentHealth == maxHealth)
+
+            healthBar.value = healthBar.maxValue;
+            
+            if(currentHealth >= maxHealth)
             {
+                giveHealth = false;
                 levelCheck++;
             }
         }
+        */
 
         healthText.text = $"Health: {currentHealth} / {maxHealth}";
 
@@ -113,12 +140,9 @@ public class Ranger : MonoBehaviour
             return;
         }
 
+        autoHealTimer = 0;
+        canSetTempHealth = true;
         currentHealth -= damage;
-
-        if (currentHealth < 0)
-        {
-            currentHealth = 0;
-        }
 
         if (currentHealth <= 0)
         {
@@ -133,11 +157,8 @@ public class Ranger : MonoBehaviour
             currentHealth += health;
             healthPacks--;
             healTimer = 0;
-        }
-
-        if (currentHealth > maxHealth)
-        {
-            currentHealth = maxHealth;
+            autoHealTimer = 0;
+            canSetTempHealth = true;
         }
     }
 
@@ -162,5 +183,18 @@ public class Ranger : MonoBehaviour
     public void SetCurrentHealth(float health)
     {
         currentHealth = health;
+    }
+
+    private void FixBugs()
+    {
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+
+        if (currentHealth < 0)
+        {
+            currentHealth = 0;
+        }
     }
 }

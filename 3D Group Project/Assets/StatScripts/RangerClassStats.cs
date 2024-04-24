@@ -118,7 +118,7 @@ public class RangerClassStats : MonoBehaviour
         RangerDamage = (int)RangerDamage;
         RangerAgility = (int)RangerAgility;
         RangerStamina = (int)RangerStamina;
-        ranger.SetCurrentHealth(RangerHP);
+        ranger.Heal(10000);
     }
 
     void SpecScaling(float atkp)

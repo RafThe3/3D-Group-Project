@@ -1782,7 +1782,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1460698654}
   - component: {fileID: 1460698653}
-  - component: {fileID: 1460698655}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -1817,22 +1816,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1460698655
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1460698652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a357eb3a2c8c8746bdcc6704862b10f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  isRanger: 0
-  isWarrior: 0
-  isMage: 0
 --- !u!1 &1532960839
 GameObject:
   m_ObjectHideFlags: 0
@@ -2379,8 +2362,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6ff24ceeb0eeae4ba22f3dc79b1f138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mage: {fileID: 3461968631643149906, guid: f3c03c087905bc24d9167148e6614816, type: 3}
-  ranger: {fileID: 679974146491726457, guid: 8aa79485aa58ab848a35b7a3b2832929, type: 3}
+  mage: {fileID: 3461968631643149906, guid: 7af8553422684ff46a432e93087bbe75, type: 3}
+  ranger: {fileID: 679974146491726457, guid: c09397d40adf9ac4b9b0fc2b5987fa89, type: 3}
   warrior: {fileID: 5488206663722157337, guid: a9690ad90c1be554e93d21fa860ff4e6, type: 3}
   spawnPoint: {fileID: 2118312545}
 --- !u!4 &2118312545

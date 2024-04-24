@@ -15,6 +15,7 @@ public class Mage : MonoBehaviour
     [Min(0), SerializeField] private int maxHealthPacks = 1;
     [Min(0), SerializeField] private float healInterval = 1;
     [Min(0), SerializeField] private float autoHealInterval = 1;
+    [Min(0), SerializeField] private float autoHealMultiplier = 1;
     [SerializeField] private Slider healthBar;
     [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private Image hurtImage;
@@ -25,6 +26,7 @@ public class Mage : MonoBehaviour
     private float healTimer = 0, autoHealTimer = 0;
     private float tempHealth = 0;
     private MageClassStats mageClass;
+    private bool canSetTempHealth = true;
 
     private void Awake()
     {
@@ -42,23 +44,21 @@ public class Mage : MonoBehaviour
         healthPacks = startingHealthPacks;
         healthBar.maxValue = maxHealth;
         healthBar.value = maxHealth;
+        tempHealth = currentHealth;
     }
 
     private void Update()
     {
         healTimer += Time.deltaTime;
-        if (currentHealth < maxHealth)
-        {
-            autoHealTimer += Time.deltaTime;
-        }
-        else
-        {
-            autoHealTimer = 0;
-        }
-        Debug.Log(autoHealTimer);
+        autoHealTimer += Time.deltaTime;
 
         FixBugs();
         UpdateUI();
+
+        if (canSetTempHealth)
+        {
+            tempHealth = currentHealth;
+        }
 
         //test
         if (Input.GetKeyDown(KeyCode.Q))
@@ -73,8 +73,7 @@ public class Mage : MonoBehaviour
 
         if (autoHealTimer >= autoHealInterval && currentHealth < maxHealth)
         {
-            tempHealth += Time.deltaTime * 1;
-            currentHealth = Mathf.RoundToInt(tempHealth);
+            AutoHeal();
         }
     }
 
@@ -93,6 +92,13 @@ public class Mage : MonoBehaviour
         */
     }
 
+    private void AutoHeal()
+    {
+        canSetTempHealth = false;
+        tempHealth += Time.deltaTime * autoHealMultiplier;
+        currentHealth = Mathf.RoundToInt(tempHealth);
+    }
+
     public void TakeDamage(float damage)
     {
         if (isInvincible)
@@ -100,8 +106,9 @@ public class Mage : MonoBehaviour
             return;
         }
 
-        currentHealth -= damage;
         autoHealTimer = 0;
+        canSetTempHealth = true;
+        currentHealth -= damage;
 
         if (currentHealth <= 0)
         {
@@ -117,6 +124,7 @@ public class Mage : MonoBehaviour
             healthPacks--;
             healTimer = 0;
             autoHealTimer = 0;
+            canSetTempHealth = true;
         }
     }
 

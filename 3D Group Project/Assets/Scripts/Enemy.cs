@@ -6,6 +6,9 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
+    [Header("Movement")]
+    [Min(0), SerializeField] private float chaseDistance = 1;
+
     [Header("Health")]
     [SerializeField] private bool isInvincible = false;
     [Min(0), SerializeField] private float startingHealth = 1;
@@ -16,9 +19,10 @@ public class Enemy : MonoBehaviour
 
     [Header("Shooting")]
     [SerializeField] private GameObject projectilePrefab;
-    [SerializeField] private float projectileSpeed = 1;
-    [SerializeField] private float projectileLife = 1;
-    [SerializeField] private float shootInterval = 1;
+    [Min(0), SerializeField] private float projectileSpeed = 1;
+    [Min(0), SerializeField] private float projectileLife = 1;
+    [Min(0), SerializeField] private float shootInterval = 1;
+    [Min(0), SerializeField] private float shootDistance = 1;
     //[SerializeField] private Transform projectileSpawnPoint;
 
     [Header("Melee")]
@@ -63,8 +67,7 @@ public class Enemy : MonoBehaviour
         shootTimer += Time.deltaTime;
 
         MoveEnemy();
-
-        if (attackType == AttackType.Shoot && shootTimer >= shootInterval)
+        if (attackType == AttackType.Shoot)
         {
             Shoot();
         }
@@ -73,7 +76,11 @@ public class Enemy : MonoBehaviour
     private void MoveEnemy()
     {
         GameObject player = GameObject.FindWithTag("Player");
-        agent.destination = player.transform.position;
+        Vector3 playerPosition = player.transform.position - transform.position;
+        if (playerPosition.magnitude < chaseDistance)
+        {
+            agent.destination = player.transform.position;
+        }
     }
 
     public void TakeDamage(float damage)
@@ -132,12 +139,23 @@ public class Enemy : MonoBehaviour
 
     private void Shoot()
     {
-        GameObject projectileClone = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
         GameObject player = GameObject.FindWithTag("Player");
-        Vector3 shootDirection = player.transform.position - transform.position;
-        projectileClone.GetComponent<Rigidbody>().velocity = 10 * projectileSpeed * shootDirection.normalized + transform.forward;
-        shootTimer = 0;
-        Destroy(projectileClone, projectileLife);
+        Vector3 playerPosition = player.transform.position - transform.position;
+
+        if (shootTimer >= shootInterval && playerPosition.magnitude < shootDistance)
+        {
+            GameObject projectileClone = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+            Vector3 playerVel = player.GetComponent<Rigidbody>().velocity;
+            projectileClone.GetComponent<Rigidbody>().velocity = (10 * projectileSpeed * playerPosition.normalized) + new Vector3(0, 1.5f);
+            shootTimer = 0;
+            Destroy(projectileClone, projectileLife);
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, chaseDistance);
+        Gizmos.DrawWireSphere(transform.position, shootDistance);
     }
 
     private enum AttackType { None, Melee, Shoot }
