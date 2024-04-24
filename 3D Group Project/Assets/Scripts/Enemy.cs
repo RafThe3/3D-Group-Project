@@ -145,7 +145,6 @@ public class Enemy : MonoBehaviour
         if (shootTimer >= shootInterval && playerPosition.magnitude < shootDistance)
         {
             GameObject projectileClone = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-            Vector3 playerVel = player.GetComponent<Rigidbody>().velocity;
             projectileClone.GetComponent<Rigidbody>().velocity = (10 * projectileSpeed * playerPosition.normalized) + new Vector3(0, 1.5f);
             shootTimer = 0;
             Destroy(projectileClone, projectileLife);
