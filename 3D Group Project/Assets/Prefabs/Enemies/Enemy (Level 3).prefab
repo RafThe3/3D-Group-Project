@@ -308,6 +308,7 @@ MonoBehaviour:
   projectileLife: 3
   shootInterval: 1.2
   shootDistance: 40
+  shootSFX: {fileID: 8300000, guid: 5e1a9f876d3dafd47bc6b3dde25135fa, type: 3}
   meleeInterval: 1
 --- !u!195 &2601041484188137314
 NavMeshAgent:

@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 8201272489058889147}
   - component: {fileID: 4633942520780885719}
   - component: {fileID: 3724807179458509725}
-  - component: {fileID: 2361359397600163319}
   - component: {fileID: 3142250584077039550}
   - component: {fileID: 4584706061152336870}
+  - component: {fileID: 716211312199597255}
   m_Layer: 0
   m_Name: Enemy Projectile
   m_TagString: Untagged
@@ -136,19 +136,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &2361359397600163319
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7693660454554375522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c49082c417af5604094d49e1bfcfbc9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isTargetingPlayer: 1
 --- !u!198 &3142250584077039550
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -4946,3 +4933,15 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &716211312199597255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7693660454554375522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92a7c27bf2762614a87e86f88896f5f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

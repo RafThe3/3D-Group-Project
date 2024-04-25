@@ -616,6 +616,7 @@ GameObject:
   - component: {fileID: 282049796}
   - component: {fileID: 282049795}
   - component: {fileID: 282049794}
+  - component: {fileID: 282049797}
   m_Layer: 5
   m_Name: Resume
   m_TagString: Untagged
@@ -737,6 +738,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282049792}
   m_CullTransparentMesh: 1
+--- !u!114 &282049797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282049792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1460698653}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: PlaySFX
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: 1340ba1fa579f674ab71453241682a8a, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1460698653}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: PlaySFX
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: ebb03b2b009894845b81a64051a5c698, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &311588691
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,6 +928,7 @@ GameObject:
   - component: {fileID: 494089345}
   - component: {fileID: 494089344}
   - component: {fileID: 494089343}
+  - component: {fileID: 494089346}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -1003,6 +1050,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 494089341}
   m_CullTransparentMesh: 1
+--- !u!114 &494089346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494089341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1460698653}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: PlaySFX
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: 1340ba1fa579f674ab71453241682a8a, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1460698653}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: PlaySFX
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: ebb03b2b009894845b81a64051a5c698, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &575221919
 GameObject:
   m_ObjectHideFlags: 0
@@ -1381,6 +1473,7 @@ GameObject:
   - component: {fileID: 1215203289}
   - component: {fileID: 1215203288}
   - component: {fileID: 1215203287}
+  - component: {fileID: 1215203290}
   m_Layer: 5
   m_Name: Main Menu
   m_TagString: Untagged
@@ -1502,6 +1595,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1215203285}
   m_CullTransparentMesh: 1
+--- !u!114 &1215203290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215203285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1460698653}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: PlaySFX
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: 1340ba1fa579f674ab71453241682a8a, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1460698653}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: PlaySFX
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: ebb03b2b009894845b81a64051a5c698, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1237797201
 GameObject:
   m_ObjectHideFlags: 0
@@ -2088,6 +2226,7 @@ GameObject:
   - component: {fileID: 1608351769}
   - component: {fileID: 1608351768}
   - component: {fileID: 1608351767}
+  - component: {fileID: 1608351770}
   m_Layer: 5
   m_Name: Restart
   m_TagString: Untagged
@@ -2209,6 +2348,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1608351765}
   m_CullTransparentMesh: 1
+--- !u!114 &1608351770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608351765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1460698653}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: PlaySFX
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: 1340ba1fa579f674ab71453241682a8a, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1460698653}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: PlaySFX
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: ebb03b2b009894845b81a64051a5c698, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1671754025
 GameObject:
   m_ObjectHideFlags: 0
@@ -2364,7 +2548,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mage: {fileID: 3461968631643149906, guid: 7af8553422684ff46a432e93087bbe75, type: 3}
   ranger: {fileID: 679974146491726457, guid: c09397d40adf9ac4b9b0fc2b5987fa89, type: 3}
-  warrior: {fileID: 5488206663722157337, guid: a9690ad90c1be554e93d21fa860ff4e6, type: 3}
+  warrior: {fileID: 5488206663722157337, guid: 81ed6e73c6effcc4b8ef4d20478a7598, type: 3}
   spawnPoint: {fileID: 2118312545}
 --- !u!4 &2118312545
 Transform:

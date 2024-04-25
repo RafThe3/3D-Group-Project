@@ -23,6 +23,8 @@ public class Enemy : MonoBehaviour
     [Min(0), SerializeField] private float projectileLife = 1;
     [Min(0), SerializeField] private float shootInterval = 1;
     [Min(0), SerializeField] private float shootDistance = 1;
+    [SerializeField] private AudioClip shootSFX;
+    //[SerializeField] private AudioSource audioSource;
     //[SerializeField] private Transform projectileSpawnPoint;
 
     [Header("Melee")]
@@ -147,6 +149,7 @@ public class Enemy : MonoBehaviour
             GameObject projectileClone = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
             projectileClone.GetComponent<Rigidbody>().velocity = (10 * projectileSpeed * playerPosition.normalized) + new Vector3(0, 1.5f);
             shootTimer = 0;
+            Camera.main.GetComponent<AudioSource>().PlayOneShot(shootSFX);
             Destroy(projectileClone, projectileLife);
         }
     }

@@ -33,8 +33,8 @@ public class GameManager : MonoBehaviour
 
     public void QuitGame()
     {
-        Application.Quit();
         Debug.Log("Quitting");
+        Application.Quit();
     }
 
     public void EnableCanvas(Canvas canvas)
@@ -50,5 +50,10 @@ public class GameManager : MonoBehaviour
     public void PlayerToSpawn(int classNumber)
     {
         PlayerPrefs.SetInt("PlayerToSpawn", classNumber);
+    }
+
+    public void PlaySFX(AudioClip audioClip)
+    {
+        Camera.main.GetComponent<AudioSource>().PlayOneShot(audioClip);
     }
 }

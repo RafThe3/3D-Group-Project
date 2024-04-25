@@ -12,6 +12,7 @@ public class Shooting : MonoBehaviour
     [Min(0), SerializeField] private float damageAmount = 1;
     [Min(0), SerializeField] private float shootCooldown = 1;
     [SerializeField] private Slider attackCooldownBar;
+    [SerializeField] private AudioClip shootSFX;
 
     [Header("Projectile Shooting"), Space]
     [SerializeField] private GameObject projectilePrefab;
@@ -77,6 +78,7 @@ public class Shooting : MonoBehaviour
         projectileClone.GetComponent<Rigidbody>().velocity = 10 * projectileSpeed * Camera.main.transform.forward;
         shootTimer = 0;
         attackCooldownBar.value = 0;
+        Camera.main.GetComponent<AudioSource>().PlayOneShot(shootSFX);
         Destroy(projectileClone, projectileLife);
     }
 

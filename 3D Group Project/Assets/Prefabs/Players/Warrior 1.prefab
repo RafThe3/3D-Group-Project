@@ -2044,6 +2044,8 @@ MonoBehaviour:
   startingHealthPacks: 1
   maxHealthPacks: 1
   healInterval: 1
+  autoHealInterval: 15
+  autoHealMultiplier: 3
   healthBar: {fileID: 2141642040013067111}
   healthText: {fileID: 1568218359852057356}
 --- !u!114 &-5547552932528966903
@@ -3117,6 +3119,10 @@ PrefabInstance:
       propertyPath: WepRarity
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 2458026384967648333, guid: de2cac84417ff1542b7d5bb53962494a, type: 3}
+      propertyPath: attackSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 3df9bbbc130ccb344af5f3fc793a630f, type: 3}
     - target: {fileID: 2458026384967648333, guid: de2cac84417ff1542b7d5bb53962494a, type: 3}
       propertyPath: attackPoint
       value: 

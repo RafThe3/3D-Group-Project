@@ -10,6 +10,7 @@ public class Weapon : MonoBehaviour
     [Min(0), SerializeField] private float attackDistance = 1;
     [Min(0), SerializeField] private float attackCooldown = 1;
     [SerializeField] private Slider attackCooldownBar;
+    [SerializeField] private AudioClip attackSFX;
 
     //Internal Variables
     private WeaponStats weaponStats;
@@ -40,7 +41,7 @@ public class Weapon : MonoBehaviour
             attackCooldownBar.value += Time.deltaTime;
         }
 
-        if (Input.GetButtonDown("Fire1") && attackTimer >= attackCooldown && canAttack)
+        if (Input.GetButtonDown("Fire1") && canAttack)
         {
             Attack();
         }
@@ -48,13 +49,18 @@ public class Weapon : MonoBehaviour
 
     private void Attack()
     {
+        if (attackTimer < attackCooldown)
+        {
+            return;
+        }
+
         Collider[] enemies = Physics.OverlapSphere(attackPoint.position, attackDistance, LayerMask.GetMask("Enemy"));
 
         foreach (Collider enemy in enemies)
         {
             Enemy enemyHealth = enemy.GetComponent<Enemy>();
             enemyHealth.TakeDamage(weaponStats.WepDamage);
-            //PlaySFX(damageSFX);
+            Camera.main.GetComponent<AudioSource>().PlayOneShot(attackSFX);
         }
         //animator.SetTrigger("Attack");
         attackTimer = 0;

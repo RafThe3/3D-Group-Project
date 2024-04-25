@@ -18,7 +18,6 @@ public class Mage : MonoBehaviour
     [Min(0), SerializeField] private float autoHealMultiplier = 1;
     [SerializeField] private Slider healthBar;
     [SerializeField] private TextMeshProUGUI healthText;
-    [SerializeField] private Image hurtImage;
 
     //Internal Variables
     private float currentHealth = 0;
