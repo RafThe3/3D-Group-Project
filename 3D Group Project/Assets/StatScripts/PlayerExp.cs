@@ -14,6 +14,7 @@ public class PlayerExp : MonoBehaviour
     [SerializeField] Slider ExpBar;
     [SerializeField] TextMeshProUGUI ExpText;
     [SerializeField] TextMeshProUGUI LevelText;
+    [SerializeField] private AudioClip levelUpSFX;
 
     Enemy eHP;
     EnemyStats eStats;
@@ -56,6 +57,7 @@ public class PlayerExp : MonoBehaviour
             MaxExp = CurrentLevel * 15;
             ExpBar.maxValue = MaxExp;
             CurrentExp = 0;
+            Camera.main.GetComponent<AudioSource>().PlayOneShot(levelUpSFX, 3f);
         }
     }
 }

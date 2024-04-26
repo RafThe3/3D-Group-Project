@@ -18,6 +18,7 @@ public class Mage : MonoBehaviour
     [Min(0), SerializeField] private float autoHealMultiplier = 1;
     [SerializeField] private Slider healthBar;
     [SerializeField] private TextMeshProUGUI healthText;
+    [SerializeField] private AudioClip healSFX;
 
     //Internal Variables
     private float currentHealth = 0;
@@ -124,6 +125,7 @@ public class Mage : MonoBehaviour
             healTimer = 0;
             autoHealTimer = 0;
             canSetTempHealth = true;
+            Camera.main.GetComponent<AudioSource>().PlayOneShot(healSFX);
         }
     }
 

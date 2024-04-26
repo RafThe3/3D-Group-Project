@@ -18,6 +18,7 @@ public class Ranger : MonoBehaviour
     [Min(0), SerializeField] private float autoHealMultiplier = 1;
     [SerializeField] private Slider healthBar;
     [SerializeField] private TextMeshProUGUI healthText;
+    [SerializeField] private AudioClip healSFX;
     //[SerializeField] private Image crosshair;
 
     //Internal Variables
@@ -159,6 +160,7 @@ public class Ranger : MonoBehaviour
             healTimer = 0;
             autoHealTimer = 0;
             canSetTempHealth = true;
+            Camera.main.GetComponent<AudioSource>().PlayOneShot(healSFX);
         }
     }
 

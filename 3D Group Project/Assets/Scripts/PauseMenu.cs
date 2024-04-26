@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private Canvas pauseMenu;
+    [SerializeField] private AudioSource audioSource;
 
     private void Start()
     {
@@ -27,12 +28,24 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.enabled = !pauseMenu.enabled;
         Time.timeScale = Time.timeScale == 1 ? 0 : 1;
+        if (audioSource)
+        {
+            audioSource.Play();
+            if (!pauseMenu.enabled)
+            {
+                audioSource.Stop();
+            }
+        }
     }
 
     public void Resume()
     {
         pauseMenu.enabled = false;
         Time.timeScale = 1;
+        if (audioSource)
+        {
+            audioSource.Stop();
+        }
     }
 
     public void Quit()
