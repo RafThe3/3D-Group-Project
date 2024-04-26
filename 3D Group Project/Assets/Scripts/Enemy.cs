@@ -37,11 +37,13 @@ public class Enemy : MonoBehaviour
     private Canvas enemyUI;
     private EnemyStats enemyStats;
     private float meleeTimer = 0, shootTimer = 0;
+    private AudioSource audioSource;
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         enemyStats = FindObjectOfType<EnemyStats>();
+        audioSource = GetComponentInChildren<AudioSource>();
     }
 
     private void Start()
@@ -149,7 +151,7 @@ public class Enemy : MonoBehaviour
             GameObject projectileClone = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
             projectileClone.GetComponent<Rigidbody>().velocity = (10 * projectileSpeed * playerPosition.normalized) + new Vector3(0, 1.5f);
             shootTimer = 0;
-            Camera.main.GetComponent<AudioSource>().PlayOneShot(shootSFX);
+            audioSource.PlayOneShot(shootSFX);
             Destroy(projectileClone, projectileLife);
         }
     }

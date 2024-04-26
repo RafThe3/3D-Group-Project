@@ -16,6 +16,7 @@ public class ZoneHealing : MonoBehaviour
     [SerializeField] private GameObject zoneSpherePrefab;
     [SerializeField] private Slider zoneCooldownBar;
     [SerializeField] private TextMeshProUGUI cooldownText;
+    [SerializeField] private AudioClip zoneSpawnSFX;
 
     //Internal Variables
     private bool isCoolingDown = false, isInUse = false;
@@ -90,8 +91,8 @@ public class ZoneHealing : MonoBehaviour
     {
         isInUse = true;
         GameObject zoneClone = Instantiate(zoneSpherePrefab, transform.position, Quaternion.identity);
+        Camera.main.GetComponent<AudioSource>().PlayOneShot(zoneSpawnSFX);
         ParticleSystem zoneParticles = zoneClone.GetComponent<ParticleSystem>();
-        ParticleSystem.ShapeModule particleShape = zoneParticles.shape;
         HealZone healZone = zoneClone.GetComponent<HealZone>();
 
         healZone.SetHealInterval(healInterval);
