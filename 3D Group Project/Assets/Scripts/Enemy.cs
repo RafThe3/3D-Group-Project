@@ -19,13 +19,12 @@ public class Enemy : MonoBehaviour
 
     [Header("Shooting")]
     [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private Transform projectileSpawnPoint;
     [Min(0), SerializeField] private float projectileSpeed = 1;
     [Min(0), SerializeField] private float projectileLife = 1;
     [Min(0), SerializeField] private float shootInterval = 1;
     [Min(0), SerializeField] private float shootDistance = 1;
     [SerializeField] private AudioClip shootSFX;
-    //[SerializeField] private AudioSource audioSource;
-    //[SerializeField] private Transform projectileSpawnPoint;
 
     [Header("Melee")]
     [Min(0), SerializeField] private float meleeInterval = 1;
@@ -148,7 +147,7 @@ public class Enemy : MonoBehaviour
 
         if (shootTimer >= shootInterval && playerPosition.magnitude < shootDistance)
         {
-            GameObject projectileClone = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+            GameObject projectileClone = Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
             projectileClone.GetComponent<Rigidbody>().velocity = (10 * projectileSpeed * playerPosition.normalized) + new Vector3(0, 1.5f);
             shootTimer = 0;
             audioSource.PlayOneShot(shootSFX);

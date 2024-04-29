@@ -19,7 +19,6 @@ public class Ranger : MonoBehaviour
     [SerializeField] private Slider healthBar;
     [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private AudioClip healSFX;
-    //[SerializeField] private Image crosshair;
 
     //Internal Variables
     private float currentHealth = 0;
@@ -28,6 +27,8 @@ public class Ranger : MonoBehaviour
     private RangerClassStats rangerClass;
     private PlayerExp playerExp;
     private ClassFunctions classes;
+    private Animator animator;
+    private CharacterController character;
 
     int levelCheck = 1;
     private bool canSetTempHealth = true;
@@ -38,6 +39,8 @@ public class Ranger : MonoBehaviour
         rangerClass = GetComponent<RangerClassStats>();
         playerExp = GetComponent<PlayerExp>();
         classes = GetComponent<ClassFunctions>();
+        animator = GetComponent<Animator>();
+        character = GetComponent<CharacterController>();
     }
 
     private void Start()
@@ -63,8 +66,13 @@ public class Ranger : MonoBehaviour
     {
         healTimer += Time.deltaTime;
         autoHealTimer += Time.deltaTime;
+
         FixBugs();
         UpdateUI();
+
+        bool isMoving = Mathf.Abs(character.velocity.z) > Mathf.Epsilon;
+        animator.SetBool("isRunning", isMoving);
+
         if (canSetTempHealth)
         {
             tempHealth = currentHealth;
@@ -85,6 +93,7 @@ public class Ranger : MonoBehaviour
         {
             AutoHeal();
         }
+
     }
 
     private void AutoHeal()

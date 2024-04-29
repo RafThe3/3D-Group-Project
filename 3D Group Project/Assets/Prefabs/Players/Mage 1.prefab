@@ -3282,6 +3282,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2880748776520316200, guid: 6119492ddd9061f448c35468f2cb4aae, type: 3}
+      propertyPath: zoneRadius
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880748776520316200, guid: 6119492ddd9061f448c35468f2cb4aae, type: 3}
       propertyPath: cooldownText
       value: 
       objectReference: {fileID: 8010811769675563043}

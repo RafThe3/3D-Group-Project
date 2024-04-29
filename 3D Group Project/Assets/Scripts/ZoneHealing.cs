@@ -8,7 +8,7 @@ using TMPro;
 public class ZoneHealing : MonoBehaviour
 {
     [SerializeField] private bool canSpawnZone = true;
-    [Min(0), SerializeField] private float zoneDistance = 1;
+    [Min(0), SerializeField] private float zoneRadius = 1;
     [Min(0), SerializeField] private float zoneLifeTime = 1;
     [Min(0), SerializeField] private float healAmount = 1;
     [Min(1), SerializeField] private float healInterval = 1;
@@ -97,7 +97,7 @@ public class ZoneHealing : MonoBehaviour
 
         healZone.SetHealInterval(healInterval);
         healZone.SetHealAmount(healAmount);
-        zoneClone.transform.localScale *= zoneDistance;
+        zoneClone.transform.localScale *= zoneRadius;
         zoneParticles.Play();
 
         yield return new WaitForSeconds(zoneLifeTime);

@@ -512,27 +512,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 567104378249240564, guid: e8261a97a7f761c4e8efce96a79a4a28, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.2652
+      value: 1.7796303
       objectReference: {fileID: 0}
     - target: {fileID: 567104378249240564, guid: e8261a97a7f761c4e8efce96a79a4a28, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.2652
+      value: 1.7796303
       objectReference: {fileID: 0}
     - target: {fileID: 567104378249240564, guid: e8261a97a7f761c4e8efce96a79a4a28, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.2652
+      value: 1.7796303
       objectReference: {fileID: 0}
     - target: {fileID: 567104378249240564, guid: e8261a97a7f761c4e8efce96a79a4a28, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.00028007
+      value: 0.00082333
       objectReference: {fileID: 0}
     - target: {fileID: 567104378249240564, guid: e8261a97a7f761c4e8efce96a79a4a28, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.69
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 567104378249240564, guid: e8261a97a7f761c4e8efce96a79a4a28, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.086906
+      value: -0.2555
       objectReference: {fileID: 0}
     - target: {fileID: 567104378249240564, guid: e8261a97a7f761c4e8efce96a79a4a28, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1551,7 +1551,7 @@ Transform:
   m_GameObject: {fileID: 914594236}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.6747496, y: 2.1608527, z: 7.3}
+  m_LocalPosition: {x: 2.6747496, y: 2.1608527, z: 54.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2645,8 +2645,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mage: {fileID: 3461968631643149906, guid: 7af8553422684ff46a432e93087bbe75, type: 3}
-  ranger: {fileID: 679974146491726457, guid: c09397d40adf9ac4b9b0fc2b5987fa89, type: 3}
-  warrior: {fileID: 5488206663722157337, guid: 81ed6e73c6effcc4b8ef4d20478a7598, type: 3}
+  ranger: {fileID: 4797686519811914429, guid: 08ab371862fa0d843a77ad06d975f74e, type: 3}
+  warrior: {fileID: 7752758083083622121, guid: 3d68de8805b0d1542aa3c68120ccb072, type: 3}
   spawnPoint: {fileID: 2118312545}
 --- !u!4 &2118312545
 Transform:

@@ -433,10 +433,12 @@ MonoBehaviour:
   maxHealth: 100
   attackType: 2
   projectilePrefab: {fileID: 7693660454554375522, guid: 159d052ebaf9c10498f047660bd30941, type: 3}
+  projectileSpawnPoint: {fileID: 8382001302956997943}
   projectileSpeed: 5
   projectileLife: 3
   shootInterval: 1.2
   shootDistance: 40
+  projectileParticleColor: {r: 0, g: 0.6824341, b: 1, a: 0}
   shootSFX: {fileID: 8300000, guid: 5e1a9f876d3dafd47bc6b3dde25135fa, type: 3}
   meleeInterval: 1
 --- !u!195 &2601041484188137314
