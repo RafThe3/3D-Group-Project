@@ -6,14 +6,14 @@ using TMPro;
 
 public class PlayerExp : MonoBehaviour
 {
-    private int CurrentExp = 0;
+    public int CurrentExp = 0;
     public int CurrentLevel = 1;
     private int MaxLevel = 20;
-    int MaxExp = 15;
+    public int MaxExp = 15;
 
-    [SerializeField] Slider ExpBar;
-    [SerializeField] TextMeshProUGUI ExpText;
-    [SerializeField] TextMeshProUGUI LevelText;
+    public Slider ExpBar;
+    public TextMeshProUGUI ExpText;
+    public TextMeshProUGUI LevelText;
     [SerializeField] private AudioClip levelUpSFX;
 
     Enemy eHP;
@@ -29,9 +29,14 @@ public class PlayerExp : MonoBehaviour
 
     void Update()
     {
-        ExpBar.value = CurrentExp;
-        ExpText.text = $"Exp: {CurrentExp} / {MaxExp}";
-        LevelText.text = $"Level: {CurrentLevel}";
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            SaveData();
+        }
+        else if (Input.GetKeyDown(KeyCode.L))
+        {
+            LoadData();
+        }
         LevelUp();
     }
 
@@ -59,5 +64,18 @@ public class PlayerExp : MonoBehaviour
             CurrentExp = 0;
             Camera.main.GetComponent<AudioSource>().PlayOneShot(levelUpSFX, 3f);
         }
+    }
+
+    public void SaveData()
+    {
+        SaveScript.SavePlayer(this);
+    }
+
+    public void LoadData()
+    {
+        PlayerData data = SaveScript.LoadPlayer(this);
+        CurrentExp = data.currentExp;
+        MaxExp = data.maxExp;
+        CurrentLevel = data.currentLevel;
     }
 }

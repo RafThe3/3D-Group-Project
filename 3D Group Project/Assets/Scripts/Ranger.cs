@@ -20,6 +20,10 @@ public class Ranger : MonoBehaviour
     [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private AudioClip healSFX;
 
+    [Header("Player Data")]
+    [SerializeField] private TextMeshProUGUI progressText;
+    [Min(1), SerializeField] private float textShowTime = 1;
+
     //Internal Variables
     private float currentHealth = 0;
     private int healthPacks = 0;
@@ -30,7 +34,7 @@ public class Ranger : MonoBehaviour
     private Animator animator;
     private CharacterController character;
 
-    int levelCheck = 1;
+    private int currentLevel = 1, maxExp = 1, currentExp = 1;
     private bool canSetTempHealth = true;
     private float tempHealth = 0;
 
@@ -45,6 +49,10 @@ public class Ranger : MonoBehaviour
 
     private void Start()
     {
+        progressText.enabled = false;
+        currentLevel = playerExp.CurrentLevel;
+        maxExp = playerExp.MaxExp;
+        currentExp = playerExp.CurrentExp;
         maxHealth = classes.finalHealth;
         if (startingHealth > maxHealth)
         {
@@ -94,6 +102,43 @@ public class Ranger : MonoBehaviour
             AutoHeal();
         }
 
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            SaveData();
+        }
+        else if (Input.GetKeyDown(KeyCode.L))
+        {
+            autoHealTimer = 0;
+            canSetTempHealth = true;
+            LoadData();
+        }
+    }
+
+    public void SaveData()
+    {
+        SaveScript.SavePlayer(this);
+        progressText.text = "Progress saved!";
+        StartCoroutine(ShowProgressText(textShowTime));
+    }
+
+    public void LoadData()
+    {
+        PlayerData data = SaveScript.LoadPlayer(this);
+        maxHealth = data.maxHealth;
+        currentHealth = data.currentHealth;
+        transform.position = new Vector3(data.x, data.y, data.z);
+
+        progressText.text = "Progress loaded!";
+        StartCoroutine(ShowProgressText(textShowTime));
+    }
+
+    private IEnumerator ShowProgressText(float duration)
+    {
+        progressText.enabled = true;
+
+        yield return new WaitForSeconds(duration);
+
+        progressText.enabled = false;
     }
 
     private void AutoHeal()
@@ -105,6 +150,13 @@ public class Ranger : MonoBehaviour
 
     private void UpdateUI()
     {
+        currentLevel = playerExp.CurrentLevel;
+        maxExp = playerExp.MaxExp;
+        currentExp = playerExp.CurrentExp;
+
+        playerExp.ExpBar.value = currentExp;
+        playerExp.ExpText.text = $"Exp: {currentExp} / {maxExp}";
+        playerExp.LevelText.text = $"Level: {currentLevel}";
 
         maxHealth = rangerClass.RangerHP;
         healthBar.maxValue = maxHealth;
@@ -194,6 +246,31 @@ public class Ranger : MonoBehaviour
     public void SetCurrentHealth(float health)
     {
         currentHealth = health;
+    }
+
+    public float GetCurrentHealth()
+    {
+        return currentHealth;
+    }
+    
+    public float GetMaxHealth()
+    {
+        return maxHealth;
+    }
+
+    public int GetCurrentLevel()
+    {
+        return currentLevel;
+    }
+
+    public int GetMaxExp()
+    {
+        return maxExp;
+    }
+
+    public int GetCurrentExp()
+    {
+        return currentExp;
     }
 
     private void FixBugs()

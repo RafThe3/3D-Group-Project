@@ -20,6 +20,10 @@ public class Mage : MonoBehaviour
     [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private AudioClip healSFX;
 
+    [Header("Player Data")]
+    [SerializeField] private TextMeshProUGUI progressText;
+    [Min(1), SerializeField] private float textShowTime = 1;
+
     //Internal Variables
     private float currentHealth = 0;
     private int healthPacks = 0;
@@ -27,14 +31,22 @@ public class Mage : MonoBehaviour
     private float tempHealth = 0;
     private MageClassStats mageClass;
     private bool canSetTempHealth = true;
+    private PlayerExp playerExp;
+
+    private int currentLevel, maxExp, currentExp;
 
     private void Awake()
     {
         mageClass = GetComponent<MageClassStats>();
+        playerExp = GetComponent<PlayerExp>();
     }
 
     private void Start()
     {
+        progressText.enabled = false;
+        currentExp = playerExp.CurrentExp;
+        currentLevel = playerExp.CurrentLevel;
+        maxExp = playerExp.MaxExp;
         maxHealth = mageClass.MageHP;
         if (startingHealth > maxHealth)
         {
@@ -75,10 +87,55 @@ public class Mage : MonoBehaviour
         {
             AutoHeal();
         }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            SaveData();
+        }
+        else if (Input.GetKeyDown(KeyCode.L))
+        {
+            autoHealTimer = 0;
+            canSetTempHealth = true;
+            LoadData();
+        }
+    }
+
+    public void SaveData()
+    {
+        SaveScript.SavePlayer(this);
+        progressText.text = "Progress saved!";
+        StartCoroutine(ShowProgressText(textShowTime));
+    }
+
+    public void LoadData()
+    {
+        PlayerData data = SaveScript.LoadPlayer(this);
+        maxHealth = data.maxHealth;
+        currentHealth = data.currentHealth;
+        transform.position = new Vector3(data.x, data.y, data.z);
+
+        progressText.text = "Progress loaded!";
+        StartCoroutine(ShowProgressText(textShowTime));
+    }
+
+    private IEnumerator ShowProgressText(float duration)
+    {
+        progressText.enabled = true;
+
+        yield return new WaitForSeconds(duration);
+
+        progressText.enabled = false;
     }
 
     private void UpdateUI()
     {
+        currentLevel = playerExp.CurrentLevel;
+        maxExp = playerExp.MaxExp;
+        currentExp = playerExp.CurrentExp;
+        playerExp.ExpBar.value = currentExp;
+        playerExp.ExpText.text = $"Exp: {currentExp} / {maxExp}";
+        playerExp.LevelText.text = $"Level: {currentLevel}";
+
         maxHealth = mageClass.MageHP;
         healthBar.maxValue = maxHealth;
         healthBar.value = currentHealth;
@@ -168,5 +225,25 @@ public class Mage : MonoBehaviour
     public float GetCurrentHealth()
     {
         return currentHealth;
+    }
+
+    public float GetMaxHealth()
+    {
+        return maxHealth;
+    }
+
+    public int GetMaxExp()
+    {
+        return maxExp;
+    }
+
+    public int GetCurrentLevel()
+    {
+        return currentLevel;
+    }
+
+    public int GetCurrentExp()
+    {
+        return currentExp;
     }
 }
