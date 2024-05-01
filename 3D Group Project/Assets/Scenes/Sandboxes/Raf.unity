@@ -2706,7 +2706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6ff24ceeb0eeae4ba22f3dc79b1f138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mage: {fileID: 3461968631643149906, guid: 7af8553422684ff46a432e93087bbe75, type: 3}
+  mage: {fileID: 6614685486736145202, guid: 805b96d886e7bde44b86e81e95e6bf41, type: 3}
   ranger: {fileID: 4797686519811914429, guid: 08ab371862fa0d843a77ad06d975f74e, type: 3}
   warrior: {fileID: 7752758083083622121, guid: 3d68de8805b0d1542aa3c68120ccb072, type: 3}
   spawnPoint:
