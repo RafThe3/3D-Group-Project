@@ -29,8 +29,8 @@ public class Warrior : MonoBehaviour
     private int healthPacks = 0;
     private float tempHealth = 0;
     private float healTimer = 0, autoHealTimer = 0;
-    private WarriorClassStats warriorClass;
     private bool canSetTempHealth = true;
+    private WarriorClassStats warriorClass;
     private PlayerExp playerExp;
     private Animator animator;
     private CharacterController character;
