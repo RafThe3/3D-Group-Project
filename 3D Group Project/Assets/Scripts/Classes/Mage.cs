@@ -32,6 +32,8 @@ public class Mage : MonoBehaviour
     private MageClassStats mageClass;
     private bool canSetTempHealth = true;
     private PlayerExp playerExp;
+    private Animator animator;
+    private CharacterController character;
 
     private int currentLevel, maxExp, currentExp;
 
@@ -39,6 +41,8 @@ public class Mage : MonoBehaviour
     {
         mageClass = GetComponent<MageClassStats>();
         playerExp = GetComponent<PlayerExp>();
+        character = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
     }
 
     private void Start()
@@ -66,6 +70,9 @@ public class Mage : MonoBehaviour
 
         FixBugs();
         UpdateUI();
+
+        bool isMoving = Mathf.Abs(character.velocity.z) > Mathf.Epsilon;
+        animator.SetBool("isMoving", isMoving);
 
         if (canSetTempHealth)
         {
