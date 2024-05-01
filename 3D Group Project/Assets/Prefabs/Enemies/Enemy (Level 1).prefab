@@ -304,11 +304,13 @@ MonoBehaviour:
   maxHealth: 50
   attackType: 1
   projectilePrefab: {fileID: 7693660454554375522, guid: 159d052ebaf9c10498f047660bd30941, type: 3}
+  projectileSpawnPoint: {fileID: 0}
   projectileSpeed: 5
   projectileLife: 2.3
   shootInterval: 2.5
   shootDistance: 1
-  meleeInterval: 1
+  shootSFX: {fileID: 0}
+  meleeInterval: 2
 --- !u!195 &2601041484188137314
 NavMeshAgent:
   m_ObjectHideFlags: 0

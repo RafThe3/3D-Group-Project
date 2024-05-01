@@ -6774,6 +6774,7 @@ GameObject:
   - component: {fileID: 4538994036515638925}
   - component: {fileID: 4649361387269481855}
   - component: {fileID: 4354581884982401055}
+  - component: {fileID: 7841451342329293376}
   m_Layer: 8
   m_Name: Ranger 2
   m_TagString: Player
@@ -7159,6 +7160,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7841451342329293376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4797686519811914429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6386735099bacb14e861698371089fb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4806363781399999510
 GameObject:
   m_ObjectHideFlags: 0

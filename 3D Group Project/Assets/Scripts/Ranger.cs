@@ -79,7 +79,7 @@ public class Ranger : MonoBehaviour
         UpdateUI();
 
         bool isMoving = Mathf.Abs(character.velocity.z) > Mathf.Epsilon;
-        animator.SetBool("isRunning", isMoving);
+        animator.SetBool("isMoving", isMoving);
 
         if (canSetTempHealth)
         {

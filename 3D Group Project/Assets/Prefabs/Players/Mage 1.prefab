@@ -1019,6 +1019,7 @@ GameObject:
   - component: {fileID: 6348335218064180434}
   - component: {fileID: -560265094879119498}
   - component: {fileID: 8646442174757354086}
+  - component: {fileID: 604645469592578950}
   m_Layer: 8
   m_Name: Mage 1
   m_TagString: Player
@@ -1082,8 +1083,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55919ac34a26952479f3fc91f777b2fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 10
-  SprintSpeed: 13
+  MoveSpeed: 12
+  SprintSpeed: 12
   RotationSpeed: 1
   SpeedChangeRate: 10
   JumpHeight: 1.2
@@ -1383,6 +1384,18 @@ MonoBehaviour:
   projectileLife: 0.8
   projectileSpawnPoint: {fileID: 4880190313766664893}
   maxDistance: 1
+--- !u!114 &604645469592578950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3461968631643149906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6386735099bacb14e861698371089fb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3869666871271260690
 GameObject:
   m_ObjectHideFlags: 0

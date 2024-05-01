@@ -32,6 +32,8 @@ public class Warrior : MonoBehaviour
     private WarriorClassStats warriorClass;
     private bool canSetTempHealth = true;
     private PlayerExp playerExp;
+    private Animator animator;
+    private CharacterController character;
 
     private int currentLevel, maxExp, currentExp;
 
@@ -39,6 +41,8 @@ public class Warrior : MonoBehaviour
     {
         warriorClass = GetComponent<WarriorClassStats>();
         playerExp = GetComponent<PlayerExp>();
+        animator = GetComponent<Animator>();
+        character = GetComponent<CharacterController>();
     }
 
     private void Start()
@@ -66,6 +70,9 @@ public class Warrior : MonoBehaviour
 
         FixBugs();
         UpdateUI();
+
+        bool isMoving = Mathf.Abs(character.velocity.z) > Mathf.Epsilon;
+        animator.SetBool("isMoving", isMoving);
 
         if (canSetTempHealth)
         {

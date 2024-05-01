@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerSpawn : MonoBehaviour
 {
     [SerializeField] private GameObject mage, ranger, warrior;
-    [SerializeField] private Transform spawnPoint;
+    [SerializeField] private Transform[] spawnPoint;
 
     private void Start()
     {
@@ -15,18 +15,19 @@ public class PlayerSpawn : MonoBehaviour
 
     private void SpawnPlayer()
     {
+        int spawn = Random.Range(0, spawnPoint.Length);
         switch (PlayerPrefs.GetInt("PlayerToSpawn"))
         {
             case 1:
-                Instantiate(mage, spawnPoint.position, Quaternion.identity);
+                Instantiate(mage, spawnPoint[spawn].position, Quaternion.identity);
                 break;
 
             case 2:
-                Instantiate(ranger, spawnPoint.position, Quaternion.identity);
+                Instantiate(ranger, spawnPoint[spawn].position, Quaternion.identity);
                 break;
 
             case 3:
-                Instantiate(warrior, spawnPoint.position, Quaternion.identity);
+                Instantiate(warrior, spawnPoint[spawn].position, Quaternion.identity);
                 break;
 
             default:
