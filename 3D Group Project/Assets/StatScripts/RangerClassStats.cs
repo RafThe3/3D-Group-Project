@@ -21,8 +21,10 @@ public class RangerClassStats : MonoBehaviour
 
     private Ranger ranger;
     [SerializeField] WeaponStats wepStats;
+    RangerAbilities rAbil;
     PlayerExp playerExp;
     Specializations specs;
+    ClassFunctions cFunct;
 
     public delegate void WhenPlayerLvlChangedCallback();
     public event WhenPlayerLvlChangedCallback Callback;
@@ -33,6 +35,7 @@ public class RangerClassStats : MonoBehaviour
         playerExp = GetComponent<PlayerExp>();
         specs = GetComponent<Specializations>();
         ranger = GetComponent<Ranger>();
+        rAbil = GetComponent<RangerAbilities>();
 
         tempDamage = (int)wepStats.WepDamage;
         RangerAgility = baseRangerAgi;
@@ -57,7 +60,15 @@ public class RangerClassStats : MonoBehaviour
         RangerDamage = (int)RangerDamage;
         Debug.Log($"Ranger Health: {RangerHP}");
 
-        if(wepEquipped == true)
+        if (rAbil.rAbility2 == true || rAbil.rAbility1 == true)
+        {
+            RangerDamage = rAbil.tDmg;
+        }
+        else
+        {
+            RangerDamage = cFunct.finalDamage;
+        }
+        if (wepEquipped == true)
         {
             WeaponEquipped();
         }
