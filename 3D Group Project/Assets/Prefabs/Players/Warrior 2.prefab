@@ -10891,6 +10891,7 @@ GameObject:
   - component: {fileID: 7376201850358061117}
   - component: {fileID: 9155680927728428830}
   - component: {fileID: -6302763018842393503}
+  - component: {fileID: -7244675654139541727}
   m_Layer: 8
   m_Name: Warrior 2
   m_TagString: Player
@@ -11254,6 +11255,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-7244675654139541727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7752758083083622121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a4c7153092164b40a17842a1b115458, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSFX: {fileID: 8300000, guid: 2352822feb4caa14ebdbc0c713289f8d, type: 3}
+  audioSpeed: 2
 --- !u!1 &7760021685410595356
 GameObject:
   m_ObjectHideFlags: 0

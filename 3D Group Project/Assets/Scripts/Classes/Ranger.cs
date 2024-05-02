@@ -86,17 +86,6 @@ public class Ranger : MonoBehaviour
             tempHealth = currentHealth;
         }
 
-        //test
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            TakeDamage(10);
-        }
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Heal(10);
-        }
-
         if (autoHealTimer >= autoHealInterval && currentHealth < maxHealth)
         {
             AutoHeal();

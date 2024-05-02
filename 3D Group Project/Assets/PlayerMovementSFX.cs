@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovementSFX : MonoBehaviour
 {
     [SerializeField] private AudioClip walkSFX;
-    [Min(1), SerializeField] private int audioSpeed = 1;
+    [Min(1), SerializeField] private float audioSpeed = 1;
 
     private CharacterController character;
     private float audioLength = 0;
@@ -20,7 +20,7 @@ public class PlayerMovementSFX : MonoBehaviour
         audioLength += Time.deltaTime;
 
         bool isMoving = Mathf.Abs(character.velocity.z) > Mathf.Epsilon;
-        if (isMoving && audioLength >= walkSFX.length * (1 / audioSpeed))
+        if (isMoving && audioLength >= walkSFX.length * (1 / audioSpeed) && character.isGrounded)
         {
             Camera.main.GetComponent<AudioSource>().PlayOneShot(walkSFX, 10);
             audioLength = 0;
