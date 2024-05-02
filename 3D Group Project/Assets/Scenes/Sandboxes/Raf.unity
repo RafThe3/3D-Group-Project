@@ -985,6 +985,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &451712854
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 451712855}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &451712855
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451712854}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.48207378, y: 0, z: 19.09}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &487989673
 GameObject:
   m_ObjectHideFlags: 0
@@ -1551,7 +1582,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &914594237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2775,6 +2806,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1885911689 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9168381748397706047, guid: f076b8beb8d314b418fd91ffce0addc2, type: 3}
+  m_PrefabInstance: {fileID: 2361144282355661050}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1885911694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885911689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e65d0803f83f66445a786d116860a268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destination: {fileID: 451712855}
 --- !u!1 &1940595770 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7812182844788795621, guid: e8261a97a7f761c4e8efce96a79a4a28, type: 3}
@@ -2914,7 +2963,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9168381748397706047, guid: f076b8beb8d314b418fd91ffce0addc2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1885911694}
   m_SourcePrefab: {fileID: 100100000, guid: f076b8beb8d314b418fd91ffce0addc2, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -2931,3 +2983,4 @@ SceneRoots:
   - {fileID: 1097198961}
   - {fileID: 1671754028}
   - {fileID: 2361144282355661050}
+  - {fileID: 451712855}
