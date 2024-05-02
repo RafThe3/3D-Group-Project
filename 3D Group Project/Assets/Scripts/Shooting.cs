@@ -19,7 +19,6 @@ public class Shooting : MonoBehaviour
     [SerializeField] private float projectileSpeed = 1;
     [SerializeField] private float projectileLife = 1;
     [SerializeField] private Transform projectileSpawnPoint;
-    //[SerializeField] private bool isRanger = false;
 
     [Header("Line Shooting"), Space]
     [Min(0), SerializeField] private float maxDistance = 1;
