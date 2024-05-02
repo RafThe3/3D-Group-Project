@@ -13465,9 +13465,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2610862075301316755, guid: aa90fb455153f81468199762fa54da07, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4091614224137965338}
-    - targetCorrespondingSourceObject: {fileID: 2610862075301316755, guid: aa90fb455153f81468199762fa54da07, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6053888205086073059}
   m_SourcePrefab: {fileID: 100100000, guid: aa90fb455153f81468199762fa54da07, type: 3}
 --- !u!4 &3296963462848433266 stripped
 Transform:
@@ -13511,24 +13508,6 @@ MonoBehaviour:
   WepMinDamage: 5
   WepMaxReq: 1
   WepILvl: 1
---- !u!114 &6053888205086073059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7006674912615529851}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a357eb3a2c8c8746bdcc6704862b10f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  finalDamage: 0
-  finalHealth: 0
-  finalHealing: 0
-  isRanger: 1
-  isWarrior: 0
-  isMage: 0
 --- !u!1001 &6766818041943282277
 PrefabInstance:
   m_ObjectHideFlags: 0

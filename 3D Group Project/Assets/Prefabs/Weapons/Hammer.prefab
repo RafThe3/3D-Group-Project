@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4853203038148161624}
   - component: {fileID: 8458397207939310802}
   - component: {fileID: 2880748776520316200}
-  - component: {fileID: 3475870153139941852}
   m_Layer: 0
   m_Name: Hammer
   m_TagString: Untagged
@@ -122,34 +121,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canSpawnZone: 1
-  zoneDistance: 1
+  zoneRadius: 1
   zoneLifeTime: 1
   healAmount: 1
   healInterval: 1
   zoneSpawnCooldown: 1
   zoneSpherePrefab: {fileID: 0}
-  zoneSpawnBar: {fileID: 0}
---- !u!114 &3475870153139941852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6059658391250426363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59ba5a1278272c749b054df42b7bb2d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canShoot: 1
-  shootType: 1
-  damageAmount: 1
-  shootInterval: 1
-  projectilePrefab: {fileID: 0}
-  projectileSpeed: 1
-  projectileLife: 1
-  projectileSpawnPoint: {fileID: 0}
-  maxDistance: 1
+  zoneCooldownBar: {fileID: 0}
+  cooldownText: {fileID: 0}
+  zoneSpawnSFX: {fileID: 0}
 --- !u!1 &8577747105622620023
 GameObject:
   m_ObjectHideFlags: 0

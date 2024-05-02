@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
 public class ClassFunctions : MonoBehaviour
 {
     RangerClassStats rangerClass;
     WarriorClassStats warriorClass;
     MageClassStats mageClass;
-
     public float finalDamage;
     public float finalHealth;
     public float finalHealing;

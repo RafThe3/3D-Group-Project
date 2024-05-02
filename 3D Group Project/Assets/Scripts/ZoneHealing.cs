@@ -23,10 +23,12 @@ public class ZoneHealing : MonoBehaviour
     private float tempCooldown = 0, tempLifeTime = 0, tempLifeTime2 = 0;
     private bool tempCanSpawnZone = false;
     private MageClassStats mageClass;
+    private Specializations specs;
 
     private void Awake()
     {
         mageClass = FindObjectOfType<MageClassStats>();
+        specs = FindObjectOfType<Specializations>();
     }
 
     private void Start()
@@ -51,7 +53,7 @@ public class ZoneHealing : MonoBehaviour
         healAmount = mageClass.MageHealing;
         UpdateUI();
 
-        if (Input.GetKeyDown(KeyCode.R) && !isCoolingDown && canSpawnZone)
+        if (Input.GetKeyDown(KeyCode.R) && !isCoolingDown && canSpawnZone && !specs.mageSpec1)
         {
             StartCoroutine(SpawnZone());
         }
