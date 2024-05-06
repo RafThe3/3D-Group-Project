@@ -8,19 +8,23 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI factionText, classText;
 
+    private string factionNameKey = "FactionName", classNameKey = "ClassName";
+
     public void UpdateFaction(string factionName)
     {
-        factionText.text = factionName;
+        PlayerPrefs.SetString(factionNameKey, factionName);
     }
 
     public void UpdateClass(string className)
     {
-        classText.text = className;
+        PlayerPrefs.SetString(classNameKey, className);
     }
 
     private void Start()
     {
         Time.timeScale = 1;
+        factionText.text = $"Faction: {PlayerPrefs.GetString(factionNameKey)}";
+        classText.text = $"Class: {PlayerPrefs.GetString(classNameKey)}";
     }
 
     public void LoadAScene(int scene)
