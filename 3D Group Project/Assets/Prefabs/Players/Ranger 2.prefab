@@ -5612,7 +5612,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1007366997879761325}
   - component: {fileID: 8444235718614263072}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: archer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13563,6 +13563,10 @@ PrefabInstance:
     - target: {fileID: 9005220659476430821, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: field of view
       value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005220659476430821, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 119
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430823, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_Name
