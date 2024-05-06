@@ -23,8 +23,11 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1;
-        factionText.text = $"Faction: {PlayerPrefs.GetString(factionNameKey)}";
-        classText.text = $"Class: {PlayerPrefs.GetString(classNameKey)}";
+        if (SceneManager.GetActiveScene().buildIndex > 0)
+        {
+            factionText.text = $"Faction: {PlayerPrefs.GetString(factionNameKey)}";
+            classText.text = $"Class: {PlayerPrefs.GetString(classNameKey)}";
+        }
     }
 
     public void LoadAScene(int scene)
