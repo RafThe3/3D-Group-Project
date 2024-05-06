@@ -138,7 +138,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 43bcef3d46a7ec6488a0964197affeea, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.66
+      value: 20.27
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 43bcef3d46a7ec6488a0964197affeea, type: 3}
       propertyPath: m_LocalPosition.y
@@ -215,6 +215,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 43bcef3d46a7ec6488a0964197affeea, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5284877299688574061}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 43bcef3d46a7ec6488a0964197affeea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3925221328423182136}
   m_SourcePrefab: {fileID: 100100000, guid: 43bcef3d46a7ec6488a0964197affeea, type: 3}
 --- !u!4 &8392301994615492997 stripped
 Transform:
@@ -310,6 +313,7 @@ MonoBehaviour:
   - falling point
   - resolution
   allowInteraction: 1
+  moveToDestination: 0
   destination: {fileID: 0}
   walkSFX: {fileID: 8300000, guid: 2352822feb4caa14ebdbc0c713289f8d, type: 3}
   audioSource: {fileID: 9014972283831875948}
@@ -317,4 +321,27 @@ MonoBehaviour:
   dialogueText: {fileID: 0}
   interactText: {fileID: 0}
   minInteractDistance: 5
-  dialogueDistance: 7
+  dialogueDistance: 4
+--- !u!136 &3925221328423182136
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9168381748397706047}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.8
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
