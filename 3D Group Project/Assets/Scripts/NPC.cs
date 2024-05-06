@@ -25,18 +25,21 @@ public class NPC : MonoBehaviour
     private RaycastHit hit;
     private int dialogue = 0;
     private GameObject[] NPCs;
+    private bool isPlayer = false;
+    private CapsuleCollider cldr;
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-        NPCs = GameObject.FindGameObjectsWithTag("NPC");
+        cldr = GetComponent<CapsuleCollider>();
     }
 
     private void Start()
     {
         dialogueText.enabled = false;
         interactText.enabled = false;
+        cldr.radius = dialogueDistance;
     }
 
     private void Update()
@@ -44,57 +47,45 @@ public class NPC : MonoBehaviour
         audioLength += Time.deltaTime;
 
         MoveNPC();
-        UpdateNPCDialogueUI();
     }
 
-    private void UpdateNPCDialogueUI()
+    private void OnTriggerStay(Collider other)
     {
-        GameObject player = GameObject.FindWithTag("Player");
-        Vector3 playerPosition = player.transform.position - transform.position;
-        bool isPlayerNear = playerPosition.magnitude < dialogueDistance;
-
-        if (!isPlayerNear)
+        if (other.CompareTag("Player"))
         {
-            dialogueText.enabled = false;
-        }
+            isPlayer = true;
+            Vector3 playerPosition = other.transform.position - transform.position;
+            bool isPlayerNear = playerPosition.magnitude < dialogueDistance;
 
-        Ray ray = new(Camera.main.transform.position, Camera.main.transform.forward);
-
-        if (Physics.Raycast(ray, out hit, minInteractDistance) && hit.collider.CompareTag("NPC") && allowInteraction && Time.timeScale > 0)
-        {
-            interactText.enabled = true;
-
-            if (Input.GetKeyDown(KeyCode.E))
+            if (isPlayerNear && isPlayer && Time.timeScale > 0)
             {
-                dialogueText.enabled = true;
+                interactText.enabled = true;
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    dialogue = 0;
+                    dialogueText.enabled = true;
+                }
+            }
+            else
+            {
+                interactText.enabled = false;
+                dialogueText.enabled = false;
+            }
+
+            if (dialogueText.enabled)
+            {
+                dialogueText.text = mainDialogue[dialogue];
+                if (Input.GetKeyDown(KeyCode.Q) && Time.timeScale > 0)
+                {
+                    dialogue++;
+                }
+            }
+
+            if (dialogue >= mainDialogue.Length)
+            {
                 dialogue = 0;
+                dialogueText.enabled = false;
             }
-        }
-        else
-        {
-            interactText.enabled = false;
-        }
-
-        if (dialogueText.enabled)
-        {
-            Time.timeScale = 0;
-            dialogueText.text = hit.collider.GetComponent<NPC>().GetDialogue[dialogue];
-            if (Input.GetKeyDown(KeyCode.Q) && Time.timeScale > 0)
-            {
-                dialogue++;
-            }
-        }
-
-        if (dialogue >= mainDialogue.Length)
-        {
-            dialogue = 0;
-            Time.timeScale = 1;
-            dialogueText.enabled = false;
-        }
-
-        if (Time.timeScale <= 0)
-        {
-            dialogueText.enabled = false;
         }
     }
 
@@ -119,5 +110,8 @@ public class NPC : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, dialogueDistance);
     }
 
-    public string[] GetDialogue => mainDialogue;
+    private void OnTriggerExit(Collider other)
+    {
+        isPlayer = false;
+    }
 }

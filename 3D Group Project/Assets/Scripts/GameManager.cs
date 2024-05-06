@@ -2,9 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI factionText, classText;
+
+    public void UpdateFaction(string factionName)
+    {
+        factionText.text = factionName;
+    }
+
+    public void UpdateClass(string className)
+    {
+        classText.text = className;
+    }
+
     private void Start()
     {
         Time.timeScale = 1;
