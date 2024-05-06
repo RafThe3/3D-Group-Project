@@ -35,7 +35,7 @@ public class Inventory : MonoBehaviour
             item_ = items[random];
         }
 
-        for (int i = 0; i < inventorySlots.Length; i++)
+        for(int i = 0; i < inventorySlots.Length; i++)
         {
             Instantiate(itemPrefab, inventorySlots[i].transform).Initialize(item_, inventorySlots[i]);
             break;
