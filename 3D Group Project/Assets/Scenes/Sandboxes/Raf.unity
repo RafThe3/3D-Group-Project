@@ -1679,7 +1679,7 @@ MonoBehaviour:
   - {fileID: 487989673}
   canSpawnObjects: 1
   numberOfObjects: 20
-  spawnInterval: 2.5
+  spawnInterval: 4
   endlessSpawn: 0
 --- !u!4 &914594238
 Transform:

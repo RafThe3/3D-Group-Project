@@ -6775,6 +6775,7 @@ GameObject:
   - component: {fileID: 4649361387269481855}
   - component: {fileID: 4354581884982401055}
   - component: {fileID: 4828440771689786096}
+  - component: {fileID: 2134639023296690479}
   m_Layer: 8
   m_Name: Ranger 2
   m_TagString: Player
@@ -7174,6 +7175,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSFX: {fileID: 8300000, guid: 2352822feb4caa14ebdbc0c713289f8d, type: 3}
   audioSpeed: 2
+--- !u!114 &2134639023296690479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4797686519811914429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 210d8f9e61848a947afda95a4f09e8bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progressText: {fileID: 740831221515073190}
+  textDuration: 5
 --- !u!1 &4806363781399999510
 GameObject:
   m_ObjectHideFlags: 0

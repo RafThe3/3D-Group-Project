@@ -8871,6 +8871,7 @@ GameObject:
   - component: {fileID: 7536833630162219342}
   - component: {fileID: 228810777713340840}
   - component: {fileID: -6997296460492747888}
+  - component: {fileID: -6634940910709646375}
   m_Layer: 8
   m_Name: Mage 2
   m_TagString: Player
@@ -9272,6 +9273,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSFX: {fileID: 8300000, guid: 2352822feb4caa14ebdbc0c713289f8d, type: 3}
   audioSpeed: 2
+--- !u!114 &-6634940910709646375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6614685486736145202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 210d8f9e61848a947afda95a4f09e8bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progressText: {fileID: 559594600062084050}
+  textDuration: 5
 --- !u!1 &6660974204617463225
 GameObject:
   m_ObjectHideFlags: 0
