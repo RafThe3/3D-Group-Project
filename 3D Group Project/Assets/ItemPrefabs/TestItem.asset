@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0394837f48b9b744a321cf407336249, type: 3}
   m_Name: TestItem
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 800401abc4ddd3a439e99893f1a2fcf1, type: 3}
   myTag: 0
   equipmentPrefab: {fileID: 0}
