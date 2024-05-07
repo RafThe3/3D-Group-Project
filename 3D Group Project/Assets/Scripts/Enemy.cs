@@ -37,12 +37,16 @@ public class Enemy : MonoBehaviour
     private EnemyStats enemyStats;
     private float meleeTimer = 0, shootTimer = 0;
     private AudioSource audioSource;
+    private Animator animator;
+    private Rigidbody rb;
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         enemyStats = FindObjectOfType<EnemyStats>();
         audioSource = GetComponentInChildren<AudioSource>();
+        //animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
     }
 
     private void Start()
@@ -68,6 +72,9 @@ public class Enemy : MonoBehaviour
     {
         meleeTimer += Time.deltaTime;
         shootTimer += Time.deltaTime;
+
+        bool isMoving = Mathf.Abs(rb.velocity.z) > Mathf.Epsilon;
+        //animator.SetBool("isMoving", isMoving);
 
         MoveEnemy();
         if (attackType == AttackType.Shoot)
@@ -159,6 +166,16 @@ public class Enemy : MonoBehaviour
     {
         Gizmos.DrawWireSphere(transform.position, chaseDistance);
         Gizmos.DrawWireSphere(transform.position, shootDistance);
+    }
+
+    public float GetCurrentHealth()
+    {
+        return currentHealth;
+    }
+
+    public float GetMaxHealth()
+    {
+        return maxHealth;
     }
 
     private enum AttackType { None, Melee, Shoot }

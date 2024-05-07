@@ -83,44 +83,6 @@ public class Warrior : MonoBehaviour
         {
             AutoHeal();
         }
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            SaveData();
-        }
-        else if (Input.GetKeyDown(KeyCode.L))
-        {
-            autoHealTimer = 0;
-            canSetTempHealth = true;
-            LoadData();
-        }
-    }
-
-    public void SaveData()
-    {
-        SaveScript.SavePlayer(this);
-        progressText.text = "Progress saved!";
-        StartCoroutine(ShowProgressText(textShowTime));
-    }
-
-    public void LoadData()
-    {
-        PlayerData data = SaveScript.LoadPlayer(this);
-        maxHealth = data.maxHealth;
-        currentHealth = data.currentHealth;
-        transform.position = new Vector3(data.x, data.y, data.z);
-
-        progressText.text = "Progress loaded!";
-        StartCoroutine(ShowProgressText(textShowTime));
-    }
-
-    private IEnumerator ShowProgressText(float duration)
-    {
-        progressText.enabled = true;
-
-        yield return new WaitForSeconds(duration);
-
-        progressText.enabled = false;
     }
 
     private void UpdateUI()
@@ -242,5 +204,11 @@ public class Warrior : MonoBehaviour
     public int GetCurrentExp()
     {
         return currentExp;
+    }
+
+    public void DisableAutoHeal()
+    {
+        autoHealTimer = 0;
+        canSetTempHealth = true;
     }
 }
