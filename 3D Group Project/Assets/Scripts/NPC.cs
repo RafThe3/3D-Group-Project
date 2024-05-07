@@ -51,7 +51,7 @@ public class NPC : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && allowInteraction)
         {
             isPlayer = true;
             Vector3 playerPosition = other.transform.position - transform.position;
@@ -91,17 +91,16 @@ public class NPC : MonoBehaviour
 
     private void MoveNPC()
     {
-        if (!moveToDestination)
+        if (moveToDestination)
         {
-            return;
-        }
-        agent.destination = destination.position;
-        bool isMoving = Mathf.Abs(agent.velocity.z) > Mathf.Epsilon;
-        animator.SetBool("isMoving", isMoving);
-        if (isMoving && audioLength >= walkSFX.length * (1 / audioSpeed))
-        {
-            audioSource.PlayOneShot(walkSFX, 10);
-            audioLength = 0;
+            agent.destination = destination.position;
+            bool isMoving = Mathf.Abs(agent.velocity.z) > Mathf.Epsilon;
+            animator.SetBool("isMoving", isMoving);
+            if (isMoving && audioLength >= walkSFX.length * (1 / audioSpeed))
+            {
+                audioSource.PlayOneShot(walkSFX, 10);
+                audioLength = 0;
+            }
         }
     }
 

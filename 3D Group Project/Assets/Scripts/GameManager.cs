@@ -44,6 +44,10 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1;
+        /*restart from last save
+        SaveSystem saveSystem = GameObject.FindWithTag("Player").GetComponent<SaveSystem>();
+        saveSystem.Load();
+        */
     }
 
     public void LoadNextScene()
