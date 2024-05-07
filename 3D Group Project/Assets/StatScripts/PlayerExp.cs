@@ -27,16 +27,16 @@ public class PlayerExp : MonoBehaviour
         //eStats = GameObject.FindWithTag("Enemy").GetComponent<EnemyStats>();
     }
 
+    private void Start()
+    {
+        SaveData data = new();
+        CurrentLevel = data.currentLevel;
+        MaxExp = data.maxExp;
+        CurrentExp = data.currentExp;
+    }
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            SaveData();
-        }
-        else if (Input.GetKeyDown(KeyCode.L))
-        {
-            LoadData();
-        }
         LevelUp();
     }
 
@@ -64,18 +64,5 @@ public class PlayerExp : MonoBehaviour
             CurrentExp = 0;
             Camera.main.GetComponent<AudioSource>().PlayOneShot(levelUpSFX, 3f);
         }
-    }
-
-    public void SaveData()
-    {
-        SaveScript.SavePlayer(this);
-    }
-
-    public void LoadData()
-    {
-        PlayerData data = SaveScript.LoadPlayer(this);
-        CurrentExp = data.currentExp;
-        MaxExp = data.maxExp;
-        CurrentLevel = data.currentLevel;
     }
 }
