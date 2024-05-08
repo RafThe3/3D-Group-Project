@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0394837f48b9b744a321cf407336249, type: 3}
   m_Name: LegendaryItemTest
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: b74c31d447d2f5d41a61081bdf5e7126, type: 3}
+  sprite: {fileID: 21300000, guid: 177f17e7b959a424e8413911b8e903c2, type: 3}
   myTag: 5
   equipmentPrefab: {fileID: 1572689112814265689, guid: 8bcb1051467949c4bb489a8ede9e0a5f, type: 3}

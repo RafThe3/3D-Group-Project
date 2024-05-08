@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 public class InventoryItems : MonoBehaviour, IPointerClickHandler
 {
-    Image icon;
+    Image itemIcon;
     public CanvasGroup canvasGroup {get; private set;}
 
     public Item myItem { get; set; }
@@ -15,7 +15,7 @@ public class InventoryItems : MonoBehaviour, IPointerClickHandler
     void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
-        icon = GetComponent<Image>();
+        itemIcon = GetComponent<Image>();
     }
 
     public void Initialize(Item item, InventorySlot parent)
@@ -23,14 +23,14 @@ public class InventoryItems : MonoBehaviour, IPointerClickHandler
         activeSlot = parent;
         activeSlot.myItem = this;
         myItem = item;
-        icon.sprite = item.sprite;
+        itemIcon.sprite = item.sprite;
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
         if(eventData.button == PointerEventData.InputButton.Left)
         {
-            Inventory.PlayerInventory.SetCarriedItem(this);
+            Inventory.Singleton.SetCarriedItem(this);
         }
     }
 }

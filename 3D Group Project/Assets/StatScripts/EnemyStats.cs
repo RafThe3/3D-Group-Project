@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyStats : MonoBehaviour
 {
-    public int enemyMaxLevel = 1;
+    public int enemyMaxLevel = 23;
     public int enemyLevelRange = 23;
     public float enemyDamage = 1;
     public int expDropped = 1;
@@ -28,13 +28,19 @@ public class EnemyStats : MonoBehaviour
         }
         enemyDamage = enemyCurrentLevel * 20 / 3;
         enemyDamage = (int)enemyDamage;
-        expDropped = enemyCurrentLevel; 
+        expDropped = enemyCurrentLevel * 3;
+        Debug.Log(enemyDamage);
+        Debug.Log(expDropped);
     }
 
     
     void Update()
     {
-        
+        enemyDamage = enemyCurrentLevel * 20 / 3;
+        enemyDamage = (int)enemyDamage;
+        expDropped = enemyCurrentLevel * 3;
+        Debug.Log(enemyDamage);
+        Debug.Log(expDropped);
     }
 
     void OnDestroy()

@@ -31,7 +31,7 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
 
         if(myTag != SlotTag.None)
         {
-            Inventory.PlayerInventory.EquipEquipment(myTag, myItem);
+            Inventory.Singleton.EquipEquipment(myTag, myItem);
         }
     }
 }

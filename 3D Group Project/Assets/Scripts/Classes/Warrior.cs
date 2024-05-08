@@ -20,10 +20,6 @@ public class Warrior : MonoBehaviour
     [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private AudioClip healSFX;
 
-    [Header("Player Data")]
-    [SerializeField] private TextMeshProUGUI progressText;
-    [Min(1), SerializeField] private float textShowTime = 1;
-
     //Internal Variables
     private float currentHealth = 0;
     private int healthPacks = 0;
@@ -47,7 +43,6 @@ public class Warrior : MonoBehaviour
 
     private void Start()
     {
-        progressText.enabled = false;
         currentLevel = playerExp.CurrentLevel;
         maxExp = playerExp.MaxExp;
         currentExp = playerExp.CurrentExp;
@@ -148,6 +143,7 @@ public class Warrior : MonoBehaviour
     private void Die()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        GetComponent<SaveSystem>().Load();
     }
 
     public void AddHealthPack()

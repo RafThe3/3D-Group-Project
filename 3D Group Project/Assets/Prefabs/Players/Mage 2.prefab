@@ -6951,7 +6951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9951427, g: 1, b: 0, a: 0.2784314}
+  m_Color: {r: 0.9951427, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8792,7 +8792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.2784314}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9195,8 +9195,6 @@ MonoBehaviour:
   healthBar: {fileID: 683517753805773652}
   healthText: {fileID: 2409632283537044203}
   healSFX: {fileID: 8300000, guid: cfce0cea076109f478783201b2a9f57f, type: 3}
-  progressText: {fileID: 559594600062084050}
-  textShowTime: 5
 --- !u!114 &4471838097567245180
 MonoBehaviour:
   m_ObjectHideFlags: 0

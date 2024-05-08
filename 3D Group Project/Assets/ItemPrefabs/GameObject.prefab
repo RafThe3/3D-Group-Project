@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6706466107253927586}
   - component: {fileID: 7696214616383275911}
-  - component: {fileID: -7765730436576279657}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -60,15 +59,3 @@ MonoBehaviour:
   WepMinDamage: 5
   WepMaxReq: 1
   WepILvl: 541
---- !u!114 &-7765730436576279657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1572689112814265689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9b898a9f4d27c84b96ee4c673714647, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
