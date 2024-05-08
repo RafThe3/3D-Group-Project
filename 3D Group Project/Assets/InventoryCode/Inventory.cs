@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
-    public static Inventory PlayerInventory;
+    public static Inventory Singleton;
     public static InventoryItems carriedItem;
 
     [SerializeField] InventorySlot[] inventorySlots;
@@ -22,7 +22,7 @@ public class Inventory : MonoBehaviour
 
     void Awake()
     {
-        PlayerInventory = this;
+        Singleton = this;
         giveItemBtn.onClick.AddListener(delegate{SpawnInventoryItem();});
     }
 
@@ -37,8 +37,11 @@ public class Inventory : MonoBehaviour
 
         for(int i = 0; i < inventorySlots.Length; i++)
         {
-            Instantiate(itemPrefab, inventorySlots[i].transform).Initialize(item_, inventorySlots[i]);
-            break;
+            if(inventorySlots[i].myItem == null)
+            {
+                Instantiate(itemPrefab, inventorySlots[i].transform).Initialize(item_, inventorySlots[i]);
+                break;
+            }
         }
     }
 
