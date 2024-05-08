@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour
 
     private string factionNameKey = "FactionName", classNameKey = "ClassName";
 
+    public void SetFaction(int faction)
+    {
+        PlayerPrefs.SetInt("Faction", faction);
+    }
     public void UpdateFaction(string factionName)
     {
         PlayerPrefs.SetString(factionNameKey, factionName);
@@ -44,10 +48,6 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1;
-        /*restart from last save
-        SaveSystem saveSystem = GameObject.FindWithTag("Player").GetComponent<SaveSystem>();
-        saveSystem.Load();
-        */
     }
 
     public void LoadNextScene()
@@ -79,5 +79,15 @@ public class GameManager : MonoBehaviour
     public void PlaySFX(AudioClip audioClip)
     {
         Camera.main.GetComponent<AudioSource>().PlayOneShot(audioClip);
+    }
+
+    public void SavePlayerProgress()
+    {
+        GameObject.FindWithTag("Player").GetComponent<SaveSystem>().Save();
+    }
+
+    public void LoadPlayerProgress()
+    {
+        GameObject.FindWithTag("Player").GetComponent<SaveSystem>().Load();
     }
 }

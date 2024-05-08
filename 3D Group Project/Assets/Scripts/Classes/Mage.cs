@@ -20,10 +20,6 @@ public class Mage : MonoBehaviour
     [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private AudioClip healSFX;
 
-    [Header("Player Data")]
-    [SerializeField] private TextMeshProUGUI progressText;
-    [Min(1), SerializeField] private float textShowTime = 1;
-
     //Internal Variables
     private float currentHealth = 0;
     private int healthPacks = 0;
@@ -47,7 +43,6 @@ public class Mage : MonoBehaviour
 
     private void Start()
     {
-        progressText.enabled = false;
         currentExp = playerExp.CurrentExp;
         currentLevel = playerExp.CurrentLevel;
         maxExp = playerExp.MaxExp;
@@ -61,8 +56,6 @@ public class Mage : MonoBehaviour
         healthBar.maxValue = maxHealth;
         healthBar.value = maxHealth;
         tempHealth = currentHealth;
-        SaveData data = new();
-        transform.position = new Vector3(data.x, data.y, data.z);
     }
 
     private void Update()
@@ -154,6 +147,7 @@ public class Mage : MonoBehaviour
     private void Die()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        GetComponent<SaveSystem>().Load();
     }
 
     private void FixBugs()
