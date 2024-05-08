@@ -11215,8 +11215,6 @@ MonoBehaviour:
   healthBar: {fileID: 6128491281237248713}
   healthText: {fileID: 2249202614683134859}
   healSFX: {fileID: 8300000, guid: cfce0cea076109f478783201b2a9f57f, type: 3}
-  progressText: {fileID: 1622807731541223893}
-  textShowTime: 5
 --- !u!114 &9155680927728428830
 MonoBehaviour:
   m_ObjectHideFlags: 0
