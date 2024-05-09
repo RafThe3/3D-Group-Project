@@ -7,6 +7,7 @@ using TMPro;
 public class NPC : MonoBehaviour
 {
     [TextArea(3, 5), SerializeField] private string[] mainDialogue;
+    [SerializeField] private string objective;
     //[TextArea(3, 5), SerializeField] private string[] randomDialogue;
     [SerializeField] private bool allowInteraction = true;
     [SerializeField] private bool moveToDestination = false;
@@ -18,7 +19,9 @@ public class NPC : MonoBehaviour
     [SerializeField] private TextMeshProUGUI interactText;
     [Min(0), SerializeField] private float minInteractDistance = 1;
     [SerializeField] private float dialogueDistance = 1;
+    [SerializeField] private bool giveObjective = false;
 
+    private TextMeshProUGUI objectiveText;
     private NavMeshAgent agent;
     private Animator animator;
     private float audioLength = 0;
@@ -40,6 +43,7 @@ public class NPC : MonoBehaviour
         dialogueText.enabled = false;
         interactText.enabled = false;
         cldr.radius = dialogueDistance;
+        objectiveText = GameObject.Find("Objective Text").GetComponent<TextMeshProUGUI>();
     }
 
     private void Update()
@@ -64,12 +68,14 @@ public class NPC : MonoBehaviour
                 {
                     dialogue = 0;
                     dialogueText.enabled = true;
+                    interactText.text = "Press Q to continue";
                 }
             }
             else
             {
                 interactText.enabled = false;
                 dialogueText.enabled = false;
+                interactText.text = "Press E to interact";
             }
 
             if (dialogueText.enabled)
@@ -85,6 +91,12 @@ public class NPC : MonoBehaviour
             {
                 dialogue = 0;
                 dialogueText.enabled = false;
+                interactText.text = "Press E to interact";
+                if (giveObjective)
+                {
+                    objectiveText.text = $"Objective: {objective}";
+                    giveObjective = false;
+                }
             }
         }
     }

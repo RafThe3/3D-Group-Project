@@ -19,6 +19,7 @@ public class Mage : MonoBehaviour
     [SerializeField] private Slider healthBar;
     [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private AudioClip healSFX;
+    [SerializeField] private bool shouldAutoHeal = false;
 
     //Internal Variables
     private float currentHealth = 0;
@@ -74,7 +75,7 @@ public class Mage : MonoBehaviour
             tempHealth = currentHealth;
         }
 
-        if (autoHealTimer >= autoHealInterval && currentHealth < maxHealth)
+        if (autoHealTimer >= autoHealInterval && currentHealth < maxHealth && shouldAutoHeal)
         {
             AutoHeal();
         }

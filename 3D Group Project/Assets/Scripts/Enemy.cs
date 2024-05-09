@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         enemyStats = FindObjectOfType<EnemyStats>();
         audioSource = GetComponentInChildren<AudioSource>();
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
     }
 
@@ -74,7 +74,7 @@ public class Enemy : MonoBehaviour
         shootTimer += Time.deltaTime;
 
         bool isMoving = Mathf.Abs(rb.velocity.z) > Mathf.Epsilon;
-        //animator.SetBool("isMoving", isMoving);
+        animator.SetBool("isMoving", isMoving);
 
         MoveEnemy();
         if (attackType == AttackType.Shoot)
@@ -155,7 +155,7 @@ public class Enemy : MonoBehaviour
         if (shootTimer >= shootInterval && playerPosition.magnitude < shootDistance)
         {
             GameObject projectileClone = Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
-            projectileClone.GetComponent<Rigidbody>().velocity = (10 * projectileSpeed * playerPosition.normalized) + new Vector3(0, 1.5f);
+            projectileClone.GetComponent<Rigidbody>().velocity = 10 * projectileSpeed * playerPosition.normalized;
             shootTimer = 0;
             audioSource.PlayOneShot(shootSFX);
             Destroy(projectileClone, projectileLife);

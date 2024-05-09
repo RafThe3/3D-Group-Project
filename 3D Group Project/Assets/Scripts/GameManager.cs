@@ -90,4 +90,9 @@ public class GameManager : MonoBehaviour
     {
         GameObject.FindWithTag("Player").GetComponent<SaveSystem>().Load();
     }
+
+    public void DeletePlayerProgress()
+    {
+        GameObject.FindWithTag("Player").GetComponent<SaveSystem>().Delete();
+    }
 }

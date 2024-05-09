@@ -8,6 +8,8 @@ public class Spawner : MonoBehaviour
     [SerializeField] private bool canSpawnObjects = true;
     [Min(0), SerializeField] private int numberOfObjects = 1;
     [Min(0), SerializeField] private float spawnInterval = 1;
+    [SerializeField] private bool distanceLimit = true;
+    [Min(0), SerializeField] private float spawnDistance = 1;
     [SerializeField] private bool endlessSpawn = false;
     
     //Internal Variables
@@ -18,8 +20,12 @@ public class Spawner : MonoBehaviour
     {
         spawnTimer += Time.deltaTime;
 
+        GameObject player = GameObject.FindWithTag("Player");
+        Vector3 playerPos = player.transform.position - transform.position;
+
         bool isReadyToSpawn = spawnTimer >= spawnInterval && ((objectsSpawned < numberOfObjects && !endlessSpawn) || endlessSpawn);
-        if (canSpawnObjects && isReadyToSpawn)
+        bool isPlayerNear = playerPos.magnitude < spawnDistance && distanceLimit;
+        if (canSpawnObjects && isReadyToSpawn && (isPlayerNear || !distanceLimit))
         {
             SpawnObject();
         }
@@ -31,5 +37,13 @@ public class Spawner : MonoBehaviour
         Instantiate(prefabs[obj], spawnPoints[spawn].transform.position, Quaternion.identity);
         objectsSpawned++;
         spawnTimer = 0;
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (distanceLimit)
+        {
+            Gizmos.DrawWireSphere(transform.position, spawnDistance);
+        }
     }
 }

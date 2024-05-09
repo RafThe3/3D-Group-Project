@@ -63,7 +63,7 @@ public class SaveSystem : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Y))
         {
-            ResetData();
+            Delete();
         }
     }
 
@@ -176,7 +176,7 @@ public class SaveSystem : MonoBehaviour
         return result;
     }
 
-    public void ResetData()
+    public void Delete()
     {
         //string file = $"{Application.persistentDataPath}/{name}.json";
         File.Delete(file);

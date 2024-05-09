@@ -288,8 +288,8 @@ Transform:
   m_Children:
   - {fileID: 1050963988}
   - {fileID: 195369625}
-  - {fileID: 541679800}
   - {fileID: 1128088780}
+  - {fileID: 541679800}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &195369621
@@ -494,18 +494,6 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 678408029}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: LoadNextScene
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 678408029}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: UpdateClass
         m_Mode: 5
         m_Arguments:
@@ -514,6 +502,30 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Warrior
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 678408029}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: EnableCanvas
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 541679797}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Canvas, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 678408029}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: DisableCanvas
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1128088779}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Canvas, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &316320456
@@ -730,36 +742,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 678408029}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: EnableCanvas
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1128088779}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Canvas, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 678408029}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: DisableCanvas
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 541679797}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Canvas, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 678408029}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: UpdateFaction
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: Knights of Eternity
           m_BoolArgument: 0
@@ -774,6 +762,18 @@ MonoBehaviour:
           m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 678408029}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: LoadAScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Knights of Eternity
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &340669718
@@ -915,7 +915,7 @@ MonoBehaviour:
         m_MethodName: EnableCanvas
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 541679797}
+          m_ObjectArgument: {fileID: 195369624}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Canvas, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -2258,7 +2258,7 @@ MonoBehaviour:
         m_MethodName: EnableCanvas
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 195369624}
+          m_ObjectArgument: {fileID: 1128088779}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Canvas, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -2581,7 +2581,7 @@ MonoBehaviour:
         m_MethodName: EnableCanvas
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 541679797}
+          m_ObjectArgument: {fileID: 1128088779}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Canvas, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -2781,18 +2781,6 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 678408029}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: LoadNextScene
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 678408029}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: UpdateClass
         m_Mode: 5
         m_Arguments:
@@ -2801,6 +2789,30 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Mage
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 678408029}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: EnableCanvas
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 541679797}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Canvas, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 678408029}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: DisableCanvas
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1128088779}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Canvas, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1010477887
@@ -3495,30 +3507,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 678408029}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: EnableCanvas
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1128088779}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Canvas, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 678408029}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: DisableCanvas
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 541679797}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Canvas, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 678408029}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: UpdateFaction
         m_Mode: 5
         m_Arguments:
@@ -3539,6 +3527,18 @@ MonoBehaviour:
           m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 678408029}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: LoadAScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Voidborn
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1337710701
@@ -3945,18 +3945,6 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 678408029}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: LoadNextScene
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 678408029}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: UpdateClass
         m_Mode: 5
         m_Arguments:
@@ -3965,6 +3953,30 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Ranger
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 678408029}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: EnableCanvas
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 541679797}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Canvas, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 678408029}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: DisableCanvas
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1128088779}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Canvas, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1799011338
