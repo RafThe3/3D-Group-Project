@@ -12,6 +12,8 @@ public class ClassFunctions : MonoBehaviour
     public float finalHealth;
     public float finalHealing;
 
+    public bool isVoidborn = false;
+    public bool isKOE = false;
 
     public bool isRanger = false;
     float rdmg;
@@ -106,6 +108,10 @@ public class ClassFunctions : MonoBehaviour
     {
         rdmg = (int)rangerClass.RangerDamage;
         rhp = (int)rangerClass.RangerHP;
+        if(isVoidborn == true)
+        {
+            rdmg = (int)rdmg * 1.10f;
+        }
     }
 
     void WarriorStats()

@@ -29,7 +29,7 @@ public class Inventory : MonoBehaviour
     public void SpawnInventoryItem(Item item = null)
     {
         Item item_ = item;
-        if(item_ = null)
+        if(item_ == null)
         {
             int random = Random.Range(0, items.Length);
             item_ = items[random];
