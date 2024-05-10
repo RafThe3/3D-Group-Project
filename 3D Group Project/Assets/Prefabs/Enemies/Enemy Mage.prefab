@@ -3711,6 +3711,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6359972125817529181}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3435222824882372492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4982940518841191434}
+  m_Layer: 6
+  m_Name: Projectile Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4982940518841191434
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3435222824882372492}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.116, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8382001302956997943}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3475908783522933225
 GameObject:
   m_ObjectHideFlags: 0
@@ -4894,6 +4925,7 @@ Transform:
   - {fileID: 2132322994097787889}
   - {fileID: 1830955681256151319}
   - {fileID: 1443070214322367519}
+  - {fileID: 4982940518841191434}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &-4074227725142180755
@@ -4945,7 +4977,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &911232687158883269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4964,7 +4996,7 @@ MonoBehaviour:
   maxHealth: 150
   attackType: 2
   projectilePrefab: {fileID: 7693660454554375522, guid: 159d052ebaf9c10498f047660bd30941, type: 3}
-  projectileSpawnPoint: {fileID: 8382001302956997943}
+  projectileSpawnPoint: {fileID: 4982940518841191434}
   projectileSpeed: 5
   projectileLife: 3
   shootInterval: 1.2
@@ -4981,7 +5013,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 2
+  m_Speed: 6
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 240
@@ -7429,7 +7461,7 @@ Transform:
   m_GameObject: {fileID: 6479611327750670119}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.25, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8215,7 +8247,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0857, y: 0.1817}
+  m_AnchoredPosition: {x: 0.0857, y: 0.74}
   m_SizeDelta: {x: 5.9021, y: 5.2839}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &555616805392777861

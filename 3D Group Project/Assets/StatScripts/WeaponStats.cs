@@ -52,6 +52,12 @@ public class WeaponStats : MonoBehaviour
         
         WepReqLvl = Random.Range(1, WepMaxReq);
         */
+
+        if (CompareTag("Frying Pan"))
+        {
+            return;
+        }
+
         WepILvl = 20 * WepReqLvl + (3 * WepRarity) / 10;
         WepDamage = (WepILvl /30) * WepReqLvl / 2;
         WepMainStat = WepDamage + (WepILvl * 1.25f) / 45f;

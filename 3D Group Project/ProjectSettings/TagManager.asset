@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - NPC
   - Sun
+  - Frying Pan
   layers:
   - Default
   - TransparentFX
