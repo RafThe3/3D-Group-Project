@@ -64,8 +64,12 @@ public class Shooting : MonoBehaviour
                 case ShootType.Projectile:
                     SpawnProjectile();
                     break;
+
                 case ShootType.Line:
                     ShootLine();
+                    break;
+
+                default:
                     break;
             }
         }

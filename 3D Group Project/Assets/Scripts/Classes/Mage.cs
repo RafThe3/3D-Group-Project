@@ -148,7 +148,6 @@ public class Mage : MonoBehaviour
     private void Die()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        GetComponent<SaveSystem>().Load();
     }
 
     private void FixBugs()

@@ -11,10 +11,28 @@ public class Spawner : MonoBehaviour
     [SerializeField] private bool distanceLimit = false;
     [Min(0), SerializeField] private float spawnDistance = 1;
     [SerializeField] private bool endlessSpawn = false;
+    [SerializeField] private bool isEnemiesAsPrefab = false;
     
     //Internal Variables
     private float spawnTimer;
     private int objectsSpawned;
+    private EnemyCounter enemyCounter;
+
+    private void Awake()
+    {
+        if (isEnemiesAsPrefab)
+        {
+            enemyCounter = GetComponent<EnemyCounter>();
+        }
+    }
+
+    private void Start()
+    {
+        if (isEnemiesAsPrefab)
+        {
+            enemyCounter.UpdateEnemiesToSpawn(numberOfObjects);
+        }
+    }
 
     private void Update()
     {
@@ -25,6 +43,7 @@ public class Spawner : MonoBehaviour
 
         bool isReadyToSpawn = spawnTimer >= spawnInterval && ((objectsSpawned < numberOfObjects && !endlessSpawn) || endlessSpawn);
         bool isPlayerNear = playerPos.magnitude < spawnDistance && distanceLimit;
+
         if (canSpawnObjects && isReadyToSpawn && (isPlayerNear || !distanceLimit))
         {
             SpawnObject();

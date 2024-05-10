@@ -95,4 +95,9 @@ public class GameManager : MonoBehaviour
     {
         GameObject.FindWithTag("Player").GetComponent<SaveSystem>().Delete();
     }
+
+    public void NormalTimeScale()
+    {
+        Time.timeScale = 1;
+    }
 }
