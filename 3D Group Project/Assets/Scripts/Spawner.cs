@@ -8,7 +8,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private bool canSpawnObjects = true;
     [Min(0), SerializeField] private int numberOfObjects = 1;
     [Min(0), SerializeField] private float spawnInterval = 1;
-    [SerializeField] private bool distanceLimit = true;
+    [SerializeField] private bool distanceLimit = false;
     [Min(0), SerializeField] private float spawnDistance = 1;
     [SerializeField] private bool endlessSpawn = false;
     
