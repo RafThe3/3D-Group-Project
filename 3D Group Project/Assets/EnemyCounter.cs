@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyCounter : MonoBehaviour
 {
+    [SerializeField] private string areaToConquer;
+
     private int enemiesToSpawn, enemiesRemaining;
 
     // Start is called before the first frame update
