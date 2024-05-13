@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2224184612409854818}
   - component: {fileID: 3883567194025846759}
   m_Layer: 0
-  m_Name: TrashWeaponlvl1
+  m_Name: 4RareWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb721a8eba0512242812a8f99fd58ca8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WepRarity: 1
+  WepRarity: 4
   WepDamage: 5
   WepMainStat: 0
   WepStamina: 0
@@ -57,5 +57,5 @@ MonoBehaviour:
   CommonRarity: 25
   TrashRarity: 5
   WepMinDamage: 5
-  WepMaxReq: 1
+  WepMaxReq: 20
   WepILvl: 20

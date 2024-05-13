@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5992634956269892195
+--- !u!1 &2787517414448935456
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5011750124775312967}
-  - component: {fileID: 7026926432188437285}
+  - component: {fileID: 2224184612409854818}
+  - component: {fileID: 3883567194025846759}
   m_Layer: 0
-  m_Name: TrashWeaponlvl2
+  m_Name: 6LegendaryWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5011750124775312967
+--- !u!4 &2224184612409854818
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5992634956269892195}
+  m_GameObject: {fileID: 2787517414448935456}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 465.78436, y: 106.67515, z: 19.326733}
@@ -32,24 +32,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7026926432188437285
+--- !u!114 &3883567194025846759
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5992634956269892195}
+  m_GameObject: {fileID: 2787517414448935456}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb721a8eba0512242812a8f99fd58ca8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WepRarity: 1
-  WepDamage: 7
+  WepRarity: 5
+  WepDamage: 5
   WepMainStat: 0
   WepStamina: 0
   WepPwr: 0
-  WepReqLvl: 2
+  WepReqLvl: 1
   LegenaryRarity: 1000
   EpicRarity: 500
   RareRarity: 250
@@ -57,5 +57,5 @@ MonoBehaviour:
   CommonRarity: 25
   TrashRarity: 5
   WepMinDamage: 5
-  WepMaxReq: 1
-  WepILvl: 40
+  WepMaxReq: 20
+  WepILvl: 20

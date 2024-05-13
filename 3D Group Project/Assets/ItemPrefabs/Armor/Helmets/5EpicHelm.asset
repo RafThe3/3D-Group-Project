@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0394837f48b9b744a321cf407336249, type: 3}
-  m_Name: TrashBoots
+  m_Name: 5EpicHelm
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 8b87841a88eb7ca468be337daa566323, type: 3}
-  myTag: 0
+  sprite: {fileID: 21300000, guid: 28c3fef751b061b44b5662daa94f21b4, type: 3}
+  myTag: 1
   equipmentPrefab: {fileID: 0}

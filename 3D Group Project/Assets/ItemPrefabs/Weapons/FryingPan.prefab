@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1193509568950957997
+--- !u!1 &2733532593517540809
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2790074307707599906}
-  - component: {fileID: 8524996621841246905}
+  - component: {fileID: 7377227015232874402}
+  - component: {fileID: 631792838514656785}
   m_Layer: 0
-  m_Name: TrashWeaponlvl3
-  m_TagString: Untagged
+  m_Name: FryingPan
+  m_TagString: Frying Pan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2790074307707599906
+--- !u!4 &7377227015232874402
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1193509568950957997}
+  m_GameObject: {fileID: 2733532593517540809}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 465.78436, y: 106.67515, z: 19.326733}
@@ -32,24 +32,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8524996621841246905
+--- !u!114 &631792838514656785
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1193509568950957997}
+  m_GameObject: {fileID: 2733532593517540809}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb721a8eba0512242812a8f99fd58ca8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WepRarity: 1
-  WepDamage: 8
-  WepMainStat: 0
-  WepStamina: 0
-  WepPwr: 0
-  WepReqLvl: 3
+  WepRarity: 6
+  WepDamage: 1260
+  WepMainStat: 2205
+  WepStamina: 2425
+  WepPwr: 4630
+  WepReqLvl: 1
   LegenaryRarity: 1000
   EpicRarity: 500
   RareRarity: 250
@@ -58,4 +58,4 @@ MonoBehaviour:
   TrashRarity: 5
   WepMinDamage: 5
   WepMaxReq: 1
-  WepILvl: 60
+  WepILvl: 10520

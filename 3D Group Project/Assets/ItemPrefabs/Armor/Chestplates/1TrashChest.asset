@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0394837f48b9b744a321cf407336249, type: 3}
-  m_Name: TrashWeaponLvl1
+  m_Name: 1TrashChest
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 670d245625185c44daa94f315a948f5d, type: 3}
-  myTag: 0
-  equipmentPrefab: {fileID: 2787517414448935456, guid: 941bb157eb9296a4695b6489411d476f, type: 3}
+  sprite: {fileID: 21300000, guid: 2228872498b8e0a4db4c736b491d435f, type: 3}
+  myTag: 2
+  equipmentPrefab: {fileID: 0}
