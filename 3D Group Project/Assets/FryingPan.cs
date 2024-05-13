@@ -25,6 +25,7 @@ public class FryingPan : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E) && Time.timeScale > 0)
             {
                 FindObjectOfType<ItemSwitch>().EnableItem2();
+                interactText.enabled = false;
                 Destroy(gameObject);
             }
         }

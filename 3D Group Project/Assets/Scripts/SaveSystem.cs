@@ -10,8 +10,6 @@ public class SaveSystem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI progressText;
     [SerializeField] private float textDuration = 1;
 
-    private static readonly string keyWord = "password";
-
     private PlayerExp playerExp;
 
     private Mage mage;
@@ -19,6 +17,11 @@ public class SaveSystem : MonoBehaviour
     private Ranger ranger;
     private Enemy enemy;
     private Transform sun;
+    private TextMeshProUGUI objectiveText;
+    private ConquerLands conquerLands;
+    private Spawner desertSpawner, snowSpawner, volcanoSpawner, kingdomSpawner;
+
+    private static readonly string keyWord = "password";
     private string file;
 
     private void Awake()
@@ -46,6 +49,13 @@ public class SaveSystem : MonoBehaviour
         }
 
         sun = GameObject.FindWithTag("Sun").transform;
+        objectiveText = GameObject.Find("Objective Text").GetComponent<TextMeshProUGUI>();
+        conquerLands = FindObjectOfType<ConquerLands>();
+        desertSpawner = GameObject.Find("Desert Spawn").GetComponentInChildren<Spawner>();
+        snowSpawner = GameObject.Find("Snow Spawn").GetComponentInChildren<Spawner>();
+        volcanoSpawner = GameObject.Find("Volcano Spawn").GetComponentInChildren<Spawner>();
+        kingdomSpawner = GameObject.Find("Kingdom Spawn").GetComponentInChildren<Spawner>();
+
         file = $"{Application.persistentDataPath}/{name}.json";
     }
 
@@ -70,6 +80,7 @@ public class SaveSystem : MonoBehaviour
     public void Save()
     {
         SaveData myData = new();
+
         if (CompareTag("Player"))
         {
             if (TryGetComponent(out mage))
@@ -111,17 +122,28 @@ public class SaveSystem : MonoBehaviour
             myData.sunY = sun.rotation.y;
             myData.sunZ = sun.rotation.z;
         }
+
+        myData.areasConquered = conquerLands.landsConquered;
+        myData.desertSpawn = desertSpawner.enabled;
+        myData.snowSpawn = snowSpawner.enabled;
+        myData.volcanoSpawn = volcanoSpawner.enabled;
+        myData.kingdomSpawn = kingdomSpawner.enabled;
+
+        //Important - DO NOT DELETE
         string myDataString = JsonUtility.ToJson(myData);
         myDataString = EncryptDecryptData(myDataString);
         //string file = $"{Application.persistentDataPath}/{name}.json";
         File.WriteAllText(file, myDataString);
         //Debug.Log(Application.persistentDataPath);
+        //
+
         progressText.text = "Progress saved!";
         StartCoroutine(ShowProgressText(textDuration));
     }
 
     public void Load()
     {
+        //Important - DO NOT DELETE
         //string file = $"{Application.persistentDataPath}/{name}.json";
         if (File.Exists(file))
         {
@@ -129,6 +151,8 @@ public class SaveSystem : MonoBehaviour
             jsonData = EncryptDecryptData(jsonData);
             SaveData myData = JsonUtility.FromJson<SaveData>(jsonData);
             transform.position = new Vector3(myData.x, myData.y, myData.z);
+            //
+
             sun.rotation = new Quaternion(myData.sunX, myData.sunY, myData.sunZ, sun.rotation.w);
             if (CompareTag("Player"))
             {
@@ -159,6 +183,12 @@ public class SaveSystem : MonoBehaviour
                 myData.currentHealth = enemy.GetCurrentHealth();
                 myData.maxHealth = enemy.GetMaxHealth();
             }
+            conquerLands.landsConquered = myData.areasConquered;
+            desertSpawner.enabled = myData.desertSpawn;
+            snowSpawner.enabled = myData.snowSpawn;
+            volcanoSpawner.enabled = myData.volcanoSpawn;
+            kingdomSpawner.enabled = myData.kingdomSpawn;
+            objectiveText.text = $"Objective: Conquer all the lands ({myData.areasConquered} / 4)";
             progressText.text = "Progress loaded!";
             StartCoroutine(ShowProgressText(textDuration));
         }
@@ -199,4 +229,6 @@ public class SaveData
     public int currentExp, maxExp, currentLevel;
     public float currentHealth, maxHealth;
     public float sunX, sunY, sunZ;
+    public int areasConquered;
+    public bool desertSpawn, snowSpawn, volcanoSpawn, kingdomSpawn;
 }

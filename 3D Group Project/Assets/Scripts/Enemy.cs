@@ -39,6 +39,7 @@ public class Enemy : MonoBehaviour
     private AudioSource audioSource;
     private Animator animator;
     private Rigidbody rb;
+    private EnemyCounter enemyCounter;
 
     private void Awake()
     {
@@ -47,6 +48,7 @@ public class Enemy : MonoBehaviour
         audioSource = GetComponentInChildren<AudioSource>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
+        enemyCounter = FindObjectOfType<EnemyCounter>();
     }
 
     private void Start()
@@ -115,6 +117,7 @@ public class Enemy : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            enemyCounter.SubtractEnemiesRemaining();
             Destroy(gameObject);
         }
     }

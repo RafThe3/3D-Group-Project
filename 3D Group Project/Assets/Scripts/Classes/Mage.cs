@@ -79,11 +79,6 @@ public class Mage : MonoBehaviour
         {
             AutoHeal();
         }
-
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            TakeDamage(10);
-        }
     }
 
     private void UpdateUI()
@@ -91,7 +86,9 @@ public class Mage : MonoBehaviour
         currentLevel = playerExp.CurrentLevel;
         maxExp = playerExp.MaxExp;
         currentExp = playerExp.CurrentExp;
+
         playerExp.ExpBar.value = currentExp;
+        playerExp.ExpBar.maxValue = maxExp;
         playerExp.ExpText.text = $"Exp: {currentExp} / {maxExp}";
         playerExp.LevelText.text = $"Level: {currentLevel}";
 

@@ -37,14 +37,9 @@ public class Spawner : MonoBehaviour
     private void Update()
     {
         spawnTimer += Time.deltaTime;
+        UpdateUI();
 
-        GameObject player = GameObject.FindWithTag("Player");
-        Vector3 playerPos = player.transform.position - transform.position;
-
-        bool isReadyToSpawn = spawnTimer >= spawnInterval && ((objectsSpawned < numberOfObjects && !endlessSpawn) || endlessSpawn);
-        bool isPlayerNear = playerPos.magnitude < spawnDistance && distanceLimit;
-
-        if (canSpawnObjects && isReadyToSpawn && (isPlayerNear || !distanceLimit))
+        if (canSpawnObjects)
         {
             SpawnObject();
         }
@@ -52,10 +47,33 @@ public class Spawner : MonoBehaviour
 
     private void SpawnObject()
     {
+        GameObject player = GameObject.FindWithTag("Player");
+        Vector3 playerPos = player.transform.position - transform.position;
+
+        bool isReadyToSpawn = spawnTimer >= spawnInterval && ((objectsSpawned < numberOfObjects && !endlessSpawn) || endlessSpawn);
+        bool isPlayerNear = playerPos.magnitude < spawnDistance && distanceLimit;
+
+        if (!isReadyToSpawn || (!isPlayerNear && distanceLimit))
+        {
+            return;
+        }
+
         int spawn = Random.Range(0, spawnPoints.Length), obj = Random.Range(0, prefabs.Length);
         Instantiate(prefabs[obj], spawnPoints[spawn].transform.position, Quaternion.identity);
         objectsSpawned++;
         spawnTimer = 0;
+    }
+
+    private void UpdateUI()
+    {
+        GameObject player = GameObject.FindWithTag("Player");
+        Vector3 playerPos = player.transform.position - transform.position;
+        bool isPlayerNear = playerPos.magnitude < spawnDistance && distanceLimit;
+
+        if (isPlayerNear)
+        {
+            enemyCounter.enemiesRemainingText.enabled = true;
+        }
     }
 
     private void OnDrawGizmos()

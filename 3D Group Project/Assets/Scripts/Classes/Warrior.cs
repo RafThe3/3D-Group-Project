@@ -87,6 +87,7 @@ public class Warrior : MonoBehaviour
         currentExp = playerExp.CurrentExp;
 
         playerExp.ExpBar.value = currentExp;
+        playerExp.ExpBar.maxValue = maxExp;
         playerExp.ExpText.text = $"Exp: {currentExp} / {maxExp}";
         playerExp.LevelText.text = $"Level: {currentLevel}";
 
