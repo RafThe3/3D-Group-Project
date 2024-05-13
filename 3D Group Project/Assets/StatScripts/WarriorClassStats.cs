@@ -21,6 +21,7 @@ public class WarriorClassStats : MonoBehaviour
 
     private Warrior warrior;
     [SerializeField] WeaponStats wepStats;
+    ArmorStats armorStats;
     PlayerExp playerExp;
     Specializations specs;
 

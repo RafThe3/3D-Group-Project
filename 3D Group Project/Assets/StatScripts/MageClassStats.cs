@@ -22,6 +22,7 @@ public class MageClassStats : MonoBehaviour
 
     private Mage mage;
     [SerializeField] WeaponStats wepStats;
+    ArmorStats armorStats;
     PlayerExp playerExp;
     Specializations specs;
 
