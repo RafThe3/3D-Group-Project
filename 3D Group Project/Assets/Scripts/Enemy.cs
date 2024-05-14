@@ -39,7 +39,6 @@ public class Enemy : MonoBehaviour
     private AudioSource audioSource;
     private Animator animator;
     private Rigidbody rb;
-    private EnemyCounter enemyCounter;
 
     private void Awake()
     {
@@ -48,7 +47,6 @@ public class Enemy : MonoBehaviour
         audioSource = GetComponentInChildren<AudioSource>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
-        enemyCounter = FindObjectOfType<EnemyCounter>();
     }
 
     private void Start()
@@ -117,7 +115,29 @@ public class Enemy : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            enemyCounter.SubtractEnemiesRemaining();
+            GameObject desertSpawn = GameObject.Find("Desert Spawn");
+            GameObject snowSpawn = GameObject.Find("Snow Spawn");
+            GameObject volcanoSpawn = GameObject.Find("Volcano Spawn");
+            GameObject kingdomSpawn = GameObject.Find("Kingdom Spawn");
+
+            if (desertSpawn.GetComponentInChildren<Spawner>().enabled)
+            {
+                EnemyCounter enemyCounter = desertSpawn.GetComponentInChildren<EnemyCounter>();
+                enemyCounter.SubtractEnemiesRemaining();
+            }
+            else if (snowSpawn.GetComponentInChildren<Spawner>().enabled)
+            {
+                snowSpawn.GetComponentInChildren<EnemyCounter>().SubtractEnemiesRemaining();
+            }
+            else if (volcanoSpawn.GetComponentInChildren<Spawner>().enabled)
+            {
+                volcanoSpawn.GetComponentInChildren<EnemyCounter>().SubtractEnemiesRemaining();
+            }
+            else if (kingdomSpawn.GetComponentInChildren<Spawner>().enabled)
+            {
+                kingdomSpawn.GetComponentInChildren<EnemyCounter>().SubtractEnemiesRemaining();
+            }
+
             Destroy(gameObject);
         }
     }

@@ -51,10 +51,12 @@ public class SaveSystem : MonoBehaviour
         sun = GameObject.FindWithTag("Sun").transform;
         objectiveText = GameObject.Find("Objective Text").GetComponent<TextMeshProUGUI>();
         conquerLands = FindObjectOfType<ConquerLands>();
+        
         desertSpawner = GameObject.Find("Desert Spawn").GetComponentInChildren<Spawner>();
         snowSpawner = GameObject.Find("Snow Spawn").GetComponentInChildren<Spawner>();
         volcanoSpawner = GameObject.Find("Volcano Spawn").GetComponentInChildren<Spawner>();
         kingdomSpawner = GameObject.Find("Kingdom Spawn").GetComponentInChildren<Spawner>();
+        
 
         file = $"{Application.persistentDataPath}/{name}.json";
     }

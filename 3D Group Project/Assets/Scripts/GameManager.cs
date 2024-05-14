@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1;
+
         if (SceneManager.GetActiveScene().buildIndex > 0)
         {
             factionText.text = $"Faction: {PlayerPrefs.GetString(factionNameKey)}";

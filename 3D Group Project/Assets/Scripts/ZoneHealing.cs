@@ -53,7 +53,7 @@ public class ZoneHealing : MonoBehaviour
         healAmount = mageClass.MageHealing;
         UpdateUI();
 
-        if (Input.GetKeyDown(KeyCode.R) && !isCoolingDown && canSpawnZone && !specs.mageSpec1)
+        if (Input.GetKeyDown(KeyCode.R) && !isCoolingDown && canSpawnZone && !isInUse && !specs.mageSpec1)
         {
             StartCoroutine(SpawnZone());
         }

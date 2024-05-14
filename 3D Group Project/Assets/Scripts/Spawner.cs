@@ -23,13 +23,6 @@ public class Spawner : MonoBehaviour
         if (isEnemiesAsPrefab)
         {
             enemyCounter = GetComponent<EnemyCounter>();
-        }
-    }
-
-    private void Start()
-    {
-        if (isEnemiesAsPrefab)
-        {
             enemyCounter.UpdateEnemiesToSpawn(numberOfObjects);
         }
     }
@@ -37,7 +30,6 @@ public class Spawner : MonoBehaviour
     private void Update()
     {
         spawnTimer += Time.deltaTime;
-        UpdateUI();
 
         if (canSpawnObjects)
         {
@@ -64,23 +56,16 @@ public class Spawner : MonoBehaviour
         spawnTimer = 0;
     }
 
-    private void UpdateUI()
-    {
-        GameObject player = GameObject.FindWithTag("Player");
-        Vector3 playerPos = player.transform.position - transform.position;
-        bool isPlayerNear = playerPos.magnitude < spawnDistance && distanceLimit;
-
-        if (isPlayerNear)
-        {
-            enemyCounter.enemiesRemainingText.enabled = true;
-        }
-    }
-
     private void OnDrawGizmos()
     {
         if (distanceLimit)
         {
             Gizmos.DrawWireSphere(transform.position, spawnDistance);
         }
+    }
+
+    public float GetSpawnDistance()
+    {
+        return spawnDistance;
     }
 }

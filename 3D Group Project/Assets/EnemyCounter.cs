@@ -22,12 +22,23 @@ public class EnemyCounter : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        UpdateUI();
+    }
+
+    private void UpdateUI()
+    {
+        Spawner enemySpawner = GetComponent<Spawner>();
+        GameObject player = GameObject.FindWithTag("Player");
+        Vector3 playerPos = player.transform.position - transform.position;
+        bool isPlayerNear = playerPos.magnitude < enemySpawner.GetSpawnDistance();
+
+        enemiesRemainingText.enabled = isPlayerNear;
         enemiesRemainingText.text = $"Enemies Remaining: {enemiesRemaining}";
         if (enemiesRemaining <= 0 && conquerLand)
         {
             conquerLands.UpdateUI();
+            enemySpawner.enabled = false;
             conquerLand = false;
-            GetComponent<Spawner>().enabled = false;
         }
     }
 
@@ -40,4 +51,10 @@ public class EnemyCounter : MonoBehaviour
     {
         enemiesRemaining--;
     }
+
+    public int GetEnemiesRemaining()
+    {
+        return enemiesRemaining;
+    }
+
 }

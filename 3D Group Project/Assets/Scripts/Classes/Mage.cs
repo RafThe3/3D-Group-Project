@@ -20,6 +20,8 @@ public class Mage : MonoBehaviour
     [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private AudioClip healSFX;
     [SerializeField] private bool shouldAutoHeal = false;
+    [SerializeField] private TextMeshProUGUI objectiveText;
+    [SerializeField] private string startingObjective = string.Empty;
 
     //Internal Variables
     private float currentHealth = 0;
@@ -57,6 +59,7 @@ public class Mage : MonoBehaviour
         healthBar.maxValue = maxHealth;
         healthBar.value = maxHealth;
         tempHealth = currentHealth;
+        objectiveText.text = $"Objective: {startingObjective}";
     }
 
     private void Update()
