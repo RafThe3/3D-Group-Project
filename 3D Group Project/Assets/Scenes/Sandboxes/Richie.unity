@@ -1456,7 +1456,7 @@ GameObject:
   - component: {fileID: 510320943}
   m_Layer: 5
   m_Name: EquipmentSlot_Feet
-  m_TagString: Untagged
+  m_TagString: Equipment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1493,7 +1493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c33cdf5303fbd54a885ba8402877eee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myTag: 4
+  myTag: 0
 --- !u!114 &510320944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2031,7 +2031,7 @@ GameObject:
   - component: {fileID: 643078377}
   m_Layer: 5
   m_Name: EquipmentSlot_Weapon
-  m_TagString: Untagged
+  m_TagString: Equipment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2068,7 +2068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c33cdf5303fbd54a885ba8402877eee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myTag: 5
+  myTag: 0
 --- !u!114 &643078378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3750,7 +3750,7 @@ GameObject:
   - component: {fileID: 1383413239}
   m_Layer: 5
   m_Name: EquipmentSlot_Chest
-  m_TagString: Untagged
+  m_TagString: Equipment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3787,7 +3787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c33cdf5303fbd54a885ba8402877eee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myTag: 2
+  myTag: 0
 --- !u!114 &1383413240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3874,6 +3874,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InventorySlot
       objectReference: {fileID: 0}
+    - target: {fileID: 3204125364312930876, guid: ffa4d9a7e1ef13a47bb55464a8d88fc7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 178e6ea62f4586647be71b2af9ffbefe, type: 3}
     - target: {fileID: 3866548604907042944, guid: ffa4d9a7e1ef13a47bb55464a8d88fc7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3954,6 +3958,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8893051726771720998, guid: ffa4d9a7e1ef13a47bb55464a8d88fc7, type: 3}
+      propertyPath: myTag
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3990,7 +3998,7 @@ GameObject:
   - component: {fileID: 1494149199}
   m_Layer: 5
   m_Name: EquipmentSlot_Head
-  m_TagString: Untagged
+  m_TagString: Equipment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4027,7 +4035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c33cdf5303fbd54a885ba8402877eee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myTag: 1
+  myTag: 0
 --- !u!114 &1494149200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5509,7 +5517,7 @@ GameObject:
   - component: {fileID: 2042068718}
   m_Layer: 5
   m_Name: EquipmentSlot_Legs
-  m_TagString: Untagged
+  m_TagString: Equipment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5546,7 +5554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c33cdf5303fbd54a885ba8402877eee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myTag: 3
+  myTag: 0
 --- !u!114 &2042068719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6324,15 +6332,9 @@ GameObject:
   - component: {fileID: 7685886780553392328}
   - component: {fileID: 4244626407028442692}
   - component: {fileID: 453084649749125684}
-  - component: {fileID: 7685886780553392329}
-  - component: {fileID: 7685886780553392330}
   - component: {fileID: 7685886780553392331}
-  - component: {fileID: 7685886780553392334}
-  - component: {fileID: 7685886780553392333}
   - component: {fileID: 7685886780553392332}
   - component: {fileID: 7685886780553392335}
-  - component: {fileID: 7685886780553392338}
-  - component: {fileID: 7685886780553392337}
   - component: {fileID: 7685886780553392336}
   m_Layer: 8
   m_Name: PlayerCapsule
@@ -6721,52 +6723,6 @@ MonoBehaviour:
     m_Bits: 0
   canPush: 0
   strength: 1.1
---- !u!114 &7685886780553392329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 453084649749125688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb721a8eba0512242812a8f99fd58ca8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WepRarity: 6
-  WepDamage: 1
-  WepMainStat: 1
-  WepStamina: 1
-  WepPwr: 1
-  WepReqLvl: 1
-  LegenaryRarity: 1000
-  EpicRarity: 500
-  RareRarity: 250
-  UncommonRarity: 100
-  CommonRarity: 25
-  TrashRarity: 5
-  WepMinDamage: 5
-  WepMaxReq: 20
-  WepILvl: 1
---- !u!114 &7685886780553392330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 453084649749125688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb9ef25dfce4d4e4a976c67a70da0162, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyMaxLevel: 1
-  enemyLevelRange: 23
-  enemyDamage: 1
-  expDropped: 1
-  expOrb1: {fileID: 0}
-  zoneLevelMin: 1
-  enemyCurrentLevel: 1
 --- !u!114 &7685886780553392331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6784,7 +6740,7 @@ MonoBehaviour:
   RangerStamina: 1
   RangerDamage: 10
   RangerAtkp: 10
-  wepEquipped: 0
+  wepEquipped: 1
   wepStats: {fileID: 0}
   armorStats: {fileID: 0}
 --- !u!114 &7685886780553392332
@@ -6800,51 +6756,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentExp: 0
-  CurrentLevel: 1
+  CurrentLevel: 20
   MaxExp: 15
   ExpBar: {fileID: 0}
   ExpText: {fileID: 0}
   LevelText: {fileID: 0}
   levelUpSFX: {fileID: 0}
---- !u!114 &7685886780553392333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 453084649749125688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 606f80e993270cf4c917fdfeecf3aa70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WarriorHP: 75
-  WarriorStrength: 10
-  WarriorStamina: 10
-  WarriorDamage: 10
-  WarriorAttackpower: 10
-  wepEquipped: 0
-  wepStats: {fileID: 0}
---- !u!114 &7685886780553392334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 453084649749125688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1da84d0292b41b4db45bca79f3c6d16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MageHP: 75
-  MageIntellect: 10
-  MageStamina: 10
-  MageDamage: 10
-  MageHealing: 10
-  MageSpellpower: 10
-  wepEquipped: 0
-  wepStats: {fileID: 0}
 --- !u!114 &7685886780553392335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6886,53 +6803,6 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   healthText: {fileID: 0}
   healSFX: {fileID: 0}
---- !u!114 &7685886780553392337
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 453084649749125688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41d8fe070990c504ab85034f3bf3b556, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isInvincible: 0
-  startingHealth: 1
-  maxHealth: 100
-  startingHealthPacks: 1
-  maxHealthPacks: 1
-  healInterval: 1
-  autoHealInterval: 1
-  autoHealMultiplier: 1
-  healthBar: {fileID: 0}
-  healthText: {fileID: 0}
-  healSFX: {fileID: 0}
---- !u!114 &7685886780553392338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 453084649749125688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa631999f4a4be344b89e4aa08f6468b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isInvincible: 0
-  startingHealth: 1
-  maxHealth: 100
-  startingHealthPacks: 1
-  maxHealthPacks: 1
-  healInterval: 1
-  autoHealInterval: 1
-  autoHealMultiplier: 1
-  healthBar: {fileID: 0}
-  healthText: {fileID: 0}
-  healSFX: {fileID: 0}
-  shouldAutoHeal: 0
 --- !u!1001 &7728032196542733429
 PrefabInstance:
   m_ObjectHideFlags: 0

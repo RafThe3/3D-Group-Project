@@ -9,6 +9,7 @@ TagManager:
   - NPC
   - Sun
   - Frying Pan
+  - Equipment
   layers:
   - Default
   - TransparentFX

@@ -13,7 +13,8 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
         if(eventData.button == PointerEventData.InputButton.Left)
         {
             if(Inventory.carriedItem == null) return;
-            if(myTag != SlotTag.None && Inventory.carriedItem.myItem.myTag != myTag) return;
+            if(myTag != SlotTag.None && myTag != SlotTag.Tradeins && Inventory.carriedItem.myItem.myTag != myTag) return;
+            if(myTag == SlotTag.Tradeins) Destroy(Inventory.carriedItem);
             SetItem(Inventory.carriedItem);
         }
     }

@@ -7,6 +7,7 @@ public class InventoryItems : MonoBehaviour, IPointerClickHandler
 {
     Image itemIcon;
     public CanvasGroup canvasGroup {get; private set;}
+    public Image destroyedImage;
 
     public Item myItem { get; set; }
     public InventorySlot activeSlot { get; set; }
@@ -17,7 +18,10 @@ public class InventoryItems : MonoBehaviour, IPointerClickHandler
         canvasGroup = GetComponent<CanvasGroup>();
         itemIcon = GetComponent<Image>();
     }
-
+    void OnDestroy()
+    {
+        itemIcon = destroyedImage;
+    }
     public void Initialize(Item item, InventorySlot parent)
     {
         activeSlot = parent;

@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: cece5f9f2e45d4e4c8f69d1158e7bd01, type: 3}
   myTag: 5
+  myRarity: 4
   equipmentPrefab: {fileID: 2787517414448935456, guid: e6906252db9a1b94fa0742c5cc468ecc, type: 3}
