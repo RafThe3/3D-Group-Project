@@ -9,9 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Main/Main Menu.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
+    path: Assets/Scenes/Main/Voidborn 2.unity
+    guid: 34b4a46727aa1f94b84585dccfc470d2
+  - enabled: 1
+    path: Assets/Scenes/Main/KoE 2.unity
+    guid: 49a033f3503f4444abf8d9012e378be0
+  - enabled: 0
     path: Assets/Scenes/Main/Voidborn.unity
     guid: dc7228f5354e7ee479e1013ce6ab8eb5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main/Knights of Eternity.unity
     guid: 05aa154f4ac8bb140aa187787109fdcc
   - enabled: 1

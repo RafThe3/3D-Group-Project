@@ -7,6 +7,7 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI factionText, classText;
+    [SerializeField] private bool lockCursor = false;
 
     private string factionNameKey = "FactionName", classNameKey = "ClassName";
 
@@ -33,6 +34,8 @@ public class GameManager : MonoBehaviour
             factionText.text = $"Faction: {PlayerPrefs.GetString(factionNameKey)}";
             classText.text = $"Class: {PlayerPrefs.GetString(classNameKey)}";
         }
+
+        Cursor.lockState = lockCursor ? CursorLockMode.Locked : CursorLockMode.None;
     }
 
     public void LoadAScene(int scene)

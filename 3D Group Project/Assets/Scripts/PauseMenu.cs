@@ -10,6 +10,8 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private AudioSource pauseMenuAudioSource;
     [SerializeField] private AudioSource[] audioSourcesToMute;
 
+    public bool AutoLockCursor { get; set; } = true;
+
     private void Start()
     {
         pauseMenu.enabled = false;
@@ -22,7 +24,10 @@ public class PauseMenu : MonoBehaviour
             EnablePauseMenu();
         }
 
-        Cursor.lockState = pauseMenu.enabled ? CursorLockMode.None : CursorLockMode.Locked;
+        if (AutoLockCursor)
+        {
+            Cursor.lockState = pauseMenu.enabled ? CursorLockMode.None : CursorLockMode.Locked;
+        }
     }
 
     public void EnablePauseMenu()
