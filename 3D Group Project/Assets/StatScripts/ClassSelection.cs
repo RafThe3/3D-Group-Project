@@ -26,4 +26,14 @@ public class ClassSelection : MonoBehaviour
     {
         classes.isMage = true;
     }
+    
+    public void IsKoE()
+    {
+        classes.isKOE = true;
+    }
+    
+    public void IsVoidborn()
+    {
+        classes.isVoidborn = true;
+    }
 }
