@@ -12,7 +12,4 @@ public class Specializations : MonoBehaviour
 
     public bool mageSpec1 = false;
     public bool mageSpec2 = false;
-
-
-
 }

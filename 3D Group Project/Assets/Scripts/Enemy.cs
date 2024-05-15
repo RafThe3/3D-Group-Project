@@ -39,6 +39,7 @@ public class Enemy : MonoBehaviour
     private AudioSource audioSource;
     private Animator animator;
     private Rigidbody rb;
+    private Inventory inv;
 
     private void Awake()
     {
@@ -47,10 +48,20 @@ public class Enemy : MonoBehaviour
         audioSource = GetComponentInChildren<AudioSource>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
+        inv = GetComponent<Inventory>();
+    }
+
+    private void OnDestroy()
+    {
+        if (Random.Range(1, 100) == 1)
+        {
+            inv.SpawnInventoryItem();
+        }
     }
 
     private void Start()
     {
+        maxHealth = enemyStats.enemyHealth;
         if (startingHealth > maxHealth)
         {
             startingHealth = maxHealth;
