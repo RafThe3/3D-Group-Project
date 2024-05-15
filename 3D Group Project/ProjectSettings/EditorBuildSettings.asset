@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main/Knights of Eternity.unity
     guid: 05aa154f4ac8bb140aa187787109fdcc
+  - enabled: 1
+    path: Assets/Scenes/Main/End Screen.unity
+    guid: bb7e717e9191d984293a325f13f77c52
   m_configObjects: {}
