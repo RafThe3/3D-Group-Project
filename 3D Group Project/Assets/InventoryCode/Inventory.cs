@@ -2,16 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Inventory : MonoBehaviour
 {
     public static Inventory Singleton;
     public static InventoryItems carriedItem;
+    public int Coins = 0;
 
     [SerializeField] InventorySlot[] inventorySlots;
 
     [SerializeField] Transform draggablesTransform;
     [SerializeField] InventoryItems itemPrefab;
+    [SerializeField] TextMeshProUGUI coinCounter;
 
     [Header("Item List")]
     [SerializeField] Item[] items;

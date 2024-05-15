@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class InventoryItems : MonoBehaviour, IPointerClickHandler
 {
     Image itemIcon;
+    Inventory inv;
     public CanvasGroup canvasGroup {get; private set;}
     public Image destroyedImage;
 
@@ -17,10 +18,12 @@ public class InventoryItems : MonoBehaviour, IPointerClickHandler
     {
         canvasGroup = GetComponent<CanvasGroup>();
         itemIcon = GetComponent<Image>();
+        inv = GameObject.FindWithTag("Inventory").GetComponent<Inventory>();
     }
     void OnDestroy()
     {
         itemIcon = destroyedImage;
+        inv.Coins++;
     }
     public void Initialize(Item item, InventorySlot parent)
     {

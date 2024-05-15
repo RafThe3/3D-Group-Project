@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9b898a9f4d27c84b96ee4c673714647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyedImage: {fileID: 718413783335157730}
+  destroyedImage: {fileID: 6761747346129193309, guid: 8bcb1051467949c4bb489a8ede9e0a5f, type: 3}
 --- !u!222 &6936645230675289978
 CanvasRenderer:
   m_ObjectHideFlags: 0

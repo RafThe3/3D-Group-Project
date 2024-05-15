@@ -7,6 +7,7 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
 {
     public InventoryItems myItem { get; set; }
     public SlotTag myTag;
+    //[SerializeField] Inventory inventory;
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -14,7 +15,7 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
         {
             if(Inventory.carriedItem == null) return;
             if(myTag != SlotTag.None && myTag != SlotTag.Tradeins && Inventory.carriedItem.myItem.myTag != myTag) return;
-            if(myTag == SlotTag.Tradeins) Destroy(Inventory.carriedItem);
+            if (myTag == SlotTag.Tradeins) { Destroy(Inventory.carriedItem);  /*inventory.Coins++;*/ }
             SetItem(Inventory.carriedItem);
         }
     }

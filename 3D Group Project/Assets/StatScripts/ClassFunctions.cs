@@ -102,16 +102,24 @@ public class ClassFunctions : MonoBehaviour
             finalHealth = mhp;
             finalHealing = mhealing;
         }
+        if(isKOE == true)
+        {
+            finalDamage = (int)(finalDamage * 1.05f);
+            finalHealth = (int)(finalHealth * 1.2f);
+            finalHealing = (int)(finalHealing * 1.25f);
+        }
+        if(isVoidborn == true)
+        {
+            finalDamage = (int)(finalDamage * 1.2f);
+            finalHealth = (int)(finalHealth * 1.05f);
+            finalHealing = (int)(finalHealing * 1.25f);
+        }
     }
 
     void RangerStats()
     {
         rdmg = (int)rangerClass.RangerDamage;
         rhp = (int)rangerClass.RangerHP;
-        if(isVoidborn == true)
-        {
-            rdmg = (int)rdmg * 1.10f;
-        }
     }
 
     void WarriorStats()
